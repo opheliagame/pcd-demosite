@@ -1,7 +1,7 @@
 {
   "name": "11ty-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "a demosite for pcd",
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf _site && mkdir _site && postcss src/static/css/style.css > _site/style.css && eleventy --serve",
