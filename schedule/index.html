@@ -8,20 +8,74 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/style.css' | url }}" >
+  <link rel="stylesheet" href="/pcd-demosite/style.css" >
 
-  <title>{{ title }}</title>
+  <title>PCD India</title>
 </head>
 <body>
   <canvas id="mouses" style="z-index: 1"></canvas>
 
   <div style="position: absolute; top: 0; left: 0">
-    {% include "partials/header.njk" %}
+    <header class="flex justify-end p-4">
+  <h1 class="text-3xl font-semibold">Processing Community Day</h1>
+</header>
     <div class="grid grid-cols-5">
     
-      {% include "partials/nav.njk" %}
+      <div class="flex flex-column p-4">
+  <ul class="text-xl">
+    <li class="p-2"><a href="/pcd-demosite/" >About</a></li>
+    <li class="p-2"><a href="/pcd-demosite/schedule">Schedule</a></li>
+    <li class="p-2"><a href="/pcd-demosite/speakers">Speakers</a></li>
+  </ul>
+</div>
       <div class="col-span-4 p-4">
-        {{ content | safe }}
+        
+<div class="grid grid-cols-5 gap-4">
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>9:30</div>
+      <div>10:00</div>
+      <div class="col-span-2">Registrations</div>
+    </div>
+
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>10:15</div>
+      <div>10:30</div>
+      <div class="col-span-2">Welcome!</div>
+    </div>
+
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>10:30</div>
+      <div>11:45</div>
+      <div class="col-span-2">Talks</div>
+    </div>
+
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>12:00</div>
+      <div>1:00</div>
+      <div class="col-span-2">Workshops</div>
+    </div>
+
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>1:00</div>
+      <div>2:00</div>
+      <div class="col-span-2">Lunch + Project Showcase</div>
+    </div>
+
+  
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div>2:00</div>
+      <div>3:00</div>
+      <div class="col-span-2">Workshops</div>
+    </div>
+
+  
+</div>
+
       </div>
     </div>
   </div>
