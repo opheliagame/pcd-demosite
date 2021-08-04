@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: PDC India
+title: PCD India
 ---
 
 Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world.  We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show & tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.

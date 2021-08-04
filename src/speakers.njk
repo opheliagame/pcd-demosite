@@ -1,13 +1,15 @@
 ---
 layout: layout.njk
-title: PDC India
+title: PCD India
 ---
 
 <div class="grid grid-cols-3 gap-4">
   {% for speaker in speakers %}
     <div class="grid">
       <div> {{ speaker.name }} </div>
-      <div><img src={{ speaker.image }} alt=""></div>
+      <div>
+        {% image "src/"+speaker.image, speaker.name, "(min-width: 30em) 50vw, 100vw" %}
+      </div>
       <div> {{ speaker.intro }} </div>
     </div>
   {% endfor %}
