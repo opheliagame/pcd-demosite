@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf _site && mkdir _site && postcss src/static/css/style.css > _site/style.css && eleventy --serve",
-    "build": "rm -rf _site && eleventy && NODE_ENV=production postcss src/static/css/style.css > _site/style.css"
+    "build": "rm -rf _site && eleventy && NODE_ENV=production postcss src/static/css/style.css > _site/style.css",
+    "start": "rm -rf _site && eleventy && NODE_ENV=production postcss src/static/css/style.css > _site/style.css"
   },
   "keywords": [],
   "author": "",
