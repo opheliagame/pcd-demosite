@@ -3,13 +3,21 @@ layout: 'layout'
 title: 'PCD India'
 ---
 
-<div class="grid grid-cols-5 gap-4">
-  {% for event in schedule %}
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>{{ event.start_time }}</div>
-      <div>{{ event.end_time }}</div>
-      <div class="col-span-2">{{ event.desc }}</div>
-    </div>
+<div class="col-span-full md:px-2 py-4">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-rows-schedule gap-4">
+    {% for event in schedule %}
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">{{ event.start_time }}</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">{{ event.end_time }}</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">{{ event.desc }}</p>
+        </div>
+      </div>
 
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>

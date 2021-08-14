@@ -3,15 +3,18 @@ layout: layout.njk
 title: PCD India
 ---
 
-<div class="grid grid-cols-3 gap-4">
-  {% for speaker in speakers %}
-    <div class="grid">
-      <div> {{ speaker.name }} </div>
-      <div>
-        {% image "src/"+speaker.image, speaker.name, "(min-width: 30em) 50vw, 100vw" %}
+<div class="col-span-full md:px-2 py-4">
+  <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-16">
+    {% for speaker in speakers %}
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> {{ speaker.name }} </div>
+        <div>
+          {% image "src/"+speaker.image, speaker.name, "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="text-xs pt-4"> {{ speaker.intro }} </div>
       </div>
-      <div> {{ speaker.intro }} </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
+
 

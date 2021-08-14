@@ -7,28 +7,32 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/style.css' | url }}" >
 
   <title>{{ title }}</title>
 </head>
 <body>
-  <canvas id="mouses" style="z-index: 1"></canvas>
+  {# <canvas id="mouses" style="z-index: 1"></canvas> #}
 
-  <div style="position: absolute; top: 0; left: 0">
-    {% include "partials/header.njk" %}
-    <div class="grid grid-cols-5">
-    
-      {% include "partials/nav.njk" %}
-      <div class="col-span-4 p-4">
-        {{ content | safe }}
+  <div class="md:container md:mx-auto px-8 md:px-32">
+    <div>
+      {% include "partials/header.njk" %}
+
+      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+        {% include "partials/nav.njk" %}
+        
+          {{ content | safe }}
+       
       </div>
     </div>
   </div>
+  
 
 
-  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
-  <script>
+  {# <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script> #}
+  {# <script>
     const enterSite = (e) => {
       e.preventDefault()
       const name = e.target[0].value
@@ -57,8 +61,8 @@
       })
       
     }
-  </script>
-  <script>
+  </script> #}
+  {# <script>
     const socket = io('https://pcd-socket-server.herokuapp.com/')
 
     const userMouses = {}
@@ -79,7 +83,7 @@
     })
 
     
-  </script>
+  </script> #}
         
 </body>
 </html>

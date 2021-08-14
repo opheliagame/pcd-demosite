@@ -1,7 +1,11 @@
-<div class="flex flex-column p-4">
-  <ul class="text-xl">
-    <li class="p-2"><a href="{{ '/' | url }}" >About</a></li>
-    <li class="p-2"><a href="{{ '/schedule' | url }}">Schedule</a></li>
-    <li class="p-2"><a href="{{ '/speakers' | url }}">Speakers</a></li>
-  </ul>
-</div>
+<ul class="flex p-2 md:p-4 col-span-full justify-evenly items-center text-xl">
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="{{ '/' | url }}">
+    <li>About</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="{{ '/schedule' | url }}">
+    <li>Schedule</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="{{ '/speakers' | url }}">
+    <li>Speakers</li>
+  </a>
+</ul>
