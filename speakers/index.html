@@ -7,116 +7,125 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pcd-demosite/style.css" >
 
   <title>PCD India</title>
 </head>
 <body>
-  <canvas id="mouses" style="z-index: 1"></canvas>
+  
 
-  <div style="position: absolute; top: 0; left: 0">
-    <header class="flex justify-end p-4">
-  <h1 class="text-3xl font-semibold">Processing Community Day</h1>
+  <div class="md:container md:mx-auto px-8 md:px-32">
+    <div>
+      <header class="flex justify-center py-8">
+  <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">PCD India</h1>
 </header>
-    <div class="grid grid-cols-5">
-    
-      <div class="flex flex-column p-4">
-  <ul class="text-xl">
-    <li class="p-2"><a href="/pcd-demosite/" >About</a></li>
-    <li class="p-2"><a href="/pcd-demosite/schedule">Schedule</a></li>
-    <li class="p-2"><a href="/pcd-demosite/speakers">Speakers</a></li>
-  </ul>
-</div>
-      <div class="col-span-4 p-4">
+
+      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+        <ul class="flex p-2 md:p-4 col-span-full justify-evenly items-center text-xl">
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/">
+    <li>About</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/schedule">
+    <li>Schedule</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/speakers">
+    <li>Speakers</li>
+  </a>
+</ul>
         
-<div class="grid grid-cols-3 gap-4">
-  
-    <div class="grid">
-      <div> Mithru Vigneshwara </div>
-      <div>
-        <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7281926a-300.avif 300w, /pcd-demosite/static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7281926a-300.jpeg 300w, /pcd-demosite/static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Mithru Vigneshwara" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+          
+<div class="col-span-full md:px-2 py-4">
+  <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-16">
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Mithru Vigneshwara </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Mithru Vigneshwara" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream. </div>
       </div>
-      <div> Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream. </div>
-    </div>
-  
-    <div class="grid">
-      <div> Tanvi Kumar </div>
-      <div>
-        <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7281926a-300.avif 300w, /pcd-demosite/static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7281926a-300.jpeg 300w, /pcd-demosite/static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Tanvi Kumar" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Tanvi Kumar </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Tanvi Kumar" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people. </div>
       </div>
-      <div> Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people. </div>
-    </div>
-  
-    <div class="grid">
-      <div> Arjit Kapoor </div>
-      <div>
-        <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7281926a-300.avif 300w, /pcd-demosite/static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7281926a-300.jpeg 300w, /pcd-demosite/static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Arjit Kapoor" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Arjit Kapoor </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Arjit Kapoor" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms. </div>
       </div>
-      <div> Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms. </div>
-    </div>
-  
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Mithru Vigneshwara </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Mithru Vigneshwara" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream. </div>
+      </div>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Tanvi Kumar </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Tanvi Kumar" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people. </div>
+      </div>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Arjit Kapoor </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Arjit Kapoor" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms. </div>
+      </div>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Mithru Vigneshwara </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Mithru Vigneshwara" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream. </div>
+      </div>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Tanvi Kumar </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Tanvi Kumar" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people. </div>
+      </div>
+    
+      <div class="flex-1 grid md:grid-rows-speaker-md px-4 items-start lg:px-8">
+        <div class="pl-1"> Arjit Kapoor </div>
+        <div>
+          <picture><source type="image/avif" srcset="/static/img/7281926a-300.avif 300w, /static/img/7281926a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/static/img/7281926a-300.jpeg 300w, /static/img/7281926a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Arjit Kapoor" loading="lazy" decoding="async" src="/static/img/7281926a-300.jpeg" width="600" height="600"></picture>
+        </div>
+        <div class="text-xs pt-4"> Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms. </div>
+      </div>
+    
+  </div>
 </div>
 
 
+
+       
       </div>
     </div>
   </div>
+  
 
 
-  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
-  <script>
-    const enterSite = (e) => {
-      e.preventDefault()
-      const name = e.target[0].value
-      socket.emit('new user', name)
-      sessionStorage.setItem('name', name)
-      e.target.style.display = 'none'
-      window.addEventListener('mousemove', emitMouse)
-    }
-
-    const emitMouse = (e) => {
-      const pos = {user: sessionStorage.getItem('name'), x: e.x, y: e.y}
-      socket.emit('user move', pos)
-    }
-
-    const form = document.getElementById('nameForm')
-    form.addEventListener('submit', enterSite)
-
-    const drawMouses = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      Object.keys(userMouses).forEach((user) => {
-        ctx.fillStyle = 'black'
-        ctx.font = '24px serif'
-        const u = userMouses[user]
-        ctx.fillText(user, u.x, u.y)
-        ctx.fillRect(u.x, u.y, 10, 10)
-      })
-      
-    }
-  </script>
-  <script>
-    const socket = io('https://pcd-socket-server.herokuapp.com/')
-
-    const userMouses = {}
-
-    const usersDiv = document.getElementById('users')
-    const canvas = document.getElementById('mouses')
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    const ctx = canvas.getContext('2d')
-    socket.on('new user', (user) => {
-      const p = document.createElement('p')
-      p.textContent = user
-     
-    })
-    socket.on('user move', (pos) => {
-      userMouses[pos.user] = {x: pos.x, y: pos.y}
-      drawMouses()
-    })
-
-    
-  </script>
+  
+  
+  
         
 </body>
 </html>

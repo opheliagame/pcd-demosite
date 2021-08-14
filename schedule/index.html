@@ -7,133 +7,129 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pcd-demosite/style.css" >
 
   <title>PCD India</title>
 </head>
 <body>
-  <canvas id="mouses" style="z-index: 1"></canvas>
+  
 
-  <div style="position: absolute; top: 0; left: 0">
-    <header class="flex justify-end p-4">
-  <h1 class="text-3xl font-semibold">Processing Community Day</h1>
+  <div class="md:container md:mx-auto px-8 md:px-32">
+    <div>
+      <header class="flex justify-center py-8">
+  <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">PCD India</h1>
 </header>
-    <div class="grid grid-cols-5">
-    
-      <div class="flex flex-column p-4">
-  <ul class="text-xl">
-    <li class="p-2"><a href="/pcd-demosite/" >About</a></li>
-    <li class="p-2"><a href="/pcd-demosite/schedule">Schedule</a></li>
-    <li class="p-2"><a href="/pcd-demosite/speakers">Speakers</a></li>
-  </ul>
-</div>
-      <div class="col-span-4 p-4">
+
+      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+        <ul class="flex p-2 md:p-4 col-span-full justify-evenly items-center text-xl">
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/">
+    <li>About</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/schedule">
+    <li>Schedule</li>
+  </a>
+  <a class="py-1 px-2 md:py-2 md:px-4 border-8 border-yellow-200" href="/pcd-demosite/speakers">
+    <li>Speakers</li>
+  </a>
+</ul>
         
-<div class="grid grid-cols-5 gap-4">
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>9:30</div>
-      <div>10:00</div>
-      <div class="col-span-2">Registrations</div>
-    </div>
+          
+<div class="col-span-full md:px-2 py-4">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-rows-schedule gap-4">
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">9:30</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">10:00</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Registrations</p>
+        </div>
+      </div>
 
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>10:15</div>
-      <div>10:30</div>
-      <div class="col-span-2">Welcome!</div>
-    </div>
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">10:15</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">10:30</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Welcome!</p>
+        </div>
+      </div>
 
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>10:30</div>
-      <div>11:45</div>
-      <div class="col-span-2">Talks</div>
-    </div>
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">10:30</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">11:45</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Talks</p>
+        </div>
+      </div>
 
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>12:00</div>
-      <div>1:00</div>
-      <div class="col-span-2">Workshops</div>
-    </div>
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">12:00</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">1:00</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Workshops</p>
+        </div>
+      </div>
 
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>1:00</div>
-      <div>2:00</div>
-      <div class="col-span-2">Lunch + Project Showcase</div>
-    </div>
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">1:00</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">2:00</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Lunch + Project Showcase</p>
+        </div>
+      </div>
 
-  
-    <div class="grid grid-cols-2 grid-rows-2 gap-2">
-      <div>2:00</div>
-      <div>3:00</div>
-      <div class="col-span-2">Workshops</div>
-    </div>
+    
+      <div class="grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">2:00</p>
+        </div>
+        <div class="bg-black text-white flex items-center justify-center">
+          <p class="text-sm sm:text-base">3:00</p>
+        </div>
+        <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
+          <p class="text-sm sm:text-base">Workshops</p>
+        </div>
+      </div>
 
-  
+    
+  </div>
 </div>
 
+       
       </div>
     </div>
   </div>
+  
 
 
-  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
-  <script>
-    const enterSite = (e) => {
-      e.preventDefault()
-      const name = e.target[0].value
-      socket.emit('new user', name)
-      sessionStorage.setItem('name', name)
-      e.target.style.display = 'none'
-      window.addEventListener('mousemove', emitMouse)
-    }
-
-    const emitMouse = (e) => {
-      const pos = {user: sessionStorage.getItem('name'), x: e.x, y: e.y}
-      socket.emit('user move', pos)
-    }
-
-    const form = document.getElementById('nameForm')
-    form.addEventListener('submit', enterSite)
-
-    const drawMouses = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      Object.keys(userMouses).forEach((user) => {
-        ctx.fillStyle = 'black'
-        ctx.font = '24px serif'
-        const u = userMouses[user]
-        ctx.fillText(user, u.x, u.y)
-        ctx.fillRect(u.x, u.y, 10, 10)
-      })
-      
-    }
-  </script>
-  <script>
-    const socket = io('https://pcd-socket-server.herokuapp.com/')
-
-    const userMouses = {}
-
-    const usersDiv = document.getElementById('users')
-    const canvas = document.getElementById('mouses')
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    const ctx = canvas.getContext('2d')
-    socket.on('new user', (user) => {
-      const p = document.createElement('p')
-      p.textContent = user
-     
-    })
-    socket.on('user move', (pos) => {
-      userMouses[pos.user] = {x: pos.x, y: pos.y}
-      drawMouses()
-    })
-
-    
-  </script>
+  
+  
+  
         
 </body>
 </html>
