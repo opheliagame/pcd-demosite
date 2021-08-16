@@ -26,6 +26,20 @@ module.exports = {
       yellow: colors.amber,
       black: colors.black,
       white: colors.white
+    },
+    animation: {
+      'spin-slow': 'spin 8s linear infinite',
+      'flutter': 'flutter 3s ease-in-out infinite'
+    },
+    keyframes: {
+      flutter: {
+        '0%, 100%': { transform: 'skew(0deg, -15deg)' },
+        '50%': { transform: 'skew(0deg, 15deg)' },
+      },
+      spin: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform:'rotate(360deg)' }
+      }
     }
   },
   variants: {

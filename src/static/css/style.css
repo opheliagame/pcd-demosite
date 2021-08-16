@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  #pcd {
+    position: 'absolute';
+    transform: 'translate(-10px, -10px)';
+  }
+}
+
 /* // "scripts": {
   //   "start": "npx @11ty/eleventy --serve",
   //   "build": "npm-run-all --parallel build:*",

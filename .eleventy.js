@@ -4,8 +4,8 @@ async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
-    // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
+    urlPath: '/static/img',
+    // urlPath: '/pcd-demosite/static/img',
     outputDir: '_site/static/img'
   });
   let imageAttributes = {
