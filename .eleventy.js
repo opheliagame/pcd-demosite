@@ -4,8 +4,8 @@ async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
-    urlPath: '/static/img',
-    // urlPath: '/pcd-demosite/static/img',
+    // urlPath: '/2021/static/img',
+    urlPath: '/pcd-demosite/static/img',
     outputDir: '_site/static/img'
   });
   let imageAttributes = {
@@ -27,6 +27,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
 
   return {
+    pathPrefix: "pcd-demosite",
     dir: {
       input: 'src',
       includes: '_includes',
