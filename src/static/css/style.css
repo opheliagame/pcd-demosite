@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+  }
+}
+
 /* // "scripts": {
   //   "start": "npx @11ty/eleventy --serve",
   //   "build": "npm-run-all --parallel build:*",

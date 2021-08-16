@@ -28,5 +28,10 @@
     "start_time": "2:00",
     "end_time": "3:00",
     "desc": "Workshops" 
+  },
+  {
+    "start_time": "9:30",
+    "end_time": "10:00",
+    "desc": "Registrations" 
   }
 ]
