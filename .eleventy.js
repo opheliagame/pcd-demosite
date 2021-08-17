@@ -28,6 +28,7 @@ module.exports = function(eleventyConfig) {
  
 
   return {
+    pathPrefix: "pcd-demosite",
     dir: {
       input: 'src',
       includes: '_includes',

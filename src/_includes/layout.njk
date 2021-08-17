@@ -7,8 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/style.css' | url }}" >
 
   <title>{{ title }}</title>
@@ -47,6 +46,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
   <script src="{{ '/static/js/gravitymatter.js' | url }}" ></script>
 
+  {# <script>
+    const skewDiv = document.querySelectorAll('.skew')
+    Array.from(skewDiv).forEach(letter => {
+      const x = Math.floor(Math.random()*30)
+      const y = Math.floor(Math.random()*30)
+      letter.style.transform = `skew(${0}deg, ${-15}deg)`
+    })
+  </script> #}
 
   {# <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-dispatch@3"></script>
