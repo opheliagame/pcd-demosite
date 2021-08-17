@@ -12,10 +12,10 @@
 
   <title>PCD India</title>
 </head>
-<body class="overflow-x-hidden">
-  
+<body class="overflow-hidden">
 
-  <div class="md:container md:mx-auto px-8 md:px-32 z-20">
+  <div class="md:container md:mx-auto h-screen px-8 md:px-32">
+
     <div class="absolute invisible lg:visible lg:right-16 lg:top-8 lg:w-16 lg:h-12 flex flex-col">
       <span class="text-xs self-center uppercase">gravity</span>
       <label for="gravity" class="flex-1 flex p-1 items-center cursor-pointer">
@@ -31,7 +31,7 @@
       </label>
     </div>
 
-    <div>
+    <div class="flex flex-col h-full">
       <header class="flex justify-between lg:justify-center items-center py-8">
   
 
@@ -65,7 +65,7 @@
   </div>
 </header>
 
-      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+      <div class="self-stretch">
         <div class="flex py-2 lg:px-24 col-span-full justify-between items-center text-xl">
   <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-8 border-yellow-200" href="/pcd-demosite/">
     <span>About</span>
@@ -77,127 +77,31 @@
     <span>Speakers</span>
   </a>
 </div>
+      </div>
+      
+        <svg class="flex-shrink w-full animate-spin-slow" viewBox="0 0 400 400">
+          <defs>
+              <path d="
+                  M 200, 200
+                  m -50, 0
+                  a 50,50 0 1,0 100,0
+                  a 50,50 0 1,0 -100,0
+              " id="textcircle"/>
+              
         
-          
-<div class="col-span-full py-4">
-  <div class="grid grid-cols-3 md:grid-cols-4 auto-rows-fr gap-4">
-    
-      <div id=1-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">9:30</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">10:00</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Registrations</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=2-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">10:15</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">10:30</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Welcome!</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=3-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">10:30</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">11:45</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Talks</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=4-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">12:00</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">1:00</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Workshops</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=5-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">1:00</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">2:00</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Lunch + Project Showcase</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=6-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">2:00</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">3:00</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Workshops</p>
-          </div>
-        </div>
-      </div>
-    
-      <div id=7-body class="matter">
-        <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">9:30</p>
-          </div>
-          <div class="bg-black text-white flex items-center justify-center">
-            <p class="text-sm sm:text-base">10:00</p>
-          </div>
-          <div class="col-span-2 text-lg bg-yellow-200 flex items-center justify-center">
-            <p class="text-sm sm:text-base">Registrations</p>
-          </div>
-        </div>
-      </div>
-    
-  </div>
-</div>
-
-       
+              
+          </defs>
+            <text dy="100" textLength="1200" class="text-base uppercase">
+                <textPath xlink:href="#textcircle">
+                    We will load here in a few days
+                </textPath>
+            </text>
+        </svg>
       </div>
     </div>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
-  <script src="/pcd-demosite/static/js/gravitymatter.js" ></script>
+  </div>  
 
-  
-
-  
-
-  
-  
-  
-        
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+  <script src="/pcd-demosite/static/js/gravitymatter.js" ></script>      
 </body>
 </html>
