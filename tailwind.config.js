@@ -35,7 +35,8 @@ module.exports = {
 
       },
       gridTemplateColumns: {
-        'speaker-md': '2fr 1fr'
+        'speaker-md': '2fr 1fr',
+        'speaker': '1.5fr 0.5fr 1fr'
       }
     },
     colors: {

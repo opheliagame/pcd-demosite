@@ -1,13 +1,45 @@
 [
   {
     "name": "Allwin Williams",
-    "image": "/static/images/test.png",
+    "image": "/static/images/allwin.jpeg",
     "talk": "",
     "intro": "",
     "links": [
       {
         "text": "youtube",
         "url": "https://www.youtube.com/watch?v=o7J4D5_ZCV8"
+      }
+    ]
+  },
+  {
+    "name": "Archita Johari",
+    "image": "/static/images/archita.jpg",
+    "talk": "Visualising DNA sequences as abstract art",
+    "intro": "Archita is a Biotech engineer and is currently pursuing Master's in design at Srishti institute, Bangalore. She is exploring the intersection of art, biology and computing. And enjoys making illustrations.",
+    "links": [
+      {
+        "text": "instagram",
+        "url": "https://www.instagram.com/the_crude_artist"
+      },
+      {
+        "text": "p5 sketches",
+        "url": "https://editor.p5js.org/aj.architajohari/sketches"
+      }
+    ]
+  },
+  {
+    "name": "N Chandrasekhar Ramanujan",
+    "image": "/static/images/chandra.png",
+    "talk": "Using creative code methods to prototype novel device interactions - case study of a sewing machine",
+    "intro": "Chandra is a  Product Designer and Researcher. based in Pondicherry. He wants to help build digital products that are good for society and help people achieve their goals.",
+    "links": [
+      {
+        "text": "dribble",
+        "url": "https://dribbble.com/shots/10753620-Stitch-Selection-Interface-Prototype"
+      },
+      {
+        "text": "twitter",
+        "url": "https://twitter.com/ncresq/status/1205433706644725761?s=21 "
       }
     ]
   },
@@ -24,38 +56,6 @@
       {
         "text": "portfolio",
         "url": "https://lynkfire.com/Pixelkar"
-      }
-    ]
-  },
-  {
-    "name": "Archita Johari",
-    "image": "/static/images/test.png",
-    "talk": "Visualizing DNA sequence as abstract art",
-    "intro": "",
-    "links": [
-      {
-        "text": "instagram",
-        "url": "https://www.instagram.com/the_crude_artist"
-      },
-      {
-        "text": "p5 sketches",
-        "url": "https://editor.p5js.org/aj.architajohari/sketches"
-      }
-    ]
-  },
-  {
-    "name": "Chandra Ramanujan",
-    "image": "/static/images/test.png",
-    "talk": "Sewing with code",
-    "intro": "Chandra is a product designer and researcher based in Puducherry.",
-    "links": [
-      {
-        "text": "dribble",
-        "url": "https://dribbble.com/shots/10753620-Stitch-Selection-Interface-Prototype"
-      },
-      {
-        "text": "twitter",
-        "url": "https://twitter.com/ncresq/status/1205433706644725761?s=21 "
       }
     ]
   },
