@@ -4,7 +4,8 @@ title: 'PCD India'
 ---
 
 <div class="col-span-full py-4">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 auto-rows-fr gap-4">
+  <div class="font-bold text-2xl py-4 px-2">Saturday, Aug 21</div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 auto-rows-fr gap-4 pb-8">
     {% for talk in schedule %}
       <div id={{loop.index}}-body class="matter">
         <div class="grid grid-cols-2 h-full grid-rows-2 text-center">
@@ -20,5 +21,25 @@ title: 'PCD India'
         </div>
       </div>
     {% endfor %}
+  </div>
+
+  <div class="font-bold text-2xl pt-4 px-2">Sunday, Aug 22</div>
+  <div class="text-xs pb-4 px-2">the fun will continue on a special stream!</div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+    <div class="grid
+                md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
+                shadow rounded py-6 px-4">
+      <div class="font-light text-lg uppercase row-start-2"> Coding with Friends </div>
+      <div class="col-start-2 row-span-full rounded-full">
+        {% image "src/static/images/test.png", "Coding with Friends", "(min-width: 30em) 50vw, 100vw" %}
+      </div>
+      <div class="text-xs row-start-3"> Coding with Friends casually and simply claims space for womxn creators. The series extends the idea of live coding as a form of camaraderie, friendship and self-care. </div>
+      <div class="row-start-4 text-xs flex gap-2">
+        
+          <a class="text-blue-400 underline" href="https://www.twitch.tv/computational_mama"> twitch </a>
+          <a class="text-blue-400 underline" href="https://friends.computationalmama.xyz/"> friends@computational_mama </a>
+        
+      </div>
+    </div>
   </div>
 </div>
