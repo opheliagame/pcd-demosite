@@ -1,13 +1,17 @@
 [
   {
     "name": "Allwin Williams",
-    "image": "/static/images/allwin.jpeg",
-    "talk": "",
-    "intro": "",
+    "image": "/static/images/allwin.jpg",
+    "talk": "Sentiments of emojis",
+    "intro": "Allwin is an Interaction Design student and loves to explore the internet, music, and electronics.",
     "links": [
       {
+        "text": "emoji sentiments twitter",
+        "url": "https://allwinwilliams.com/emoji-sentiments-twitter/"
+      },
+      {
         "text": "youtube",
-        "url": "https://www.youtube.com/watch?v=o7J4D5_ZCV8"
+        "url": "https://www.youtube.com/channel/UCUWvUfgtST148NIHc0DV24g"
       }
     ]
   },
@@ -66,7 +70,7 @@
     "intro": "Vinay & Mrityunjay (ayahi) are an experiential art atelier creating interactive, immersive and multimedia experiences.",
     "links": [
       {
-        "text": "somni website",
+        "text": "somni",
         "url": "https://ayahi.in/somni/"
       }
     ]
