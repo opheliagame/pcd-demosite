@@ -29,17 +29,20 @@ module.exports = {
         // Complex site-specific row configuration
        'layout': '64px 1fr',
 
-       'speaker-md': '48px auto 1fr',
-       'speaker-lg': '48px 1fr 4fr',
+       'speaker-md': '1.5rem auto 1fr auto 1.5rem',
 
        'schedule': 'repeat(6, 1fr)',
 
       },
+      gridTemplateColumns: {
+        'speaker-md': '2fr 1fr'
+      }
     },
     colors: {
       yellow: colors.amber,
       black: colors.black,
-      white: colors.white
+      white: colors.white,
+      blue: colors.blue
     },
     animation: {
       'spin-slow': 'spin 8s linear infinite',

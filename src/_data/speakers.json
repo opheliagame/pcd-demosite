@@ -1,56 +1,74 @@
 [
   {
-    "name": "Mithru Vigneshwara",
+    "name": "Allwin Williams",
     "image": "/static/images/test.png",
-    "talk": "Beyond the Screen",
-    "intro": "Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream."
+    "talk": "",
+    "intro": "",
+    "links": [
+      {
+        "text": "youtube",
+        "url": "https://www.youtube.com/watch?v=o7J4D5_ZCV8"
+      }
+    ]
   },
   {
-    "name": "Tanvi Kumar",
-    "image": "/static/images/test.png",
-    "talk": "Stepping into the world of software through open source",
-    "intro": "Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people."
+    "name": "Pixelkar नितान्त",
+    "image": "/static/images/pixelkar-profile.jpg",
+    "talk": "NFTs for Computational/Generative Artist",
+    "intro": "Pixelkar is a Computational Artist. He believes 'What We Experience is a mere Abstraction of the Algorithms Narrated by Creator'.",
+    "links": [
+      {
+        "text": "instagram",
+        "url": "https://www.instagram.com/pixelkar/"
+      },
+      {
+        "text": "portfolio",
+        "url": "https://lynkfire.com/Pixelkar"
+      }
+    ]
   },
   {
-    "name": "Arjit Kapoor",
+    "name": "Archita Johari",
     "image": "/static/images/test.png",
-    "talk": "Generative art and its principals",
-    "intro": "Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms."
+    "talk": "Visualizing DNA sequence as abstract art",
+    "intro": "",
+    "links": [
+      {
+        "text": "instagram",
+        "url": "https://www.instagram.com/the_crude_artist"
+      },
+      {
+        "text": "p5 sketches",
+        "url": "https://editor.p5js.org/aj.architajohari/sketches"
+      }
+    ]
   },
   {
-    "name": "Mithru Vigneshwara",
+    "name": "Chandra Ramanujan",
     "image": "/static/images/test.png",
-    "talk": "Beyond the Screen",
-    "intro": "Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream."
+    "talk": "Sewing with code",
+    "intro": "Chandra is a product designer and researcher based in Puducherry.",
+    "links": [
+      {
+        "text": "dribble",
+        "url": "https://dribbble.com/shots/10753620-Stitch-Selection-Interface-Prototype"
+      },
+      {
+        "text": "twitter",
+        "url": "https://twitter.com/ncresq/status/1205433706644725761?s=21 "
+      }
+    ]
   },
   {
-    "name": "Tanvi Kumar",
-    "image": "/static/images/test.png",
-    "talk": "Stepping into the world of software through open source",
-    "intro": "Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people."
-  },
-  {
-    "name": "Arjit Kapoor",
-    "image": "/static/images/test.png",
-    "talk": "Generative art and its principals",
-    "intro": "Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms."
-  },
-  {
-    "name": "Mithru Vigneshwara",
-    "image": "/static/images/test.png",
-    "talk": "Beyond the Screen",
-    "intro": "Mithru Vigneshwara is an explorer / dreamer who enjoys building physical tangible artifacts and devices. He is a research resident at the Interactive Telecommunications Program at New York University, where he focuses on developing assistive technology. Outside of machines, he likes goats, coconuts and ice cream."
-  },
-  {
-    "name": "Tanvi Kumar",
-    "image": "/static/images/test.png",
-    "talk": "Stepping into the world of software through open source",
-    "intro": "Tanvi Kumar is a 20 year old passionate programmer, currently doing her B.Tech at NIT Trichy. She grew up in the city of Chennai and can speak Hindi, Tamil and English. Most of her time is spent coding, reading about new things in software and listening to music. She loves trying new things and meeting new people."
-  },
-  {
-    "name": "Arjit Kapoor",
-    "image": "/static/images/test.png",
-    "talk": "Generative art and its principals",
-    "intro": "Arjit Kapooor is a multidisciplinary explorer who enjoys working beyond the boundaries of the discipline. His works deal with understanding ふくざつさ and modeling natural systems. With a degree in Mechanical Engineering, his works tend to reflect an interplay between natural and mechanistic. Arjit is げんざいは working as an operational analyst for OYO Rooms."
+    "name": "Vinay & Mrityunjay (ayahi)",
+    "image": "/static/images/ayahi-logo.png",
+    "talk": "Walkthrough of SOMNI: an immersive and interactive walkway of light and sound",
+    "intro": "Vinay & Mrityunjay (ayahi) are an experiential art atelier creating interactive, immersive and multimedia experiences.",
+    "links": [
+      {
+        "text": "somni website",
+        "url": "https://ayahi.in/somni/"
+      }
+    ]
   }
 ]

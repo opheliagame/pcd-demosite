@@ -9,6 +9,7 @@ async function imageShortCode(src, alt, sizes) {
     outputDir: '_site/static/img'
   });
   let imageAttributes = {
+    style: 'border-radius: 100%',
     alt, 
     sizes, 
     loading: 'lazy',

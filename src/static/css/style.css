@@ -11,4 +11,7 @@
     position: 'absolute';
     transform: 'translate(-10px, -10px)';
   }
+  img {
+    border: #FDE68A 3px solid;
+  }
 }

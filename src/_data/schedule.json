@@ -1,37 +1,38 @@
 [
   {
-    "start_time": "9:30",
-    "end_time": "10:00",
-    "desc": "Registrations" 
+    "start_time": "4:00",
+    "end_time": "4:25",
+    "desc": "Talk: Walkthrough of SOMNI" 
   },
   {
-    "start_time": "10:15",
-    "end_time": "10:30",
-    "desc": "Welcome!" 
+    "start_time": "4:25",
+    "end_time": "4:40",
+    "desc": "Short talk: Visualizing DNA sequence as abstract art" 
   },
   {
-    "start_time": "10:30",
-    "end_time": "11:45",
-    "desc": "Talks" 
+    "start_time": "4:40",
+    "end_time": "4:55",
+    "desc": "Short talk: Sewing with code" 
   },
   {
-    "start_time": "12:00",
-    "end_time": "1:00",
-    "desc": "Workshops" 
+    "start_time": "4:55",
+    "end_time": "5:20",
+    "desc": "Talk: NFTs for Computational or Generative Artist" 
   },
   {
-    "start_time": "1:00",
-    "end_time": "2:00",
-    "desc": "Lunch + Project Showcase" 
+    "start_time": "5:20",
+    "end_time": "5:35",
+    "desc": "Short talk: " 
   },
   {
-    "start_time": "2:00",
-    "end_time": "3:00",
-    "desc": "Workshops" 
+    "start_time": "5:35",
+    "end_time": "6:00",
+    "desc": "Breakout rooms" 
   },
   {
-    "start_time": "9:30",
-    "end_time": "10:00",
-    "desc": "Registrations" 
+    "start_time": "6:00",
+    "end_time": "6:30",
+    "desc": "Pair programming 🎉" 
   }
+
 ]

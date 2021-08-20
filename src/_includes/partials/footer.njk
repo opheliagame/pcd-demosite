@@ -1,0 +1,13 @@
+<footer class="py-8  bg-yellow-200">
+  <div class="grid grid-cols-3 md:grid-cols-5 grid-rows-2 grid-flow-col">
+    {% for social in socials %}
+    <a href={{social.url}} class="bg-white p-2 text-center underline text-blue-400">
+      {{ social.name }}
+    </a>
+    {% if loop.index % 2 == 1 %}
+    <div></div>
+    <div></div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</footer>

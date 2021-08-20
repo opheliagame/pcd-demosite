@@ -13,6 +13,12 @@
   designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices 
   contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
   <meta property="og:title" content="PCD India">
+  <meta property="twitter:description" content="PCD India is a community of creative coding enthusiasts, tech artists, 
+  designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices 
+  contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="twitter:title" content="PCD India">
+  <meta property="twitter:creator" content="@anushkatr">
+  <meta name="twitter:site" content="@ProcessingIndia" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,15 +51,21 @@
 
       <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
         {% include "partials/nav.njk" %}
-        
           {{ content | safe }}
-       
       </div>
+
+
+    </div>
+  </div>
+  <div class="bg-yellow-200">
+    <div class="md:container md:mx-auto px-8 md:px-32 z-20">
+      {% include "partials/footer.njk" %}
     </div>
   </div>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
-  <script src="{{ '/static/js/gravitymatter.js' | url }}" ></script>
+  
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+  <script src="{{ '/static/js/gravitymatter.js' | url }}" ></script> #}
 
   {# <script>
     const skewDiv = document.querySelectorAll('.skew')
