@@ -19,6 +19,9 @@ module.exports = {
       '7xl': '5rem',
     },
     extend: {
+      zIndex: {
+        '-10': '-10',
+      },
       fontFamily: {
         sans: ["'Poppins'", 'sans-serif']
       },

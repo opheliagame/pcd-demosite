@@ -22,16 +22,19 @@
   <title>{{ title }}</title>
 </head>
 <body class="overflow-x-hidden">
-  {# <canvas id="canvas" class="absolute z-0 w-screen h-screen"></canvas> #}
+  <canvas id="mouses" class="absolute -z-10 w-screen h-screen"></canvas>
+  <div id="cursor-img" class="invisible w-2 h-2">
+    {% image "src/static/images/cursor.png", "cursor", "(min-width: 30em) 50vw, 100vw" %}
+  </div>
 
   <div class="md:container md:mx-auto px-8 md:px-32 z-20">
-    <div class="absolute invisible lg:invisible lg:right-16 lg:top-8 lg:w-16 lg:h-12 flex flex-col">
-      <span class="text-xs self-center uppercase">gravity</span>
-      <label for="gravity" class="flex-1 flex p-1 items-center cursor-pointer">
+    <div class="absolute invisible lg:visible lg:right-16 lg:top-8 lg:w-16 lg:h-12 flex flex-col">
+      <span class="text-xs self-center uppercase">people</span>
+      <label for="people" class="flex-1 flex p-1 items-center cursor-pointer">
         <!-- toggle -->
         <div class="relative w-full h-full">
           <!-- input -->
-          <input type="checkbox" id="gravity" onclick="turnOnGravity(this.checked)" class="sr-only">
+          <input type="checkbox" id="people" class="hidden people-toggle" onclick="turnOnPeople(this.checked)" class="sr-only">
           <!-- line -->
           <div class="block border-2 border-yellow-200 w-full h-full rounded-full"></div>
           <!-- dot -->
@@ -70,22 +73,17 @@
     })
   </script> #}
 
-  {# <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-dispatch@3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-quadtree@3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-timer@3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-force@3"></script>
-  <script src="{{ '/static/js/gravity.js' | url }}"></script> #}
-
-  {# <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script> #}
-  {# <script>
+  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+  <script>
+    console.log('hello from layout')
     const enterSite = (e) => {
       e.preventDefault()
       const name = e.target[0].value
       socket.emit('new user', name)
       sessionStorage.setItem('name', name)
-      e.target.style.display = 'none'
+      e.target.parentElement.style.display = 'none'
       window.addEventListener('mousemove', emitMouse)
+      window.addEventListener('touchmove', emitMouse)
     }
 
     const emitMouse = (e) => {
@@ -94,21 +92,52 @@
     }
 
     const form = document.getElementById('nameForm')
-    form.addEventListener('submit', enterSite)
+    if(form) form.addEventListener('submit', enterSite)
+    const formDiv = document.getElementById('formDiv')
+    if(sessionStorage.getItem('name') !== null && formDiv !== null) {
+      formDiv.style.display = 'none'
+    }
+    if(sessionStorage.getItem('people') == "true") {
+      window.addEventListener('mousemove', emitMouse)
+      window.addEventListener('touchmove', emitMouse)
+    }
+
+    const cursorImg = document.querySelector('#cursor-img picture img')
+    cursorImg.addEventListener('load', () => {
+      drawMouses()
+    }, false)
+    
+    const turnOnPeople = (state) => {
+      console.log('setting ', state)
+      sessionStorage.setItem('people', state)
+      if(state == true) {
+        window.addEventListener('mousemove', emitMouse)
+        window.addEventListener('touchmove', emitMouse)
+      }
+    }
+    const toggle = document.querySelectorAll('.people-toggle') 
+    Array.from(toggle).forEach(input => {
+      if(sessionStorage.getItem('people') === "true") input.checked = true
+      else input.checked = false
+    })
 
     const drawMouses = () => {
+      console.log('drawing..')
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (sessionStorage.getItem('people') == false) return
       Object.keys(userMouses).forEach((user) => {
-        ctx.fillStyle = 'black'
-        ctx.font = '24px serif'
+        if(user == sessionStorage.getItem('name')) return
+        ctx.fillStyle = '#60A5FA'
+        ctx.font = '14px monospace'
         const u = userMouses[user]
-        ctx.fillText(user, u.x, u.y)
-        ctx.fillRect(u.x, u.y, 10, 10)
+        {# ctx.fillRect(u.x, u.y, 10, 10) #}
+        ctx.drawImage(cursorImg, u.x, u.y, 10, 10)
+        ctx.fillText(user, u.x, u.y+20)
       })
       
     }
-  </script> #}
-  {# <script>
+  </script>
+  <script>
     const socket = io('https://pcd-socket-server.herokuapp.com/')
 
     const userMouses = {}
@@ -126,10 +155,8 @@
     socket.on('user move', (pos) => {
       userMouses[pos.user] = {x: pos.x, y: pos.y}
       drawMouses()
-    })
-
-    
-  </script> #}
+    }) 
+  </script>
         
 </body>
 </html>

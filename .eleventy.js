@@ -26,7 +26,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortCode);
   eleventyConfig.addLiquidShortcode("image", imageShortCode);
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
- 
 
   return {
     pathPrefix: "pcd-demosite",
