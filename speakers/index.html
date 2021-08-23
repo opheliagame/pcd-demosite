@@ -250,7 +250,7 @@
     if(sessionStorage.getItem('name') !== null && formDiv !== null) {
       formDiv.style.display = 'none'
     }
-    if(sessionStorage.getItem('people') == "true") {
+    if(sessionStorage.getItem('name') !== null) {
       window.addEventListener('mousemove', emitMouse)
       window.addEventListener('touchmove', emitMouse)
     }
@@ -261,12 +261,9 @@
     }, false)
     
     const turnOnPeople = (state) => {
-      console.log('setting ', state)
+      console.log('setting', state)
       sessionStorage.setItem('people', state)
-      if(state == true) {
-        window.addEventListener('mousemove', emitMouse)
-        window.addEventListener('touchmove', emitMouse)
-      }
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
     }
     const toggle = document.querySelectorAll('.people-toggle') 
     Array.from(toggle).forEach(input => {
@@ -276,14 +273,14 @@
 
     const drawMouses = () => {
       console.log('drawing..')
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = "rgba(255, 255, 255, 0.01)"
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
       if (sessionStorage.getItem('people') == false) return
       Object.keys(userMouses).forEach((user) => {
         if(user == sessionStorage.getItem('name')) return
         ctx.fillStyle = '#60A5FA'
         ctx.font = '14px monospace'
         const u = userMouses[user]
-        
         ctx.drawImage(cursorImg, u.x, u.y, 10, 10)
         ctx.fillText(user, u.x, u.y+20)
       })
@@ -295,10 +292,16 @@
 
     const userMouses = {}
 
+    const onResize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
     const usersDiv = document.getElementById('users')
     const canvas = document.getElementById('mouses')
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
+    canvas.addEventListener('resize', onResize)
+    
     const ctx = canvas.getContext('2d')
     socket.on('new user', (user) => {
       const p = document.createElement('p')
@@ -307,7 +310,7 @@
     })
     socket.on('user move', (pos) => {
       userMouses[pos.user] = {x: pos.x, y: pos.y}
-      drawMouses()
+      if(sessionStorage.getItem('people') === "true") drawMouses()
     }) 
   </script>
         
