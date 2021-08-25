@@ -24,7 +24,7 @@
 <body class="overflow-x-hidden">
   <canvas id="mouses" class="absolute -z-10 w-screen h-screen"></canvas>
   <div id="cursor-img" class="invisible w-2 h-2">
-    <picture><source type="image/avif" srcset="/pcd-demosite/static/img/c70d88b9-24.avif 24w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="cursor" loading="lazy" decoding="async" src="/pcd-demosite/static/img/c70d88b9-24.jpeg" width="24" height="24"></picture>
+    <picture><source type="image/avif" srcset="/pcd-demosite/static/img/c70d88b9-24.avif 24w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="cursor" loading="lazy" decoding="async" src="/pcd-demosite/static/img/c70d88b9-24.jpeg" width="24" height="24"></picture>
   </div>
 
   <div class="md:container md:mx-auto px-8 md:px-32 z-20">
@@ -47,7 +47,7 @@
       <header class="flex justify-between lg:justify-center items-center py-8 px-2">
   
 
-  <a href="/pcd-demosite/">
+  <a class="text-black no-underline" href="/pcd-demosite/">
     <h1 class="text-3xl md:text-4xl lg:text-4xl font-bold uppercase md:tracking-widest">
       <p class="skew animate-flutter inline-block">P</p>
       <p class="skew animate-flutter inline-block">C</p>
@@ -81,111 +81,117 @@
   </div>
 </header>
 
-      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
-        <div class="flex py-2 lg:px-24 col-span-full justify-between items-center text-xl">
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/">
+      
+
+      
+<div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+  <div class="flex py-2 lg:px-24 col-span-full justify-between items-center text-xl">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/">
     <span>about</span>
   </a>
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/schedule">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/schedule">
     <span>schedule</span>
   </a>
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/speakers">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/speakers">
     <span>speakers</span>
   </a>
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/recap">
+    <span>recap</span>
+  </a>
 </div>
-          
-<div class="col-span-full py-4">
-  <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-    
-      <div class="grid grid-cols-speaker
-                  md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
-                  shadow rounded py-6 px-4">
-        <div class="font-light text-lg uppercase row-start-2"> Allwin Williams </div>
-        <div class="col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
-          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/25965c49-300.avif 300w, /pcd-demosite/static/img/25965c49-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/25965c49-300.jpeg 300w, /pcd-demosite/static/img/25965c49-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="Allwin Williams" loading="lazy" decoding="async" src="/pcd-demosite/static/img/25965c49-300.jpeg" width="600" height="600"></picture>
+
+  <div class="col-span-full py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+      
+        <div class="grid grid-cols-speaker
+                    md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start
+                    shadow rounded py-6 px-4">
+          <div class="font-light text-lg uppercase row-start-2"> Allwin Williams </div>
+          <div class="speaker-image col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/25965c49-300.avif 300w, /pcd-demosite/static/img/25965c49-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/25965c49-300.jpeg 300w, /pcd-demosite/static/img/25965c49-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Allwin Williams" loading="lazy" decoding="async" src="/pcd-demosite/static/img/25965c49-300.jpeg" width="600" height="600"></picture>
+          </div>
+          <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Allwin is an Interaction Design student and loves to explore the internet, music, and electronics. </div>
+          <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
+            
+              <a class="text-blue-400 underline" href=https://allwinwilliams.com/emoji-sentiments-twitter/> emoji sentiments twitter </a>
+            
+              <a class="text-blue-400 underline" href=https://www.youtube.com/channel/UCUWvUfgtST148NIHc0DV24g> youtube </a>
+            
+          </div>
         </div>
-        <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Allwin is an Interaction Design student and loves to explore the internet, music, and electronics. </div>
-        <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
-          
-            <a class="text-blue-400 underline" href=https://allwinwilliams.com/emoji-sentiments-twitter/> emoji sentiments twitter </a>
-          
-            <a class="text-blue-400 underline" href=https://www.youtube.com/channel/UCUWvUfgtST148NIHc0DV24g> youtube </a>
-          
+      
+        <div class="grid grid-cols-speaker
+                    md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start
+                    shadow rounded py-6 px-4">
+          <div class="font-light text-lg uppercase row-start-2"> Archita Johari </div>
+          <div class="speaker-image col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/f9f756fc-300.avif 300w, /pcd-demosite/static/img/f9f756fc-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/f9f756fc-300.jpeg 300w, /pcd-demosite/static/img/f9f756fc-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Archita Johari" loading="lazy" decoding="async" src="/pcd-demosite/static/img/f9f756fc-300.jpeg" width="600" height="600"></picture>
+          </div>
+          <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Archita is a Biotech engineer and is currently pursuing Master&#39;s in design at Srishti institute, Bangalore. She is exploring the intersection of art, biology and computing. And enjoys making illustrations. </div>
+          <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
+            
+              <a class="text-blue-400 underline" href=https://www.instagram.com/the_crude_artist> instagram </a>
+            
+              <a class="text-blue-400 underline" href=https://editor.p5js.org/aj.architajohari/sketches> p5 sketches </a>
+            
+          </div>
         </div>
-      </div>
-    
-      <div class="grid grid-cols-speaker
-                  md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
-                  shadow rounded py-6 px-4">
-        <div class="font-light text-lg uppercase row-start-2"> Archita Johari </div>
-        <div class="col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
-          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/f9f756fc-300.avif 300w, /pcd-demosite/static/img/f9f756fc-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/f9f756fc-300.jpeg 300w, /pcd-demosite/static/img/f9f756fc-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="Archita Johari" loading="lazy" decoding="async" src="/pcd-demosite/static/img/f9f756fc-300.jpeg" width="600" height="600"></picture>
+      
+        <div class="grid grid-cols-speaker
+                    md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start
+                    shadow rounded py-6 px-4">
+          <div class="font-light text-lg uppercase row-start-2"> N Chandrasekhar Ramanujan </div>
+          <div class="speaker-image col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/77fecb0f-300.avif 300w, /pcd-demosite/static/img/77fecb0f-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/77fecb0f-300.jpeg 300w, /pcd-demosite/static/img/77fecb0f-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="N Chandrasekhar Ramanujan" loading="lazy" decoding="async" src="/pcd-demosite/static/img/77fecb0f-300.jpeg" width="600" height="599"></picture>
+          </div>
+          <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Chandra is a  Product Designer and Researcher. based in Pondicherry. He wants to help build digital products that are good for society and help people achieve their goals. </div>
+          <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
+            
+              <a class="text-blue-400 underline" href=https://dribbble.com/shots/10753620-Stitch-Selection-Interface-Prototype> dribble </a>
+            
+              <a class="text-blue-400 underline" href=https://twitter.com/ncresq/status/1205433706644725761?s=21 > twitter </a>
+            
+          </div>
         </div>
-        <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Archita is a Biotech engineer and is currently pursuing Master&#39;s in design at Srishti institute, Bangalore. She is exploring the intersection of art, biology and computing. And enjoys making illustrations. </div>
-        <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
-          
-            <a class="text-blue-400 underline" href=https://www.instagram.com/the_crude_artist> instagram </a>
-          
-            <a class="text-blue-400 underline" href=https://editor.p5js.org/aj.architajohari/sketches> p5 sketches </a>
-          
+      
+        <div class="grid grid-cols-speaker
+                    md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start
+                    shadow rounded py-6 px-4">
+          <div class="font-light text-lg uppercase row-start-2"> Pixelkar नितान्त </div>
+          <div class="speaker-image col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/dc0ca54e-300.avif 300w, /pcd-demosite/static/img/dc0ca54e-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/dc0ca54e-300.jpeg 300w, /pcd-demosite/static/img/dc0ca54e-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Pixelkar नितान्त" loading="lazy" decoding="async" src="/pcd-demosite/static/img/dc0ca54e-300.jpeg" width="600" height="600"></picture>
+          </div>
+          <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Pixelkar is a Computational Artist. He believes &#39;What We Experience is a mere Abstraction of the Algorithms Narrated by Creator&#39;. </div>
+          <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
+            
+              <a class="text-blue-400 underline" href=https://www.instagram.com/pixelkar/> instagram </a>
+            
+              <a class="text-blue-400 underline" href=https://lynkfire.com/Pixelkar> portfolio </a>
+            
+          </div>
         </div>
-      </div>
-    
-      <div class="grid grid-cols-speaker
-                  md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
-                  shadow rounded py-6 px-4">
-        <div class="font-light text-lg uppercase row-start-2"> N Chandrasekhar Ramanujan </div>
-        <div class="col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
-          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/77fecb0f-300.avif 300w, /pcd-demosite/static/img/77fecb0f-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/77fecb0f-300.jpeg 300w, /pcd-demosite/static/img/77fecb0f-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="N Chandrasekhar Ramanujan" loading="lazy" decoding="async" src="/pcd-demosite/static/img/77fecb0f-300.jpeg" width="600" height="599"></picture>
+      
+        <div class="grid grid-cols-speaker
+                    md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start
+                    shadow rounded py-6 px-4">
+          <div class="font-light text-lg uppercase row-start-2"> Vinay &amp; Mrityunjay (ayahi) </div>
+          <div class="speaker-image col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/12773902-300.avif 300w, /pcd-demosite/static/img/12773902-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/12773902-300.jpeg 300w, /pcd-demosite/static/img/12773902-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="Vinay & Mrityunjay (ayahi)" loading="lazy" decoding="async" src="/pcd-demosite/static/img/12773902-300.jpeg" width="600" height="600"></picture>
+          </div>
+          <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Vinay &amp; Mrityunjay (ayahi) are an experiential art atelier creating interactive, immersive and multimedia experiences. </div>
+          <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
+            
+              <a class="text-blue-400 underline" href=https://ayahi.in/somni/> somni </a>
+            
+          </div>
         </div>
-        <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Chandra is a  Product Designer and Researcher. based in Pondicherry. He wants to help build digital products that are good for society and help people achieve their goals. </div>
-        <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
-          
-            <a class="text-blue-400 underline" href=https://dribbble.com/shots/10753620-Stitch-Selection-Interface-Prototype> dribble </a>
-          
-            <a class="text-blue-400 underline" href=https://twitter.com/ncresq/status/1205433706644725761?s=21 > twitter </a>
-          
-        </div>
-      </div>
-    
-      <div class="grid grid-cols-speaker
-                  md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
-                  shadow rounded py-6 px-4">
-        <div class="font-light text-lg uppercase row-start-2"> Pixelkar नितान्त </div>
-        <div class="col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
-          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/dc0ca54e-300.avif 300w, /pcd-demosite/static/img/dc0ca54e-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/dc0ca54e-300.jpeg 300w, /pcd-demosite/static/img/dc0ca54e-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="Pixelkar नितान्त" loading="lazy" decoding="async" src="/pcd-demosite/static/img/dc0ca54e-300.jpeg" width="600" height="600"></picture>
-        </div>
-        <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Pixelkar is a Computational Artist. He believes &#39;What We Experience is a mere Abstraction of the Algorithms Narrated by Creator&#39;. </div>
-        <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
-          
-            <a class="text-blue-400 underline" href=https://www.instagram.com/pixelkar/> instagram </a>
-          
-            <a class="text-blue-400 underline" href=https://lynkfire.com/Pixelkar> portfolio </a>
-          
-        </div>
-      </div>
-    
-      <div class="grid grid-cols-speaker
-                  md:grid-rows-speaker-md md:grid-cols-speaker-md gap-x-4 items-start 
-                  shadow rounded py-6 px-4">
-        <div class="font-light text-lg uppercase row-start-2"> Vinay &amp; Mrityunjay (ayahi) </div>
-        <div class="col-start-2 col-span-2 md:col-start-2 md:col-span-1 row-span-full rounded-full">
-          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/12773902-300.avif 300w, /pcd-demosite/static/img/12773902-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/12773902-300.jpeg 300w, /pcd-demosite/static/img/12773902-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="Vinay & Mrityunjay (ayahi)" loading="lazy" decoding="async" src="/pcd-demosite/static/img/12773902-300.jpeg" width="600" height="600"></picture>
-        </div>
-        <div class="text-xs col-span-2 md:col-span-1 row-start-3"> Vinay &amp; Mrityunjay (ayahi) are an experiential art atelier creating interactive, immersive and multimedia experiences. </div>
-        <div class="row-start-4 md:col-start-1 col-span-2 text-xs flex gap-2">
-          
-            <a class="text-blue-400 underline" href=https://ayahi.in/somni/> somni </a>
-          
-        </div>
-      </div>
-    
+      
+    </div>
   </div>
 </div>
 
 
 
-      </div>
 
 
     </div>

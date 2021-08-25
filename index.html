@@ -24,7 +24,7 @@
 <body class="overflow-x-hidden">
   <canvas id="mouses" class="absolute -z-10 w-screen h-screen"></canvas>
   <div id="cursor-img" class="invisible w-2 h-2">
-    <picture><source type="image/avif" srcset="/pcd-demosite/static/img/c70d88b9-24.avif 24w" sizes="(min-width: 30em) 50vw, 100vw"><img style="border-radius: 100%" alt="cursor" loading="lazy" decoding="async" src="/pcd-demosite/static/img/c70d88b9-24.jpeg" width="24" height="24"></picture>
+    <picture><source type="image/avif" srcset="/pcd-demosite/static/img/c70d88b9-24.avif 24w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="cursor" loading="lazy" decoding="async" src="/pcd-demosite/static/img/c70d88b9-24.jpeg" width="24" height="24"></picture>
   </div>
 
   <div class="md:container md:mx-auto px-8 md:px-32 z-20">
@@ -47,7 +47,7 @@
       <header class="flex justify-between lg:justify-center items-center py-8 px-2">
   
 
-  <a href="/pcd-demosite/">
+  <a class="text-black no-underline" href="/pcd-demosite/">
     <h1 class="text-3xl md:text-4xl lg:text-4xl font-bold uppercase md:tracking-widest">
       <p class="skew animate-flutter inline-block">P</p>
       <p class="skew animate-flutter inline-block">C</p>
@@ -81,43 +81,49 @@
   </div>
 </header>
 
-      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
-        <div class="flex py-2 lg:px-24 col-span-full justify-between items-center text-xl">
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/">
+      
+
+      
+
+<div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+  <div class="flex py-2 lg:px-24 col-span-full justify-between items-center text-xl">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/">
     <span>about</span>
   </a>
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/schedule">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/schedule">
     <span>schedule</span>
   </a>
-  <a class="matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/speakers">
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/speakers">
     <span>speakers</span>
   </a>
+  <a class="text-black no-underline matter py-1 px-2 md:py-2 md:px-4 bg-white border-4 md:border-8 border-yellow-200" href="/pcd-demosite/recap">
+    <span>recap</span>
+  </a>
 </div>
-          
 
-<div class="col-span-full lg:px-24">
+  <div class="col-span-full lg:px-24">
   
-  <div class="col-span-full shadow rounded p-4" id="formDiv">
-    <form method="post" id="nameForm">
-      <label class="uppercase text-sm" for="name">how shall we call you?</label>
-      <div>
-        <input class="rounded px-2 border-none ring-2 ring-blue-400 focus:outline-none"
-        type="text" name="name" id="name" placeholder="cake-lover" autofocus>
-      </div>
-    </form>
+    <div class="col-span-full shadow rounded p-4" id="formDiv">
+      <form method="post" id="nameForm">
+        <label class="uppercase text-sm" for="name">how shall we call you?</label>
+        <div>
+          <input class="rounded px-2 border-none ring-2 ring-blue-400 focus:outline-none"
+          type="text" name="name" id="name" placeholder="cake-lover" autofocus>
+        </div>
+      </form>
+    </div>
+  
+  
+    <p class="py-4">Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world.  We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show & tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.</p>
+    <p class="py-4">Processing is a free and open-source software platform for learning how to code within the context of the visual arts, created by Casey Reas and Ben Fry. It is complemented by a web version, called p5.js, created by Lauren McCarthy. To date, Processing and p5.js are used by a worldwide community of artists, coders, educators, students.</p>
+    <p class="py-4">A focus of this project is to make learning how to program and make creative work with code accessible to diverse communities, especially those who might not otherwise have access to these tools and resources. The first Processing Community Day (PCD), organized by Taeyoon Choi and the Processing Foundation in 2017 was one of our efforts to improve diversity within the art and programming community. Taking place at the MIT Media Lab, PCD 2017 drew community members from all over the east coast to get together in person to meet, share what they're working on, to learn, and collaborate.</p>
+    <p class="py-4">Head on over to the <a class="text-blue-400 underline" href="https://processingfoundation.org/advocacy/pcd-2021">processing foundation page</a> to know more and RSVP <a class="text-blue-400 underline" href="https://bit.ly/pcd-india-2021">here</a> 🎉</p>
+    <div class="py-8 text-xxs">cursor made by <a class="text-blue-400 underline" href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a class="text-blue-400 underline" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  
   </div>
-  
-
-  <p class="py-4">Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world.  We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show & tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.</p>
-  <p class="py-4">Processing is a free and open-source software platform for learning how to code within the context of the visual arts, created by Casey Reas and Ben Fry. It is complemented by a web version, called p5.js, created by Lauren McCarthy. To date, Processing and p5.js are used by a worldwide community of artists, coders, educators, students.</p>
-  <p class="py-4">A focus of this project is to make learning how to program and make creative work with code accessible to diverse communities, especially those who might not otherwise have access to these tools and resources. The first Processing Community Day (PCD), organized by Taeyoon Choi and the Processing Foundation in 2017 was one of our efforts to improve diversity within the art and programming community. Taking place at the MIT Media Lab, PCD 2017 drew community members from all over the east coast to get together in person to meet, share what they're working on, to learn, and collaborate.</p>
-  <p class="py-4">Head on over to the <a class="text-blue-400 underline" href="https://processingfoundation.org/advocacy/pcd-2021">processing foundation page</a> to know more and RSVP <a class="text-blue-400 underline" href="https://bit.ly/pcd-india-2021">here</a> 🎉</p>
-  <div class="py-8 text-xxs">cursor made by <a class="text-blue-400 underline" href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a class="text-blue-400 underline" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
 </div>        
 
 
-      </div>
 
 
     </div>
