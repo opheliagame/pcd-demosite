@@ -1,4 +1,5 @@
 const Image = require('@11ty/eleventy-img')
+const embedEverything = require('eleventy-plugin-embed-everything')
 
 async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
@@ -9,7 +10,6 @@ async function imageShortCode(src, alt, sizes) {
     outputDir: '_site/static/img'
   });
   let imageAttributes = {
-    style: 'border-radius: 100%',
     alt, 
     sizes, 
     loading: 'lazy',
@@ -27,8 +27,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortCode);
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
 
+  eleventyConfig.addPlugin(embedEverything)
+
   return {
     pathPrefix: "pcd-demosite",
+    markdownTemplateEngine: "njk",
     dir: {
       input: 'src',
       includes: '_includes',

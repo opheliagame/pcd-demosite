@@ -46,10 +46,12 @@
     <div>
       {% include "partials/header.njk" %}
 
-      <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
+      {# <div class="grid grid-cols-5 grid-rows-layout gap-x-0 gap-y-4 justify-center">
         {% include "partials/nav.njk" %}
           {{ content | safe }}
-      </div>
+      </div> #}
+
+      {{ content | safe }}
 
 
     </div>
