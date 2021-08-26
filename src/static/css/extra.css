@@ -1,0 +1,24 @@
+.markdown-list li::marker {
+  color: 'red';
+  font-size: 100%;
+  font-weight: bold;
+  transform: rotate(30deg);
+  content: "> ";
+}
+
+.markdown-list li {
+  padding: 0.2rem;
+}
+
+.markdown-list li::before {
+  transform: rotate(30deg);
+}
+
+.markdown-list {
+  list-style-image: url("static/images/list-cursor.png");
+}
+
+hr {
+  height: 10px;
+  width: 100%;
+}

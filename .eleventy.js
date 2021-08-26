@@ -1,5 +1,7 @@
 const Image = require('@11ty/eleventy-img')
 const embedEverything = require('eleventy-plugin-embed-everything')
+const markdownIt = require('markdown-it')
+const markdownItClass = require('@toycode/markdown-it-class')
 
 async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
@@ -19,6 +21,11 @@ async function imageShortCode(src, alt, sizes) {
 }
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addWatchTarget('./_tmp/style.css')
+  eleventyConfig.addWatchTarget('src/static/css/extra.css')
+  eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './_site/extra.css' })
+  eleventyConfig.addPassthroughCopy({ 'src/static/css/extra.css': '/extra.css' })
+
   eleventyConfig.addPassthroughCopy("src/static/images");
   eleventyConfig.addPassthroughCopy("src/static/js");
 
@@ -27,7 +34,19 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortCode);
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
 
+  const mapping = {
+    h1: ['text-xl', 'font-bold', 'self-start'],
+    h2: ['text-lg'],
+    a: ['text-blue-400', 'hover:underline'],
+    ul: ['markdown-list', 'list-disc', 'ml-2'],
+    li: ['before:content-["・"]', 'before:block'],
+    hr: ['h-2']
+  };
+
   eleventyConfig.addPlugin(embedEverything)
+  const md = markdownIt({linkify: true, html: true})
+  md.use(markdownItClass, mapping)
+  eleventyConfig.setLibrary('md', md)
 
   return {
     pathPrefix: "pcd-demosite",

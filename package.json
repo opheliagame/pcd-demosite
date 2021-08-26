@@ -4,7 +4,7 @@
   "description": "a demosite for pcd",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf _site && mkdir _site && postcss src/static/css/style.css > _site/style.css && eleventy --serve",
+    "dev": "rm -rf _site && mkdir _site && postcss src/static/css/style.css > _site/style.css && eleventy --serve && postcss src/static/css/style.css --o _tmp/style.css --watch",
     "build": "rm -rf _site && env NODE_ENV=production npx eleventy && NODE_ENV=production postcss src/static/css/style.css > _site/style.css",
     "start": "rm -rf _site && eleventy && NODE_ENV=production postcss src/static/css/style.css > _site/style.css"
   },
@@ -14,9 +14,11 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-img": "^0.9.0",
+    "@toycode/markdown-it-class": "^1.2.4",
     "autoprefixer": "^10.3.1",
     "cssnano": "^5.0.7",
     "eleventy-plugin-embed-everything": "^1.13.3",
+    "markdown-it": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1",
