@@ -16,22 +16,7 @@
     border-radius: 100%
   }
 
-  p {
-    padding: 0.5rem 0 0.5rem 0;
+  .eleventy-plugin-youtube-embed, .eleventy-plugin-embed-instagram{
+    padding: 1rem 0;
   }
-  
-  iframe {
-    padding: 1rem 0 1rem 0;
-  }
-
-  .markdown-list {
-    color: 'red';
-    font-size: 100%;
-  }
-
-}
-
-.markdown-list li::marker {
-  color: 'red';
-  font-size: 100%;
 }

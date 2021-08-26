@@ -21,9 +21,7 @@ async function imageShortCode(src, alt, sizes) {
 }
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addWatchTarget('./_tmp/style.css')
   eleventyConfig.addWatchTarget('src/static/css/extra.css')
-  eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './_site/extra.css' })
   eleventyConfig.addPassthroughCopy({ 'src/static/css/extra.css': '/extra.css' })
 
   eleventyConfig.addPassthroughCopy("src/static/images");
@@ -34,16 +32,27 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortCode);
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
 
+  eleventyConfig.addShortcode('vid', (videoName) => `
+  <video controls width="100%">
+    <source src="${videoName}" type="video/${videoName.split('.').pop()}">
+    <a href="${videoName}">${videoName}</a>
+  </video>`)
+
   const mapping = {
-    h1: ['text-xl', 'font-bold', 'self-start'],
-    h2: ['text-lg'],
-    a: ['text-blue-400', 'hover:underline'],
-    ul: ['markdown-list', 'list-disc', 'ml-2'],
-    li: ['before:content-["・"]', 'before:block'],
-    hr: ['h-2']
+    h1: ['text-xl', 'font-bold', 'self-start', 'pb-2'],
+    h2: ['text-base', 'uppercase', 'self-start', 'pt-1'],
+    a: ['text-blue-400', 'underline'],
+    ul: ['markdown-list', 'list-inside', 'ml-2', 'self-start']
   };
 
-  eleventyConfig.addPlugin(embedEverything)
+  eleventyConfig.addPlugin(embedEverything, {
+    twitch: {
+      options: {
+        parent: "opheliagame.github.io"
+      }
+    }
+  })
+
   const md = markdownIt({linkify: true, html: true})
   md.use(markdownItClass, mapping)
   eleventyConfig.setLibrary('md', md)
