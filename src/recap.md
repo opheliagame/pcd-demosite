@@ -1,6 +1,7 @@
 ---
 layout: layout.njk
 title: PCD India
+permalink: '/'
 ---
 
 {% include "partials/nav.njk" %}
@@ -8,6 +9,11 @@ title: PCD India
 
   
   https://www.youtube.com/watch?v=4PYuzOuw07A&t=25s
+
+  <p></p>
+
+  {% imagemd "src/static/images/group2.png", "PCD 2021 group photo!", "(min-width: 30em) 50vw, 100vw" %}
+  
   
   
   2021 has been a trying year for all of us and through it all, I think it would be fair to say, that we've all come to appreciate our communitites much more. It is the people around us, physically and also virtually, and these connections that should be celebrated more often and with more vigour.
@@ -15,52 +21,53 @@ title: PCD India
   
   https://www.instagram.com/p/CShJvkSrbjw/
   
-  And so for the Processing Community Day this year, we thought of doing something similar, with essentially the same format but slightly more organised. A Call for Proposals was sent out, followed by making a poster and this website.
+  And so for the Processing Community Day this year, we thought of doing something similar, with essentially the same format but slightly more organised. A call for proposals was sent out, followed by making a poster and this website.
   
   On Saturday 21st August, we all gathered in the evening, from our own rooms and corners to celebrate 🎉
-  We started with Mrityunjay and Vinay from [Ayahi](https://www.instagram.com/ayahi_create/?hl=en) taking us into a deep dive of one of their projects called [Somni](https://ayahi.in/somni/), an immersive audiovisual installation. They first brought it to Pondicherry, while fully self funding the entire project, and later took it to Auroville. Mrityunjay describes himself as a music composer while Vinay is the technical brain behind the installation, and so one of them would come up with slightly(or not) fantastical ideas while the other would think of how to practically get them up and running. They are both very fascinated with the idea of using technology as a means of creative expression and they started Ayahi with a broad and wide interpretation of creative coding as encompassing fields of hardware, software, and everything in between. They wanted to see how people, who had not had much experience of audio visual installations before, would react to something like Somni, and how far they could push their own boundaries in bringing this experience to life. A fascinating constraint that they had to work with was covid regulations, where people would have to maintain social distancing and all the interactions were made touch-free. Since they are fully self funded, hardware and materials were used as modules, free to be taken apart and built into something else. The installation had clouds made out of loofahs, columns of light controlled by music generation, hanging bulbs that responded to heartrate(for example if you ran 🏃‍♀️) and spatial flow fields just waiting for someone to dance.
+  We started with Mrityunjay and Vinay from [Ayahi](https://www.instagram.com/ayahi_create/?hl=en) taking us into a deep dive of one of their projects called [Somni](https://ayahi.in/somni/), an immersive audiovisual installation. They first brought it to Pondicherry, while fully self funding the entire project, and later took it to Auroville. Mrityunjay describes himself as a music composer while Vinay is the technical brain behind the installation, and so one of them would come up with slightly(or not) fantastical ideas while the other would think of how to practically get them up and running. They are both very fascinated with the idea of using technology as a means of creative expression and they started Ayahi with a broad and wide interpretation of creative coding as encompassing fields of hardware, software, and everything in between. They wanted to see how people, who had not had much experience of audio visual installations before, would react to something like Somni, and how far they could push their own boundaries in bringing this experience to life. A fascinating constraint that they had to work with was covid regulations, where people would have to maintain social distancing and all the interactions were made touch-free. Since they are fully self funded, hardware and materials were used as modules, free to be taken apart and built into something else. The installation had clouds made out of loofahs, columns of light controlled by music generation, hanging bulbs that responded to heartrate( for example if you ran 🏃‍♀️) and spatial flow fields just waiting for someone to dance.
   
-  {% image "src/static/images/ayahi-somni.jpg", "SOMNI", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/ayahi-somni.jpg", "SOMNI", "(min-width: 30em) 50vw, 100vw" %}
   
-  Next came [Archita](https://www.instagram.com/the_crude_artist) to take us through her project that combines DNA sequencing with art. Having a background of Biotechnology, when she started her Masters in Design, she came naturally upon this idea of what if we could make fantastical creatures with a given set of characteristics and then visualise them. While being not very happy with her initial results, she methodically made a list of pros and cons, and realised that possibly it would be better to focus on DNA first and move forward from it into further territories. She explored the COVID-19 variant and it's DNA, mapping the genome into colors, and then stumbled upon the idea of using very particular genes(i.e. much smaller sequences of DNA), like the gene responsible for a rose's smell. Mapping DNA components to numbers, allowed her to look at her artwork and intuitively know which base pair is dominant in the picture! 😮
+  Next came [Archita](https://www.instagram.com/the_crude_artist) to take us through her project that combines DNA sequencing with art. Having a background in biotechnology, when she started her Masters in Design, she came naturally upon this idea of what if we could make fantastical creatures with a given set of characteristics and then visualise them. While being not very happy with her initial results, she methodically made a list of pros and cons, and realised that possibly it would be better to focus on DNA first and move forward from it into further territories. She explored the COVID-19 variant and it's DNA, mapping the genome into colors, and then stumbled upon the idea of using very particular genes(i.e. much smaller sequences of DNA), like the gene responsible for a rose's smell. Mapping DNA components to numbers, allowed her to look at her artwork and intuitively know which base pair is dominant in the picture! 😮
   
-  {% image "src/static/images/archita-dna.jpeg", "Visualizing DNA", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/archita-dna.jpeg", "Visualizing DNA", "(min-width: 30em) 50vw, 100vw" %}
   
-  From DNA, we moved onto sewing. [Chandra](http://chandra.fun/) talked us through the intricacies of sewing machines and their interfaces, and how his project looked at simplifying this process, enabling hobbyists an easy access to this fun and creative physical activity. During the researcch and interviewing process, they realised that sewing machines can seem intimidating and complex to even their daily users, and so wondered how the design of the interface and its visual languages could be simplified to make it more accessible to everyone. While working on prototyping, they realised that p5js proved to be very flexible and helpful in working through the iterations and interactions. A key understanding for them was in realising that creative coding frameworks like processing could be used in prototyping interactions and interfaces and are not just limited to expressions of visual art.
+  From DNA, we moved onto sewing. [Chandra](http://chandra.fun/) talked us through the intricacies of sewing machines and their interfaces, and how his project looked at simplifying this process, enabling hobbyists an easy access to this fun and creative physical activity. During the research and interviewing process, they realised that sewing machines can seem intimidating and complex to even their daily users, and so wondered how the design of the interface and its visual languages could be simplified to make it more accessible to everyone. While working on prototyping, they realised that p5js proved to be very flexible and helpful in working through the iterations and interactions. A key understanding for them was in realising that creative coding frameworks like processing could be used in prototyping interactions and interfaces and are not just limited to expressions of visual art.
   
-  {% image "src/static/images/chandra-stitch.png", "Prototyping stitch", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/chandra-stitch.png", "Prototyping stitch", "(min-width: 30em) 50vw, 100vw" %}
   
-  {% image "src/static/images/chandra-handtrack.png", "Using handtrack.js", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/chandra-handtrack.png", "Using handtrack.js", "(min-width: 30em) 50vw, 100vw" %}
   
-  Next up, [Pixelkar](https://www.instagram.com/pixelkar/) introduced us to the world of NFTs and blockchains, and how computational artists could earn a living by selling their artwork through these new and evolving channels. While going over the technicalities of blockchains and decentralised systems, he explained how artists stand to earn royalties from every secondary sale of their artwork on NFT platforms, thus enabling them to continuing to have a flow of finance in some form. While in such a transaction, the owner of the artwork would be the buyer the artist would own reproduction rights. And since this is a hotly debated topic among artists and technologists both, there were quite a few questions that came up during the ensuing short discussion.
+  Next up, [Pixelkar](https://www.instagram.com/pixelkar/) introduced us to the world of NFTs and blockchains, and how computational artists could earn a living by selling their artwork through these new and evolving channels. While going over the technicalities of blockchains and decentralised systems, he explained how artists stand to earn royalties from every secondary sale of their artwork on NFT platforms. While in such a transaction, the owner of the artwork would be the buyer the artist would own reproduction rights. And since this is a hotly debated topic among artists and technologists both, there were quite a few questions that came up during the ensuing short discussion. Below is one of his own artworks, and I'd urge you to dive into the references section in the end for diving more into NFTs.
   
   {% vid "/static/images/Pixelated-Raza.mp4" %}
   
-  We finished the talks with a presentation by [Allwin](https://allwinwilliams.com/) who spoke about the [realtime emoji tracker](https://allwinwilliams.com/emoji-sentiments-twitter/) that he built using Twitter. With the question of what does our emoji usage collectively say about us, he found an emoji live tracking data service. In order to understand this enormous data more effectively, he decided to build an emoji meter, which then further led to him thinking about how best to tell a story. Deciding to give labels to these emojis to categorise them, it came about that, while some labels were implicit, others like sentiment, had to be given explicitly. He experimented with different ways of visualising the same data but now with these labels, and found some to be more effective than others at being able to tell a story. He also extended this idea into their personal life by exporting chats of Whatsapp groups that they were in, and conducting this analysis on the emojis present in those conversations. Since this is live, it is also possible to take a peek at it during eventful days, like for example when India wins or loses a cricket match, and see for yourself how collectively we seem to be responding through emojis.
+  We finished the talks with a presentation by [Allwin](https://allwinwilliams.com/) who spoke about the [realtime emoji tracker](https://allwinwilliams.com/emoji-sentiments-twitter/) that he built using Twitter. With the question of what does our emoji usage collectively say about us, he found an emoji live tracking data service. In order to understand this enormous data more effectively, he decided to build an emoji meter, which then further led to him thinking about how best to tell a story. Deciding to give labels to these emojis to categorise them, it came about that, while some labels were implicit, others like sentiment, had to be given explicitly. He experimented with different ways of visualising the same data but now with these labels, and found some to be more effective than others at being able to tell a story. He also extended this idea into their personal life by exporting chats of Whatsapp groups that they were in, and conducting this analysis on the emojis present in those conversations. Since this is live, it is also possible to take a peek at it during eventful days, like for example when India wins or loses a cricket match, and see for yourself how collectively we seem to be responding through emojis 🕺
   
-  {% image "src/static/images/allwin-emoji.png", "Realtime emoji tracker", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/allwin-emoji.png", "Realtime emoji tracker", "(min-width: 30em) 50vw, 100vw" %}
   
-  On wrapping up the talks, we decided to move into breakout rooms, one of which was for beginners to showcase their recent explorations and sketches and generally interact with each other, while the second one was for more serious conversations ranging from the intricacies of having a new media studio and financing your own projects to building maker spaces that enable collaboration and contextualising computational art in our non-western histories.
+  On wrapping up the talks, we decided to move into breakout rooms, one of which was for beginners to showcase their recent explorations and sketches and generally interact with each other, while the second one was for slightly more serious conversations ranging from the intricacies of having a new media studio and financing your own projects to building maker spaces that enable collaboration and contextualising computational art in our non-western histories.
   
-  We ended the evening with a pair programming session involving about 20 people (hence the term mass programming above 😂) and decided to make a cake! 🍰 While a few of the attendees had real cake during the session, the rest of us had to do with this virtual one.
+  We ended the evening with a pair programming session involving about 20 people (hence the term mass programming above 😂) and decided to make a cake! 🍰 
   
-  TODO :: insert pictures
+  {% imagemd "src/static/images/cake.png", "PCD Cake!", "(min-width: 30em) 50vw, 100vw" %}
   
-  And although we didn't get the time to talk about this during the session, [Dharma](https://www.instagram.com/dhrmatj/) who runs the [Alpha6 Corporation](https://instagram.com/alpha6corporation) and also works with Government schools in India, brought this year's poster to life by laser cutting and plotting it! 🎉 
+  And although we didn't get the time to talk about this during the session, [Dharma](https://www.instagram.com/dhrmatj/) who distributes [Alpha6 Corporation](https://instagram.com/alpha6corporation) and [Danley Sound Labs](https://instagram.com/danleysoundlabs?utm_medium=copy_link), brought this year's poster to life by plotting and then laser cutting it! 🎉 Besides plotting, he also has a keen interest in STEAM projects and works on them with government schools, NGOs and social enterprises in India. 
   
   https://www.instagram.com/p/CSy_Jr1qnua/
 
-  {% image "src/static/images/dharma-poster.jpg", "Poster embossed on wood 😍", "(min-width: 30em) 50vw, 100vw" %}
+  {% imagemd "src/static/images/dharma-poster.jpg", "Poster embossed on wood 😍", "(min-width: 30em) 50vw, 100vw" %}
 
 
-  On Sunday, the 22nd, we had a special stream by Ambika, who goes by [computational mama](https://www.instagram.com/computational_mama/). 
+  For Sunday, the 22nd, we had a special stream by Ambika, aka [computational mama](https://www.instagram.com/computational_mama/). Along with her friends, [Nanditi](https://www.instagram.com/nanditi.k/) and [Vaibhavi](https://www.instagram.com/ivahbiav/), they used the [posenet](https://learn.ml5js.org/#/reference/posenet) model from [ml5js](https://learn.ml5js.org) to try and make music using human body movement 🎉🎵
 
   https://www.twitch.tv/videos/1126025312
 
 
-  Along with her friends, [Nanditi](https://www.instagram.com/nanditi.k/) and [Vaibhavi](https://www.instagram.com/ivahbiav/), they used the [posenet](https://learn.ml5js.org/#/reference/posenet) model from [ml5js](https://learn.ml5js.org) to try and make music using human body movement 🎉🎵
+  That was all for this year 👋 there are more references below if the rabbit hole is a place you like 🐇
 
-  ---
+  <br/>
+  <br/>
 
 
   # References

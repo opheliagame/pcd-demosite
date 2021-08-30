@@ -33,7 +33,7 @@ module.exports = {
        '8': 'repeat(8, minmax(0, 1fr))',
 
         // Complex site-specific row configuration
-       'layout': '64px 1fr',
+       'layout': 'auto 1fr',
 
        'speaker-md': '1.5rem auto 1fr auto 1.5rem',
 

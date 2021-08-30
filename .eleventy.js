@@ -2,8 +2,26 @@ const Image = require('@11ty/eleventy-img')
 const embedEverything = require('eleventy-plugin-embed-everything')
 const markdownIt = require('markdown-it')
 const markdownItClass = require('@toycode/markdown-it-class')
+const mila = require('markdown-it-link-attributes')
 
 async function imageShortCode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [300, 600],
+    formats: ['avif', 'jpeg'],
+    // urlPath: '/static/img',
+    urlPath: '/pcd-demosite/static/img',
+    outputDir: '_site/static/img'
+  });
+  let imageAttributes = {
+    style: 'border-radius: 50%',
+    alt, 
+    sizes, 
+    loading: 'lazy',
+    decoding: 'async'
+  };
+  return Image.generateHTML(metadata, imageAttributes);
+}
+async function imageMdShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
@@ -32,6 +50,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortCode);
   eleventyConfig.addJavaScriptFunction("image", imageShortCode);
 
+  eleventyConfig.addNunjucksAsyncShortcode("imagemd", imageMdShortCode);
+  eleventyConfig.addLiquidShortcode("imagemd", imageMdShortCode);
+  eleventyConfig.addJavaScriptFunction("imagemd", imageMdShortCode);
+
   eleventyConfig.addShortcode('vid', (videoName) => `
   <video controls width="100%">
     <source src="${videoName}" type="video/${videoName.split('.').pop()}">
@@ -53,7 +75,14 @@ module.exports = function(eleventyConfig) {
     }
   })
 
+  let milaOptions = {
+    attrs: {
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }
+  };
   const md = markdownIt({linkify: true, html: true})
+  md.use(mila, milaOptions)
   md.use(markdownItClass, mapping)
   eleventyConfig.setLibrary('md', md)
 
