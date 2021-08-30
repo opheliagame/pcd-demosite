@@ -20,6 +20,10 @@ p {
   padding: 0.5rem 0;
 }
 
+img {
+  border: 3px solid #FDE68A;
+}
+
 /* .eleventy-plugin-youtube-embed, .eleventy-plugin-embed-instagram{
   padding: 1rem 0;
 }
