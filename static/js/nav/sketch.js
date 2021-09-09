@@ -6,16 +6,17 @@ let width = window.innerWidth
 let userSprite = []
 let farmSprite, floorImage
 let gridData
+let urlPrefix = '/pcd-demosite/static/assets/'
 
 function preload() {
-  gridData = loadJSON('/static/assets/grid.json')
-  let spriteBody = loadImage('/static/assets/characters_free/assets/character_animation.png')
-  let spriteHair = loadImage('/static/assets/characters_free/assets/hair_braids_brown.png')
-  let spritePants = loadImage('/static/assets/characters_free/assets/pants_black.png')
-  let spriteShirt = loadImage('/static/assets/characters_free/assets/shirt_basic_red.png')
-  let spriteShoes = loadImage('/static/assets/characters_free/assets/shoes_brown.png')
+  gridData = loadJSON(urlPrefix + 'grid.json')
+  let spriteBody = loadImage(urlPrefix + 'characters_free/assets/character_animation.png')
+  let spriteHair = loadImage(urlPrefix + 'characters_free/assets/hair_braids_brown.png')
+  let spritePants = loadImage(urlPrefix + 'characters_free/assets/pants_black.png')
+  let spriteShirt = loadImage(urlPrefix + 'characters_free/assets/shirt_basic_red.png')
+  let spriteShoes = loadImage(urlPrefix + 'characters_free/assets/shoes_brown.png')
   userSprite.push(spriteBody, spriteHair, spritePants, spriteShirt, spriteShoes) 
-  farmSprite = loadImage('/static/assets/farm_free/free.png')
+  farmSprite = loadImage(urlPrefix + 'farm_free/free.png')
 }
 
 function setup() {
