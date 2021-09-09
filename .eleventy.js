@@ -10,7 +10,8 @@ async function imageShortCode(src, alt, sizes) {
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
     urlPath: '/pcd-demosite/static/img',
-    outputDir: '_site/static/img'
+    // outputDir: '_site/static/img',
+    outputDir: 'pcd-demosite/static/img'
   });
   let imageAttributes = {
     style: 'border-radius: 50%',
@@ -27,7 +28,8 @@ async function imageMdShortCode(src, alt, sizes) {
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
     urlPath: '/pcd-demosite/static/img',
-    outputDir: '_site/static/img'
+    // outputDir: '_site/static/img',
+    outputDir: 'pcd-demosite/static/img'
   });
   let imageAttributes = {
     alt, 
@@ -44,6 +46,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/static/images");
   eleventyConfig.addPassthroughCopy("src/static/js");
+  eleventyConfig.addPassthroughCopy("src/static/assets");
 
   // image optimisation using eleventy-img
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortCode);
@@ -64,16 +67,11 @@ module.exports = function(eleventyConfig) {
     h1: ['text-xl', 'font-bold', 'self-start', 'pb-2'],
     h2: ['text-base', 'uppercase', 'self-start', 'pt-1'],
     a: ['text-blue-400', 'underline'],
-    ul: ['markdown-list', 'list-inside', 'ml-2', 'self-start']
+    ul: ['markdown-list', 'list-inside', 'ml-2', 'self-start'],
+    blockquote: ['self-start', 'italic', 'pl-2', 'border-l-2', 'text-sm', 'py-1', 'my-1', 'border-yellow-200']
   };
 
-  eleventyConfig.addPlugin(embedEverything, {
-    twitch: {
-      options: {
-        parent: "opheliagame.github.io"
-      }
-    }
-  })
+  eleventyConfig.addPlugin(embedEverything)
 
   let milaOptions = {
     attrs: {
@@ -87,6 +85,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', md)
 
   return {
+    // pathPrefix: "2021",
     pathPrefix: "pcd-demosite",
     markdownTemplateEngine: "njk",
     dir: {

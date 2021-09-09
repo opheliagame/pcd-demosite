@@ -40,7 +40,7 @@ permalink: '/'
   
   Next up, [Pixelkar](https://www.instagram.com/pixelkar/) introduced us to the world of NFTs and blockchains, and how computational artists could earn a living by selling their artwork through these new and evolving channels. While going over the technicalities of blockchains and decentralised systems, he explained how artists stand to earn royalties from every secondary sale of their artwork on NFT platforms. While in such a transaction, the owner of the artwork would be the buyer the artist would own reproduction rights. And since this is a hotly debated topic among artists and technologists both, there were quite a few questions that came up during the ensuing short discussion. Below is one of his own artworks, and I'd urge you to dive into the references section in the end for diving more into NFTs.
   
-  {% vid "/pcd-demosite/static/images/Pixelated-Raza.mp4" %}
+  {% vid "/2021/static/images/Pixelated-Raza.mp4" %}
   
   We finished the talks with a presentation by [Allwin](https://allwinwilliams.com/) who spoke about the [realtime emoji tracker](https://allwinwilliams.com/emoji-sentiments-twitter/) that he built using Twitter. With the question of what does our emoji usage collectively say about us, he found an emoji live tracking data service. In order to understand this enormous data more effectively, he decided to build an emoji meter, which then further led to him thinking about how best to tell a story. Deciding to give labels to these emojis to categorise them, it came about that, while some labels were implicit, others like sentiment, had to be given explicitly. He experimented with different ways of visualising the same data but now with these labels, and found some to be more effective than others at being able to tell a story. He also extended this idea into their personal life by exporting chats of Whatsapp groups that they were in, and conducting this analysis on the emojis present in those conversations. Since this is live, it is also possible to take a peek at it during eventful days, like for example when India wins or loses a cricket match, and see for yourself how collectively we seem to be responding through emojis 🕺
   
@@ -59,11 +59,23 @@ permalink: '/'
   {% imagemd "src/static/images/dharma-poster.jpg", "Poster embossed on wood 😍", "(min-width: 30em) 50vw, 100vw" %}
 
 
-  For Sunday, the 22nd, we had a special stream by Ambika, aka [computational mama](https://www.instagram.com/computational_mama/). Along with her friends, [Nanditi](https://www.instagram.com/nanditi.k/) and [Vaibhavi](https://www.instagram.com/ivahbiav/), they used the [posenet](https://learn.ml5js.org/#/reference/posenet) model from [ml5js](https://learn.ml5js.org) to try and make music using human body movement 🎉🎵
+  For Sunday, the 22nd, we had a special [twitch stream](https://www.twitch.tv/computational_mama) by Ambika, aka [computational mama](https://www.instagram.com/computational_mama/). Along with her friends, [Nanditi](https://www.instagram.com/nanditi.k/) and [Vaibhavi](https://www.instagram.com/ivahbiav/), they used the [posenet](https://learn.ml5js.org/#/reference/posenet) model from [ml5js](https://learn.ml5js.org) to try and make music using human body movement 🎉🎵
 
-  https://www.twitch.tv/videos/1126025312
+  <div style="position:relative;width:100%;padding-top: 56.25%;">
+    <iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" width="100%" height="100%" src="https://www.youtube.com/embed/EoLs36sGqHI?start=437" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 
+  > Vaibhavi - .. we were trying to figure out somethings that would be mobile, so the actors could hold it and take it.. but obviously in theatre we all know how much money we have (laughs) 
 
+  > Vaibhavi - (p5js) is like your little child, ..... that means that we can also fool it because we fool children all the time (everyone, slightly evil, laugh) 
+
+  > Nanditi - we've have a set of major and minor(chords), so what do you want to map where. <br/> Vaibhavi - please whatever you do just balance it, otherwise i'll be like ehhh (does unstable pose)
+
+  > Ambika - do more satsang and then later you'll feel like you've gotten old. we are redefining satsang... oh but if we do a clap then both chords will play together (excitement)
+  
+  > Ambika - ...and then I was not sleeping because I was pregnant, very pregnant, like I couldn't move around, so I just used to put it (laptop) on my tummy and I used to code (everyone, wows) <br/> Nanditi - I can't imagine how smart Yugen will be.... maybe he's been talking in Javascript we don't know, that's why we're like we can't understand (everyone, laughs)
+
+  
   That was all for this year 👋 there are more references below if the rabbit hole is a place you like 🐇
 
   <br/>
@@ -129,5 +141,8 @@ permalink: '/'
 
   ## 🍰🍰🍰🍰🍰
   - [p5live](https://teddavis.org/p5live/?cc=dnvxt)
-  
+
+  <sub><sup>
+    written by [opheliagame](https://www.instagram.com/ophelia.game/)
+  </sup></sub>  
 </div>
