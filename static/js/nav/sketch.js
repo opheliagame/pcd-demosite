@@ -8,7 +8,7 @@ let camera = new Camera(0, 0, width, height)
 let userSprite = []
 let farmSprite, floorImage
 let gridData
-let urlPrefix = '/static/assets/'
+let urlPrefix = '/pcd-demosite/static/assets/'
 
 function preload() {
   gridData = loadJSON(urlPrefix + 'pcd-town.json')
