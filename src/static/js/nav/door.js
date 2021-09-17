@@ -12,25 +12,21 @@ class Door {
     // this.room = document.getElementById('room')
   }
 
-  draw() {
+  draw(camera) {
     push()
+    translate(-camera.x, -camera.y)
     translate(this.cx, this.cy)
+    rectMode(CENTER)
+    fill('#B0905D')
+    noStroke()
+    rect(0, 0, this.w, this.w)
     imageMode(CENTER)
     image(this.sprite, 0, 0, this.w, this.w)
     pop()
-
-    // push()
-    // translate(this.x + this.w/6, this.y + this.w/6)
-    // shearY(radians(this.shear))
-    // rect(0, 0, this.w - this.w/3, this.w - this.w/3)
-    // shearY(radians(this.shear+this.shearOff))
-    // fill(255, 255, 0)
-    // rect(0, 0, this.w - this.w/2, this.w - this.w/3)
-    // pop()
   }
 
   isEntering(user) {
-    if (abs(user.x - this.cx) < this.w/3 && abs(user.y - this.cy) < this.w/3) {
+    if (abs(user.x - this.cx) < user.jump && abs(user.y - this.cy) < user.jump) {
       this.shearOff += 0.5
       this.shearOff = this.shearOff % 20
       return true
