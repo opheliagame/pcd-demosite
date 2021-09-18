@@ -1,5 +1,5 @@
 class Building {
-  constructor(json, sprite) {
+  constructor(json, sprite, sprite2) {
     this.doors = new Array()
     this.showModal = false
     this.prevRoom = null
@@ -8,6 +8,7 @@ class Building {
     this.cols = this.grid.cols
     this.edge = width/this.cols
     this.sprite = sprite
+    this.sprite2 = sprite2
     this.back = createGraphics((this.cols)*this.edge, (this.rows)*this.edge)
   }
 
@@ -49,11 +50,16 @@ class Building {
 
   drawIndoor(camera) {
     
-    for(let i = 0; i < (this.rows-1)*(this.cols-1); i++) {
+    for(let i = 0; i < (this.rows)*(this.cols); i++) {
       let block = this.grid.blocks[i]
       let x = block.x*this.edge
       let y = block.y*this.edge
       let tile = this.sprite.get((block.tileIndex%8)*16, Math.floor(block.tileIndex/8)*16, 16, 16)
+      if(block.type === 'outside') {
+        let tx = block.tileIndex % 2
+        let ty = Math.floor(block.tileIndex / 2)
+        tile = this.sprite2.get(tx*16, ty*16, 16, 16)
+      }
       this.back.push()
       this.back.translate(x, y)
       this.back.image(tile, 0, 0, this.edge, this.edge)

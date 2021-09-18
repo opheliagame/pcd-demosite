@@ -130,9 +130,9 @@ class User {
           break
       }
     }
-    console.log(currX, currY)
-    console.log(nextX, nextY)
-    console.log(block)
+    // console.log(currX, currY)
+    // console.log(nextX, nextY)
+    // console.log(block)
   }
 
   keyIO(jump, xMax, yMax) {
