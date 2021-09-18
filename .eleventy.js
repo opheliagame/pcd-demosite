@@ -10,8 +10,8 @@ async function imageShortCode(src, alt, sizes) {
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
     urlPath: '/pcd-demosite/static/img',
-    // outputDir: '_site/static/img',
-    outputDir: 'pcd-demosite/static/img'
+    outputDir: '_site/static/img',
+    // outputDir: 'pcd-demosite/static/img'
   });
   let imageAttributes = {
     style: 'border-radius: 50%',
@@ -28,8 +28,8 @@ async function imageMdShortCode(src, alt, sizes) {
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
     urlPath: '/pcd-demosite/static/img',
-    // outputDir: '_site/static/img',
-    outputDir: 'pcd-demosite/static/img'
+    outputDir: '_site/static/img',
+    // outputDir: 'pcd-demosite/static/img'
   });
   let imageAttributes = {
     alt, 
