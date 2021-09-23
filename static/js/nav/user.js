@@ -6,7 +6,7 @@ class User {
     this.sprite = sprite
     this.spritePos = 0
     this.dir = 'right'
-    this.jump = w/10
+    this.jump = w
     this.frameCount = 0
   }
 
@@ -46,7 +46,7 @@ class User {
   move(x, y) {
     this.x += x
     this.y += y
-    // building.isEntering(this)
+    building.isEntering(this)
   }
 
   io(building, xMax, yMax) {
@@ -64,7 +64,7 @@ class User {
     else {
       return
     }
-    this.avoidWalls(building, keyCode)
+    // this.avoidWalls(building, keyCode)
     let moving = this.keyIO(this.jump, xMax, yMax)
     // let moving = this.keyPressed(keyCode, this.jump, xMax, yMax)
     if(moving && this.frameCount > 6) {
