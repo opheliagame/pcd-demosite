@@ -6,7 +6,6 @@
 
     <title>PCD India</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.11/tailwind.min.css">
     <link rel="stylesheet" type="text/css" href="{{ '/style.css' | url }}">
     <link rel="stylesheet" type="text/css" href="{{ '/extra.css' | url }}">
 
@@ -21,9 +20,31 @@
 
   <body>
     <div id="modal">
+      {% for page in pages %}
+      <div id="room{{loop.index-1}}" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> {{ page.name }} </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src={{page.src}} />
+        </div>
+      </div>
+      {% endfor %}
     </div>
+
+    
 
     <script src="{{ '/static/js/nav/sketch.js' | url }}"></script>
     <!-- <script src="template.js"></script> -->
+    <script>
+      const closeModal = (btn) => {
+        const modal = btn.parentNode.parentNode
+        modal.classList.toggle('hidden')
+      }
+    </script>
   </body>
+
+  
 </html>

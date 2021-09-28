@@ -26,7 +26,7 @@ class Door {
   }
 
   isEntering(user) {
-    if (abs(user.x - this.cx) < user.jump && abs(user.y - this.cy) < user.jump) {
+    if (abs(user.x - this.cx) < user.jump*4 && abs(user.y - this.cy) < user.jump*4) {
       this.shearOff += 0.5
       this.shearOff = this.shearOff % 20
       return true

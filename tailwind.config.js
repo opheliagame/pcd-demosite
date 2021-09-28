@@ -21,6 +21,9 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
     },
+    boxShadow: {
+      DEFAULT: '1em 1em rgba(170, 67, 111, 1.0)'
+    },
     extend: {
       zIndex: {
         '-10': '-10',

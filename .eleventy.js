@@ -8,8 +8,8 @@ async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
-    // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
+    urlPath: '/static/img',
+    // urlPath: '/pcd-demosite/static/img',
     outputDir: '_site/static/img',
     // outputDir: 'pcd-demosite/static/img'
   });
@@ -26,8 +26,8 @@ async function imageMdShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
-    // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
+    urlPath: '/static/img',
+    // urlPath: '/pcd-demosite/static/img',
     outputDir: '_site/static/img',
     // outputDir: 'pcd-demosite/static/img'
   });
@@ -86,7 +86,7 @@ module.exports = function(eleventyConfig) {
 
   return {
     // pathPrefix: "2021",
-    pathPrefix: "pcd-demosite",
+    // pathPrefix: "pcd-demosite",
     markdownTemplateEngine: "njk",
     dir: {
       input: 'src',

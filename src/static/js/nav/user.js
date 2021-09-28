@@ -6,7 +6,7 @@ class User {
     this.sprite = sprite
     this.spritePos = 0
     this.dir = 'right'
-    this.jump = w
+    this.jump = w/10
     this.frameCount = 0
   }
 
@@ -50,7 +50,6 @@ class User {
   }
 
   io(building, xMax, yMax) {
-    this.frameCount += 1
     let keyCode
     if(keyIsDown(LEFT_ARROW)) {
       keyCode = LEFT_ARROW
@@ -64,9 +63,11 @@ class User {
     else {
       return
     }
-    // this.avoidWalls(building, keyCode)
+
+    this.avoidWalls(building, keyCode)
     let moving = this.keyIO(this.jump, xMax, yMax)
     // let moving = this.keyPressed(keyCode, this.jump, xMax, yMax)
+    this.frameCount += 1
     if(moving && this.frameCount > 6) {
       this.frameCount = 0
       switch(this.dir) {
@@ -93,20 +94,20 @@ class User {
     let nextX, nextY
     switch(keyCode) {
       case LEFT_ARROW:
-        nextX = (this.x - this.jump*2) >= 0 ? this.x - this.jump*2 : 0 
+        nextX = (this.x - this.jump) >= 0 ? this.x - this.jump : 0 
         nextY = this.y
         break
       case RIGHT_ARROW:
-        nextX = (this.x + this.jump*2) < building.cols ? this.x + this.jump*2 : this.x
+        nextX = (this.x + this.jump) < building.cols*this.w ? this.x + this.jump : this.x
         nextY = this.y
         break
       case UP_ARROW:
         nextX = this.x
-        nextY = (this.y - this.jump*3) >= 0 ? this.y - this.jump*3 : 0 
+        nextY = (this.y - this.jump) >= 0 ? this.y - this.jump : 0 
         break
       case DOWN_ARROW:
         nextX = this.x
-        nextY = (this.y + this.jump*3) < building.rows ? this.y + this.jump*3 : this.y 
+        nextY = (this.y + this.jump) < building.rows*this.w ? this.y + this.jump : this.y 
         break
     }
     nextX = Math.floor(nextX/this.w)
@@ -114,7 +115,7 @@ class User {
     let index = nextY * building.cols + nextX
     let block = building.grid.blocks[index]
     let tileIndex = parseInt(block.tileIndex)
-    if(block.filled === true && tileIndex >= (8*18) && tileIndex < (8*21)) {
+    if(block.filled === true && (block.type === 'wall' || block.type === 'tree')) {
       switch(keyCode) {
         case LEFT_ARROW:
           this.move(this.jump, 0)
