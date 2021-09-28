@@ -49,23 +49,12 @@ class User {
     building.isEntering(this)
   }
 
-  io(building, xMax, yMax) {
-    let keyCode
-    if(keyIsDown(LEFT_ARROW)) {
-      keyCode = LEFT_ARROW
-    } else if(keyIsDown(RIGHT_ARROW)) {
-      keyCode = RIGHT_ARROW
-    } else if(keyIsDown(DOWN_ARROW)) {
-      keyCode = DOWN_ARROW
-    } else if(keyIsDown(UP_ARROW)) {
-      keyCode = UP_ARROW
-    }
-    else {
-      return
-    }
+  io(keyCode, building, xMax, yMax) {
+    
+    if(!keyCode) return
 
     this.avoidWalls(building, keyCode)
-    let moving = this.keyIO(this.jump, xMax, yMax)
+    let moving = this.keyIO(keyCode, this.jump, xMax, yMax)
     // let moving = this.keyPressed(keyCode, this.jump, xMax, yMax)
     this.frameCount += 1
     if(moving && this.frameCount > 6) {
@@ -136,29 +125,31 @@ class User {
     // console.log(block)
   }
 
-  keyIO(jump, xMax, yMax) {
-    if(keyIsDown(LEFT_ARROW)) {
-      this.move(-jump, 0)
-      if(this.x < 0) this.move(jump, 0)
-      this.dir = 'left'
-      return true
-    } else if(keyIsDown(RIGHT_ARROW)) {
-      this.move(jump, 0)
-      if(this.x > xMax) this.move(-jump, 0)
-      this.dir = 'right'
-      return true
-    } else if(keyIsDown(DOWN_ARROW)) {
-      this.move(0, jump)
-      if(this.y > yMax) this.move(0, -jump)
-      this.dir = 'down'
-      return true
-    } else if(keyIsDown(UP_ARROW)) {
-      this.move(0, -jump)
-      if(this.y < 0) this.move(0, jump)
-      this.dir = 'up'
-      return true
+  keyIO(keyCode, jump, xMax, yMax) {
+    switch(keyCode) {
+      case LEFT_ARROW:
+        this.move(-jump, 0)
+        if(this.x < 0) this.move(jump, 0)
+        this.dir = 'left'
+        return true
+      case RIGHT_ARROW:
+        this.move(jump, 0)
+        if(this.x > xMax) this.move(-jump, 0)
+        this.dir = 'right'
+        return true
+      case DOWN_ARROW:
+        this.move(0, jump)
+        if(this.y > yMax) this.move(0, -jump)
+        this.dir = 'down'
+        return true
+      case UP_ARROW:
+        this.move(0, -jump)
+        if(this.y < 0) this.move(0, jump)
+        this.dir = 'up'
+        return true
+      default:
+        return false
     }
-    return false
   }
 
   keyPressed(keyCode, jump, xMax, yMax) {

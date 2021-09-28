@@ -7,7 +7,17 @@
     <title>PCD India</title>
 
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <link rel="stylesheet" type="text/css" href="/extra.css">
+    <style>
+      button {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
 
     <script src="/static/js/libs/p5.min.js"></script>
     <script src="/static/js/libs/p5.sound.min.js"></script>
@@ -19,9 +29,13 @@
   </head>
 
   <body>
+    <div id="canvas" class="overflow-hidden">
+    </div>
+
+    
     <div id="modal">
       
-      <div id="room0" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room0" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -32,7 +46,7 @@
         </div>
       </div>
       
-      <div id="room1" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room1" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -43,7 +57,7 @@
         </div>
       </div>
       
-      <div id="room2" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room2" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -54,7 +68,7 @@
         </div>
       </div>
       
-      <div id="room3" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room3" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -65,7 +79,7 @@
         </div>
       </div>
       
-      <div id="room4" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room4" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -76,7 +90,7 @@
         </div>
       </div>
       
-      <div id="room5" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room5" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -90,6 +104,31 @@
     </div>
 
     
+    <div class="md:hidden absolute inset-x-0 bottom-0
+                flex justify-around py-4
+                select-none">
+      <div class="w-20 h-20 bg-purple shadow p-2
+                  grid grid-rows-3 grid-cols-3
+                  rounded-full border border-black">
+      
+        <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
+                <picture><source type="image/avif" srcset="/static/img/e00d88a2-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="up arrow" loading="lazy" decoding="async" src="/static/img/e00d88a2-32.jpeg" width="32" height="32"></picture>
+        </button>
+        <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
+                <picture><source type="image/avif" srcset="/static/img/1c10d7a7-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="right arrow" loading="lazy" decoding="async" src="/static/img/1c10d7a7-32.jpeg" width="32" height="32"></picture>
+        </button>
+        <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
+                <picture><source type="image/avif" srcset="/static/img/427d841c-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="left arrow" loading="lazy" decoding="async" src="/static/img/427d841c-32.jpeg" width="32" height="32"></picture>
+        </button>
+        <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
+                <picture><source type="image/avif" srcset="/static/img/8e04b9d5-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="down arrow" loading="lazy" decoding="async" src="/static/img/8e04b9d5-32.jpeg" width="32" height="32"></picture>
+        </button>
+      </div>
+    </div>
 
     <script src="/static/js/nav/sketch.js"></script>
     <!-- <script src="template.js"></script> -->
@@ -97,6 +136,64 @@
       const closeModal = (btn) => {
         const modal = btn.parentNode.parentNode
         modal.classList.toggle('hidden')
+      }
+      const handleLongPress = (e) => {
+        e.preventDefault()
+      } 
+      const navButtons = document.querySelectorAll('.nav-button')
+      navButtons.forEach(el => {
+        el.addEventListener('contextmenu', handleLongPress)
+      })
+
+      function buttonPressed(keyCode) {
+        let key
+        switch(keyCode) {
+          case LEFT_ARROW:
+            key = "ArrowLeft"
+            break
+          case RIGHT_ARROW:
+            key = "ArrowRight"
+            break
+          case UP_ARROW:
+            key = "ArrowUp"
+            break
+          case DOWN_ARROW:
+            key = "ArrowDown"
+            break
+        }
+        let keyEvent = new KeyboardEvent('keydown', {
+          keyCode: keyCode, 
+          key: key, 
+          code: key,
+          bubbles: true,
+          cancelable: true  
+        })
+        document.body.dispatchEvent(keyEvent)
+      }
+      function buttonReleased(keyCode) {
+        let key
+        switch(keyCode) {
+          case LEFT_ARROW:
+            key = "ArrowLeft"
+            break
+          case RIGHT_ARROW:
+            key = "ArrowRight"
+            break
+          case UP_ARROW:
+            key = "ArrowUp"
+            break
+          case DOWN_ARROW:
+            key = "ArrowDown"
+            break
+        }
+        let keyEvent = new KeyboardEvent('keyup', {
+          keyCode: keyCode, 
+          key: key, 
+          code: key,
+          bubbles: true,
+          cancelable: true  
+        })
+        document.body.dispatchEvent(keyEvent)
       }
     </script>
   </body>
