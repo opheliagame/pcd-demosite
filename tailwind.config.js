@@ -21,10 +21,10 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
     },
-    boxShadow: {
-      DEFAULT: '1em 1em rgba(170, 67, 111, 1.0)'
-    },
     extend: {
+      boxShadow: {
+        pink: '1em 1em rgba(170, 67, 111, 1.0)'
+      },
       zIndex: {
         '-10': '-10',
       },
@@ -52,7 +52,16 @@ module.exports = {
       yellow: colors.amber,
       black: colors.black,
       white: colors.white,
-      blue: colors.blue
+      blue: colors.blue,
+      pink: {
+        DEFAULT: '#AA436F'
+      },
+      purple: {
+        DEFAULT: '#9F62AE'
+      },
+      brown: {
+        DEFAULT: '#BF7958'
+      }
     },
     animation: {
       'spin-slow': 'spin 8s linear infinite',

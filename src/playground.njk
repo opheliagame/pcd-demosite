@@ -7,7 +7,17 @@
     <title>PCD India</title>
 
     <link rel="stylesheet" type="text/css" href="{{ '/style.css' | url }}">
-    <link rel="stylesheet" type="text/css" href="{{ '/extra.css' | url }}">
+    <style>
+      button {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
 
     <script src="{{ '/static/js/libs/p5.min.js' | url }}"></script>
     <script src="{{ '/static/js/libs/p5.sound.min.js' | url }}"></script>
@@ -19,9 +29,13 @@
   </head>
 
   <body>
+    <div id="canvas" class="overflow-hidden">
+    </div>
+
+    {# modals for user pages #}
     <div id="modal">
       {% for page in pages %}
-      <div id="room{{loop.index-1}}" class="hidden absolute flex w-screen h-screen items-center justify-center">
+      <div id="room{{loop.index-1}}" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
         <div class="w-10/12 h-5/6 overflow-scroll p-4
                     border-4 border-black bg-white shadow">
           <div class="flex justify-between">
@@ -34,7 +48,32 @@
       {% endfor %}
     </div>
 
-    
+    {# game navigation control for mobile #}
+    <div class="md:hidden absolute inset-x-0 bottom-0
+                flex justify-around py-4
+                select-none">
+      <div class="w-20 h-20 bg-purple shadow p-2
+                  grid grid-rows-3 grid-cols-3
+                  rounded-full border border-black">
+      
+        <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
+                {% imagemd "src/static/images/up-arrow.png", "up arrow", "(min-width: 30em) 50vw, 100vw" %}
+        </button>
+        <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
+                {% imagemd "src/static/images/right-arrow.png", "right arrow", "(min-width: 30em) 50vw, 100vw" %}
+        </button>
+        <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
+                {% imagemd "src/static/images/left-arrow.png", "left arrow", "(min-width: 30em) 50vw, 100vw" %}
+        </button>
+        <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
+                ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
+                {% imagemd "src/static/images/down-arrow.png", "down arrow", "(min-width: 30em) 50vw, 100vw" %}
+        </button>
+      </div>
+    </div>
 
     <script src="{{ '/static/js/nav/sketch.js' | url }}"></script>
     <!-- <script src="template.js"></script> -->
@@ -42,6 +81,64 @@
       const closeModal = (btn) => {
         const modal = btn.parentNode.parentNode
         modal.classList.toggle('hidden')
+      }
+      const handleLongPress = (e) => {
+        e.preventDefault()
+      } 
+      const navButtons = document.querySelectorAll('.nav-button')
+      navButtons.forEach(el => {
+        el.addEventListener('contextmenu', handleLongPress)
+      })
+
+      function buttonPressed(keyCode) {
+        let key
+        switch(keyCode) {
+          case LEFT_ARROW:
+            key = "ArrowLeft"
+            break
+          case RIGHT_ARROW:
+            key = "ArrowRight"
+            break
+          case UP_ARROW:
+            key = "ArrowUp"
+            break
+          case DOWN_ARROW:
+            key = "ArrowDown"
+            break
+        }
+        let keyEvent = new KeyboardEvent('keydown', {
+          keyCode: keyCode, 
+          key: key, 
+          code: key,
+          bubbles: true,
+          cancelable: true  
+        })
+        document.body.dispatchEvent(keyEvent)
+      }
+      function buttonReleased(keyCode) {
+        let key
+        switch(keyCode) {
+          case LEFT_ARROW:
+            key = "ArrowLeft"
+            break
+          case RIGHT_ARROW:
+            key = "ArrowRight"
+            break
+          case UP_ARROW:
+            key = "ArrowUp"
+            break
+          case DOWN_ARROW:
+            key = "ArrowDown"
+            break
+        }
+        let keyEvent = new KeyboardEvent('keyup', {
+          keyCode: keyCode, 
+          key: key, 
+          code: key,
+          bubbles: true,
+          cancelable: true  
+        })
+        document.body.dispatchEvent(keyEvent)
       }
     </script>
   </body>

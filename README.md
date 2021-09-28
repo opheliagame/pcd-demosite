@@ -7,14 +7,13 @@
 - [x] make recap index page 
 - [x] use 2021 for final site build
 - [ ] change sprite from person to cat, cos why not
-- [ ] avoid walls plus trees (?maybe)
+- [x] avoid walls plus trees (?maybe)
 - [ ] movement clean up, runs a bit inside walls rn
-- [ ] set up rooms inside letter building
-- [ ] add control panel for use on mobile  
+- [x] set up rooms inside letter building
+- [x] add control panel for use on mobile  
 
 
 [cozy farm asset on itch](https://shubibubi.itch.io/cozy-farm)
-
 
 [cozy people asset on itch](https://shubibubi.itch.io/cozy-people)
 
