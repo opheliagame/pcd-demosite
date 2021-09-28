@@ -6,24 +6,100 @@
 
     <title>PCD India</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.11/tailwind.min.css">
-    <link rel="stylesheet" type="text/css" href="/pcd-demosite/style.css">
-    <link rel="stylesheet" type="text/css" href="/pcd-demosite/extra.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/extra.css">
 
-    <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
-    <script src="/pcd-demosite/static/js/libs/p5.sound.min.js"></script>
+    <script src="/static/js/libs/p5.min.js"></script>
+    <script src="/static/js/libs/p5.sound.min.js"></script>
 
-    <script src="/pcd-demosite/static/js/nav/camera.js"></script>
-    <script src="/pcd-demosite/static/js/nav/user.js"></script>
-    <script src="/pcd-demosite/static/js/nav/door.js"></script>
-    <script src="/pcd-demosite/static/js/nav/building.js"></script>
+    <script src="/static/js/nav/camera.js"></script>
+    <script src="/static/js/nav/user.js"></script>
+    <script src="/static/js/nav/door.js"></script>
+    <script src="/static/js/nav/building.js"></script>
   </head>
 
   <body>
     <div id="modal">
+      
+      <div id="room0" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> PCD India 2021 </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://processingindia.com/2021 />
+        </div>
+      </div>
+      
+      <div id="room1" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> PCD India </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://processingindia.com />
+        </div>
+      </div>
+      
+      <div id="room2" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> PCD India 2019 </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://processingindia.com/2019/index.html />
+        </div>
+      </div>
+      
+      <div id="room3" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> Pranshu Chaudhary </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://wittywit.com/ />
+        </div>
+      </div>
+      
+      <div id="room4" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> Heerdyes Mahapatro </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://heerdyes.wordpress.com/ />
+        </div>
+      </div>
+      
+      <div id="room5" class="hidden absolute flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> Computational Mama </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+          <embed class="h-full w-full" src=https://friends.computationalmama.xyz/ />
+        </div>
+      </div>
+      
     </div>
 
-    <script src="/pcd-demosite/static/js/nav/sketch.js"></script>
+    
+
+    <script src="/static/js/nav/sketch.js"></script>
     <!-- <script src="template.js"></script> -->
+    <script>
+      const closeModal = (btn) => {
+        const modal = btn.parentNode.parentNode
+        modal.classList.toggle('hidden')
+      }
+    </script>
   </body>
+
+  
 </html>

@@ -7,11 +7,12 @@ let xMax, yMax
 let camera = new Camera(0, 0, width, height)
 let userSprite = []
 let buildingSprite
-let gridData, siteData
-let urlPrefix = '/pcd-demosite/static/assets/'
+let gridData, seatData, siteData
+let urlPrefix = '/static/assets/'
 
 function preload() {
   gridData = loadJSON(urlPrefix + 'pcd-town.json')
+  seatData = loadJSON(urlPrefix + 'pcd-town-seat.json')
   siteData = loadJSON(urlPrefix + 'site.json')
   let spriteBody = loadImage(urlPrefix + 'characters_free/assets/character_animation.png')
   let spriteHair = loadImage(urlPrefix + 'characters_free/assets/hair_braids_brown.png')
@@ -24,7 +25,7 @@ function preload() {
 }
 
 function setup() {
-  building = new Building(gridData, siteData, buildingSprite)
+  building = new Building(gridData, seatData, siteData, buildingSprite)
   xMax = building.cols * building.edge 
   yMax = building.rows * building.edge
   
@@ -45,11 +46,11 @@ function draw() {
   
   building.draw(camera)
   camera.move(user)
-  // user.io(building, xMax, yMax)
+  user.io(building, xMax, yMax)
   user.draw(camera)  
 }
 
-function keyPressed() {
-  user.io(keyCode, building, xMax, yMax)
-}
+// function keyPressed() {
+//   user.io(keyCode, building, xMax, yMax)
+// }
 
