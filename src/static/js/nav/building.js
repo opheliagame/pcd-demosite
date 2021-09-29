@@ -84,9 +84,15 @@ class Building {
       this.room = currDoor[0].room
       console.log(currDoor)
       this.room.classList.toggle('hidden', !this.showModal)
+      if(this.showModal) {
+        document.dispatchEvent(new CustomEvent('blurCanvas')) 
+      }
       this.prevRoom = this.room
     } 
     if(this.prevRoom !== null) {
+      if(!this.showModal) {
+        document.dispatchEvent(new CustomEvent('unblurCanvas')) 
+      }
       this.prevRoom.classList.toggle('hidden', !this.showModal)
     }
     

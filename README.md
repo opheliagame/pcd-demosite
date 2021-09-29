@@ -10,10 +10,10 @@
 - [ ] movement clean up, runs a bit inside walls rn
 - [x] set up rooms inside letter building
 - [x] add control panel for use on mobile  
-- [ ] change sprite from person to cat (cos why not), increase nav panel size
-- [ ] add empty room modal
+- [x] change sprite from person to cat (cos why not), increase nav panel size
+- [ ] style empty room modal, add info
 - [ ] add intro modal 
-- [ ] style individual page modals 
+- [ ] finish styling individual page modals 
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 

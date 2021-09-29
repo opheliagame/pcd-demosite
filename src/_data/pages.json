@@ -1,33 +1,53 @@
 [
   {
-    "name": "Opheliagame",
+    "name": "opheliagame",
     "src": "https://opheliagame.github.io/",
     "city": "Lucknow",
-    "interests": ["visuals", "shaders"],
-    "inspirations": ["computational mama", "patricio gonzalez vivo"]
+    "interests": ["visuals", "shaders", "typography"],
+    "inspirations": ["computational mama", "patricio gonzalez vivo"],
+    "superpower": "cat whisperer",
+    "pronoun": "she"
   },
   {
     "name": "PCD India 2021",
-    "src": "https://processingindia.com/2021"
+    "src": "https://processingindia.com/2021",
+    "desc": "Processing was officially launched with “Release 0001 — built 9 August 2001 in Japan, 6:01:26pm (5am Eastern).” We celebrated it's 20th Anniversary with some cake!"
   },
   {
     "name": "PCD India",
-    "src": "https://processingindia.com"
+    "src": "https://processingindia.com",
+    "desc": "Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world. We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show & tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE."
   },
   {
     "name": "PCD India 2019",
-    "src": "https://processingindia.com/2019/index.html"
+    "src": "https://processingindia.com/2019/index.html",
+    "desc": "Processing Community Day celebrated by the PCD India community at Srishti Institute of Art, Design and Technology on Feb 2nd 2019."
   },
   {
-    "name": "Pranshu Chaudhary",
-    "src": "https://wittywit.com/"
+    "name": "Pranshu",
+    "interests": ["Hardware (wood electronics smart materials)", "design ( ux )"],
+    "city": "Allahabad ( aka Prayagraj )",
+    "inspirations": ["Simone Giertz", "M.P. Ranjan", "George Nashikama", "Ram Bahori", "Smt. Malti"],
+    "superpower": "Cut in straight line, draw straight lines, cut perfect curves, draw perfect curves.",
+    "src": "https://wittywit.com/",
+    "pronoun": "he"
   },
   {
-    "name": "Heerdyes Mahapatro",
-    "src": "https://heerdyes.wordpress.com/"
+    "name": "Heerdyes",
+    "interests": ["turtle graphics and simulations", "midi/osc tinkering"],
+    "city": "Bengaluru",
+    "inspirations": ["Daniel Schiffman", "Sam Aaron"],
+    "superpower": "unfiltered perception!",
+    "src": "https://heerdyes.wordpress.com/",
+    "pronoun": "he"
   },
   {
     "name": "Computational Mama",
-    "src": "https://friends.computationalmama.xyz/"
+    "interests": ["visuals", "care"],
+    "city": "Udaipur",
+    "inspirations": ["Kiel.d.m", "Es devlin", "Ophelia game", "Patricio Gonzalez Vivo"],
+    "superpower": "Teleportation",
+    "src": "https://friends.computationalmama.xyz/",
+    "pronoun": "she"
   }
 ]
