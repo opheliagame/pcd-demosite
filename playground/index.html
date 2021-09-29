@@ -31,6 +31,13 @@
         background-color: #D7D5EB;
       }
 
+      .blue-underline {
+        background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
+        background-repeat: no-repeat;
+        background-size: 120% 0.5rem;
+        background-position: 0 110%;
+      }
+
     </style>
 
     <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
@@ -46,330 +53,478 @@
     <div id="canvas" class="overflow-hidden">
     </div>
     <div id="loader">
-      
     </div>
+    <div id="p5_loading" class="loadingclass"></div>
 
     
     <div id="modal">
       
       <div id="room0" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
-                  Opheliagame
+                <span class="text-2xl md:text-4xl font-bold uppercase">
+                  opheliagame
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Opheliagame </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> opheliagame </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold">Lucknow</span> home</p>
-                <p>She works with
-                  <ul>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p >she works with
+                  
                     
-                    <li class="font-bold"><span>visuals</span></li>
+                    <span class="text-sm md:text-base font-bold blue-underline">visuals</span> 
                     
-                    <li class="font-bold"><span>shaders</span></li>
+                    <span>&</span>
                     
-                  </ul>
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">shaders</span> 
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">typography</span> 
+                    
+                    
+                  
                 </p>
-                <p>She is inspired by
-                  <ul>
+                <p >she is inspired by
+                  
                     
-                    <li class="font-bold"><span>computational mama</span></li>
+                    <span class="text-sm md:text-base font-bold blue-underline">computational mama</span>
                     
-                    <li class="font-bold"><span>patricio gonzalez vivo</span></li>
+                    <span>&</span>
                     
-                  </ul>
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">patricio gonzalez vivo</span>
+                    
+                    
+
+                  
                 </p>
+
+                <p >she calls 
+                  <span class="text-sm md:text-base font-bold blue-underline">Lucknow</span> 
+                home</p>
+
+                <p >if she could have one superpower, it would be 
+                  <span class="text-sm md:text-base font-bold blue-underline">cat whisperer</span>
+                </p>
+
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room1" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
+                <span class="text-2xl md:text-4xl font-bold uppercase">
                   PCD India 2021
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India 2021 </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2021 </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
-                    
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
-                    
-                  </ul>
-                </p>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p>Processing was officially launched with “Release 0001 — built 9 August 2001 in Japan, 6:01:26pm (5am Eastern).” We celebrated it&#39;s 20th Anniversary with some cake!</p>
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room2" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
+                <span class="text-2xl md:text-4xl font-bold uppercase">
                   PCD India
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
-                    
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
-                    
-                  </ul>
-                </p>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p>Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world. We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show &amp; tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.</p>
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room3" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
+                <span class="text-2xl md:text-4xl font-bold uppercase">
                   PCD India 2019
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India 2019 </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2019 </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
-                    
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
-                    
-                  </ul>
-                </p>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p>Processing Community Day celebrated by the PCD India community at Srishti Institute of Art, Design and Technology on Feb 2nd 2019.</p>
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room4" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
-                  Pranshu Chaudhary
+                <span class="text-2xl md:text-4xl font-bold uppercase">
+                  Pranshu
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Pranshu Chaudhary </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Pranshu </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p >he works with
+                  
                     
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
+                    <span class="text-sm md:text-base font-bold blue-underline">Hardware (wood electronics smart materials)</span> 
                     
-                  </ul>
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">design ( ux )</span> 
+                    
+                    
+                  
                 </p>
+                <p >he is inspired by
+                  
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Simone Giertz</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">M.P. Ranjan</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">George Nashikama</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Ram Bahori</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Smt. Malti</span>
+                    
+                    
+
+                  
+                </p>
+
+                <p >he calls 
+                  <span class="text-sm md:text-base font-bold blue-underline">Allahabad ( aka Prayagraj )</span> 
+                home</p>
+
+                <p >if he could have one superpower, it would be 
+                  <span class="text-sm md:text-base font-bold blue-underline">Cut in straight line, draw straight lines, cut perfect curves, draw perfect curves.</span>
+                </p>
+
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room5" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
-                  Heerdyes Mahapatro
+                <span class="text-2xl md:text-4xl font-bold uppercase">
+                  Heerdyes
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Heerdyes Mahapatro </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Heerdyes </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p >he works with
+                  
                     
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
+                    <span class="text-sm md:text-base font-bold blue-underline">turtle graphics and simulations</span> 
                     
-                  </ul>
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">midi/osc tinkering</span> 
+                    
+                    
+                  
                 </p>
+                <p >he is inspired by
+                  
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Daniel Schiffman</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Sam Aaron</span>
+                    
+                    
+
+                  
+                </p>
+
+                <p >he calls 
+                  <span class="text-sm md:text-base font-bold blue-underline">Bengaluru</span> 
+                home</p>
+
+                <p >if he could have one superpower, it would be 
+                  <span class="text-sm md:text-base font-bold blue-underline">unfiltered perception!</span>
+                </p>
+
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
       </div>
       
       <div id="room6" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full overflow-scroll 
-                    border-4 border-black
-                    bg-white">
+        <div class="w-full h-full">
           
-          <div class="flex h-full justify-between">
-            <div class="flex flex-col justify-evenly py-12 px-24">
-              <div class="">
-                <span>welcome to</span>
+          <div class="flex h-full justify-center">
+            <div class="relative md:py-12 md:px-24 md:w-4/6
+                        grid grid-rows-4 grid-cols-3 items-center
+                        px-6 py-10 bg-blue-100 border border-black">
+              <div class="row-start-1 col-span-full self-start">
+                <span>you've come to</span>
                 <br>
-                <span class="text-4xl font-bold uppercase">
+                <span class="text-2xl md:text-4xl font-bold uppercase">
                   Computational Mama
                 </span>
                 <span>'s room</span>
                 <br>
-                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
-                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Computational Mama </span>
+                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Computational Mama </span>
               </div>
-              <div class="text-lg lowercase">
-                <p>She calls <span class="font-bold"></span> home</p>
-                <p>She works with
-                  <ul>
+
+              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+                          md:row-start-3 md:row-end-5
+                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                
+                <p >she works with
+                  
                     
-                  </ul>
-                </p>
-                <p>She is inspired by
-                  <ul>
+                    <span class="text-sm md:text-base font-bold blue-underline">visuals</span> 
                     
-                  </ul>
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">care</span> 
+                    
+                    
+                  
                 </p>
+                <p >she is inspired by
+                  
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Kiel.d.m</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Es devlin</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Ophelia game</span>
+                    
+                    <span>&</span>
+                    
+                    
+                    <span class="text-sm md:text-base font-bold blue-underline">Patricio Gonzalez Vivo</span>
+                    
+                    
+
+                  
+                </p>
+
+                <p >she calls 
+                  <span class="text-sm md:text-base font-bold blue-underline">Udaipur</span> 
+                home</p>
+
+                <p >if she could have one superpower, it would be 
+                  <span class="text-sm md:text-base font-bold blue-underline">Teleportation</span>
+                </p>
+
+                
               </div>
+              <div class="row-start-3 row-end-5 col-start-2 col-end-4
+                          md:row-start-2 md:row-end-4
+                          w-full h-full bg-purple-100 z-10">
+                <div class="">
+
+                </div>
+              </div>
+              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
 
             
           </div>
-
-          
-          
-        
-            
         </div>
         
         
@@ -414,18 +569,30 @@
     </div>
 
     <script src="/pcd-demosite/static/js/nav/sketch.js"></script>
-    <!-- <script src="template.js"></script> -->
     <script src="/pcd-demosite/static/js/loadingSketch.js"></script>
     <script>
       let loadingSketch = new p5(LoadingSketch, 'loader');
+      let cnv, ctx
       document.addEventListener('appLoaded', () => {
+        cnv = document.getElementById('canvas').children[0]
+        ctx = cnv.getContext('2d')
         loadingSketch.remove(); 
         document.body.classList.add('loaded'); 
+      });
+      document.addEventListener('blurCanvas', () => {
+        ctx.filter = "blur(12px)"
+        
+      });
+      document.addEventListener('unblurCanvas', () => {
+        ctx.filter = "none"
+        
       });
 
       const closeModal = (btn) => {
         const modal = btn.parentNode.parentNode
         modal.classList.toggle('hidden')
+        
+        document.dispatchEvent(new CustomEvent('unblurCanvas'))
       }
       const handleLongPress = (e) => {
         e.preventDefault()

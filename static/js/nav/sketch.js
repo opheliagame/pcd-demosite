@@ -56,6 +56,7 @@ function setup() {
 
 function draw() {
   background(255)
+  t = millis()/1000
   
   building.draw(camera)
   camera.move(user)

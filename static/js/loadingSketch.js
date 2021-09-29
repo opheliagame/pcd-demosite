@@ -18,7 +18,7 @@ function LoadingSketch(p) {
     t = p.millis()/1000.0
   
     for(let j = 0; j < p.height; j+=size){
-      let xoff = p.sin(p.radians(j+t))*size*5
+      let xoff = p.sin(p.radians(j)+t)*size*5
      
       let i = xoff
       while(i < p.width+amp1) {
