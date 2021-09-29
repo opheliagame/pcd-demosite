@@ -25,7 +25,9 @@ class Building {
     }
    
     this.doors.forEach((door, index) => {
-      door.room = document.getElementById(door.roomID)     
+      let modal = document.getElementById(door.roomID)     
+      if(modal === null) door.room = document.getElementById('empty-room')
+      else door.room = modal
     })
     console.log(this)
   }

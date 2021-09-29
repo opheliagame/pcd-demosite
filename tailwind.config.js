@@ -46,6 +46,13 @@ module.exports = {
       gridTemplateColumns: {
         'speaker-md': '2fr 1fr',
         'speaker': '1.5fr 0.5fr 1fr'
+      },
+      scale: {
+        '-100': '-1'
+      },
+      skew: {
+        '32': '32deg',
+        '48': '48deg'
       }
     },
     colors: {
@@ -57,7 +64,8 @@ module.exports = {
         DEFAULT: '#AA436F'
       },
       purple: {
-        DEFAULT: '#9F62AE'
+        DEFAULT: '#9F62AE',
+        '100': '#D7D5EB'
       },
       brown: {
         DEFAULT: '#BF7958'

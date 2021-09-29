@@ -6,11 +6,14 @@
 - [x] add footer with links to socials pcd
 - [x] make recap index page 
 - [x] use 2021 for final site build
-- [ ] change sprite from person to cat, cos why not
 - [x] avoid walls plus trees (?maybe)
 - [ ] movement clean up, runs a bit inside walls rn
 - [x] set up rooms inside letter building
 - [x] add control panel for use on mobile  
+- [ ] change sprite from person to cat (cos why not), increase nav panel size
+- [ ] add empty room modal
+- [ ] add intro modal 
+- [ ] style individual page modals 
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 

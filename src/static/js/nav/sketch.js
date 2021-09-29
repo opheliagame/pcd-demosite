@@ -8,13 +8,13 @@ window.mobileCheck = function() {
 let modal = document.getElementById('modal')
 let building, user
 let height = window.innerHeight
-let width = mobileCheck ? window.innerWidth*2 : window.innerWidth
+let width = (mobileCheck() === true) ? window.innerWidth*2 : window.innerWidth
 let xMax, yMax
 let camera = new Camera(0, 0, width, height)
 let userSprite = []
 let buildingSprite
 let gridData, seatData, siteData
-let urlPrefix = '/pcd-demosite/static/assets/'
+let urlPrefix = '/static/assets/'
 
 function preload() {
   gridData = loadJSON(urlPrefix + 'pcd-town.json')
@@ -26,6 +26,7 @@ function preload() {
   let spriteShirt = loadImage(urlPrefix + 'characters_free/assets/shirt_basic_red.png')
   let spriteShoes = loadImage(urlPrefix + 'characters_free/assets/shoes_brown.png')
   userSprite.push(spriteBody, spriteHair, spritePants, spriteShirt, spriteShoes) 
+  userSprite = loadImage(urlPrefix + 'cat.png')
   buildingSprite = loadImage(urlPrefix + 'sprite.png')
 
 }
@@ -38,14 +39,19 @@ function setup() {
   let cnv = createCanvas(width, height)
   cnv.parent('canvas')
 
-  let g = createGraphics(32*8, 32*2)
-  userSprite.forEach(img => g.image(img, 0, 0))
-  user = new User(0, 0, building.edge, g.get())
+  // let g = createGraphics(32*8, 32*2)
+  // userSprite.forEach(img => g.image(img, 0, 0))
+  user = new User(0, 0, building.edge, userSprite)
   building.build()
 
   building.drawBackground(camera)
 
   console.log(building.grid.blocks)
+
+  if(mobileCheck() === true) {
+    document.getElementById('nav-mobile').classList.remove('hidden')
+  }
+  document.dispatchEvent(new CustomEvent('appLoaded'))
 }
 
 function draw() {
@@ -67,6 +73,10 @@ function draw() {
   user.io(keyCode, building, xMax, yMax)
 
   user.draw(camera)  
+}
+
+function removeLoader() {
+  document.getElementById('loader').remove()
 }
 
 // function keyPressed() {
