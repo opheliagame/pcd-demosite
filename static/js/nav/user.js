@@ -31,6 +31,8 @@ class User {
     let xStart = yStart === 0 ? 
                 (this.spritePos%4) * 32 :
                 ((7-this.spritePos)%4) * 32 
+    yStart = Math.floor(this.spritePos/3) * 32
+    xStart = (this.spritePos % 3) * 32
     let currSprite = this.sprite.get(xStart, yStart, 32, 32)
   
     push()
@@ -39,7 +41,7 @@ class User {
     // fill(255)
     // rect(0, 0, this.w*2, this.w*2)
     imageMode(CENTER)
-    image(currSprite, 0, 0, this.w, this.w)
+    image(currSprite, 0, 0, this.w*1.2, this.w*1.2)
     pop()
   }
 
@@ -60,17 +62,17 @@ class User {
     if(moving && this.frameCount > 6) {
       this.frameCount = 0
       switch(this.dir) {
-        case 'left':
-          this.spritePos = (((this.spritePos+1) % 4) + 4) % 8
-          break
         case 'right':
-          this.spritePos = (this.spritePos+1) % 4
+          this.spritePos = (((this.spritePos+1) % 3) + 6) 
           break
-        case 'up':
-          this.spritePos = (((this.spritePos+1) % 4) + 4) % 8
+        case 'left':
+          this.spritePos = (((this.spritePos+1) % 3) + 3)
           break
         case 'down':
-          this.spritePos = (this.spritePos+1) % 4
+          this.spritePos = (((this.spritePos+1) % 3) + 0)
+          break
+        case 'up':
+          this.spritePos = (((this.spritePos+1) % 3) + 9)
           break
       }
     }

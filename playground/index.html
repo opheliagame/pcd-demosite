@@ -17,6 +17,20 @@
         -ms-user-select: none;
         user-select: none;
       }
+
+      ::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+      }
+
+      .text-shadow {
+        text-shadow: 0 0 0.2em blue;
+      }
+
+      .purple-test {
+        background-color: #D7D5EB;
+      }
+
     </style>
 
     <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
@@ -31,83 +45,352 @@
   <body>
     <div id="canvas" class="overflow-hidden">
     </div>
-
-    
-    <div id="modal">
-      
-      <div id="room0" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> PCD India 2021 </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://processingindia.com/2021 />
-        </div>
-      </div>
-      
-      <div id="room1" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> PCD India </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://processingindia.com />
-        </div>
-      </div>
-      
-      <div id="room2" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> PCD India 2019 </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://processingindia.com/2019/index.html />
-        </div>
-      </div>
-      
-      <div id="room3" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> Pranshu Chaudhary </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://wittywit.com/ />
-        </div>
-      </div>
-      
-      <div id="room4" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> Heerdyes Mahapatro </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://heerdyes.wordpress.com/ />
-        </div>
-      </div>
-      
-      <div id="room5" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
-        <div class="w-10/12 h-5/6 overflow-scroll p-4
-                    border-4 border-black bg-white shadow">
-          <div class="flex justify-between">
-            <p class="bg-yellow-300 uppercase px-2"> Computational Mama </p>
-            <button onclick="closeModal(this)">X</button>
-          </div>
-          <embed class="h-full w-full" src=https://friends.computationalmama.xyz/ />
-        </div>
-      </div>
+    <div id="loader">
       
     </div>
 
     
-    <div class="md:hidden absolute inset-x-0 bottom-0
+    <div id="modal">
+      
+      <div id="room0" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  Opheliagame
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Opheliagame </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold">Lucknow</span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                    <li class="font-bold"><span>visuals</span></li>
+                    
+                    <li class="font-bold"><span>shaders</span></li>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                    <li class="font-bold"><span>computational mama</span></li>
+                    
+                    <li class="font-bold"><span>patricio gonzalez vivo</span></li>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room1" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  PCD India 2021
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India 2021 </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room2" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  PCD India
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room3" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  PCD India 2019
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> PCD India 2019 </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room4" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  Pranshu Chaudhary
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Pranshu Chaudhary </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room5" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  Heerdyes Mahapatro
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Heerdyes Mahapatro </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="room6" class="hidden absolute inset-0 w-full h-screen  ">
+        <div class="w-full h-full overflow-scroll 
+                    border-4 border-black
+                    bg-white">
+          
+          <div class="flex h-full justify-between">
+            <div class="flex flex-col justify-evenly py-12 px-24">
+              <div class="">
+                <span>welcome to</span>
+                <br>
+                <span class="text-4xl font-bold uppercase">
+                  Computational Mama
+                </span>
+                <span>'s room</span>
+                <br>
+                <span class="inline-block text-4xl font-bold uppercase text-yellow-100
+                            transform -scale-y-100 -translate-y-6 translate-x-4 skew-x-48"> Computational Mama </span>
+              </div>
+              <div class="text-lg lowercase">
+                <p>She calls <span class="font-bold"></span> home</p>
+                <p>She works with
+                  <ul>
+                    
+                  </ul>
+                </p>
+                <p>She is inspired by
+                  <ul>
+                    
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+          
+          
+        
+            
+        </div>
+        
+        
+      </div>
+      
+      <div id="empty-room" class="hidden absolute inset-0 flex w-screen h-screen items-center justify-center">
+        <div class="w-10/12 h-5/6 overflow-scroll p-4
+                    border-4 border-black bg-white shadow">
+          <div class="flex justify-between">
+            <p class="bg-yellow-300 uppercase px-2"> empty room </p>
+            <button onclick="closeModal(this)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div id="nav-mobile" class="hidden md:hidden absolute inset-x-0 bottom-0
                 flex justify-around py-4
                 select-none">
-      <div class="w-20 h-20 bg-purple shadow p-2
+      <div class="w-24 h-24 bg-purple shadow p-2
                   grid grid-rows-3 grid-cols-3
                   rounded-full border border-black">
       
@@ -132,7 +415,14 @@
 
     <script src="/pcd-demosite/static/js/nav/sketch.js"></script>
     <!-- <script src="template.js"></script> -->
+    <script src="/pcd-demosite/static/js/loadingSketch.js"></script>
     <script>
+      let loadingSketch = new p5(LoadingSketch, 'loader');
+      document.addEventListener('appLoaded', () => {
+        loadingSketch.remove(); 
+        document.body.classList.add('loaded'); 
+      });
+
       const closeModal = (btn) => {
         const modal = btn.parentNode.parentNode
         modal.classList.toggle('hidden')
