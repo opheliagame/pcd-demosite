@@ -11,7 +11,7 @@
 - [x] set up rooms inside letter building
 - [x] add control panel for use on mobile  
 - [x] change sprite from person to cat (cos why not), increase nav panel size
-- [ ] style empty room modal, add info
+- [x] style empty room modal, add info
 - [x] add intro modal 
 - [ ] finish styling individual page modals 
 - [ ] correct C letter top portion, can't get in
