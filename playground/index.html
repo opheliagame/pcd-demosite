@@ -42,6 +42,7 @@
 
     <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
     <script src="/pcd-demosite/static/js/libs/p5.sound.min.js"></script>
+    <script src="/pcd-demosite/static/js/libs/canvastotiff.min.js"></script>
 
     <script src="/pcd-demosite/static/js/nav/camera.js"></script>
     <script src="/pcd-demosite/static/js/nav/user.js"></script>
@@ -55,6 +56,75 @@
     <div id="loader">
     </div>
     <div id="p5_loading" class="loadingclass"></div>
+
+    <div id="intro-modal" class="absolute inset-0 w-screen h-screen px-6 py-10 md:py-12 md:px-24">
+      <div class="flex h-full justify-center">
+        <div class="relative h-full md:py-12 md:px-24 md:w-4/6
+                  grid grid-rows-4 grid-cols-3 items-center
+                  px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start px-2">
+            <span>welcome to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">PCD TOWN</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
+              <span class="inline-block animate-move-shadow">PCD TOWN</span>
+            </span>
+          </div>
+          <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+                      md:row-start-3 md:row-end-5
+                      h-full w-full p-2 md:p-6
+                      bg-white text-xs md:text-sm lowercase z-20">
+            
+            <p>what is a website but a space that someone occupies and although it has become natural for us to
+              <span class="text-sm md:text-base font-bold blue-underline">scroll</span> &
+              <span class="text-sm md:text-base font-bold blue-underline">click</span> &
+              <span class="text-sm md:text-base font-bold blue-underline">hover</span></span> in this context, this is an experiment to find how it would be if we were to
+              <span class="text-sm md:text-base font-bold blue-underline">walk</span> &
+              <span class="text-sm md:text-base font-bold blue-underline">jump</span> &
+              <span class="text-sm md:text-base font-bold blue-underline">run</span></p>
+          </div>
+          <div id="intro-text-2" class="hidden row-start-2 row-end-4 col-start-1 col-end-3
+                      md:row-start-3 md:row-end-5
+                      h-full w-full p-2 md:p-6
+                      bg-white text-xs md:text-sm lowercase z-20">
+            <p>this space is made in the hopes of making it a little easier for people in this wonderful 
+              <span class="text-sm md:text-base font-bold blue-underline">community</span> to get to know each other, and 
+              <span class="text-sm md:text-base font-bold blue-underline">find people</span> with similar interests, hopefully in a fun way!</p>
+          </div>
+          <div id="intro-images" class="row-start-3 row-end-5 col-start-2 col-end-4
+                      md:row-start-2 md:row-end-4
+                      w-full h-full bg-purple-100 z-10">
+            <div class="w-full h-full">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7a9f0f03-300.avif 300w, /pcd-demosite/static/img/7a9f0f03-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7a9f0f03-300.jpeg 300w, /pcd-demosite/static/img/7a9f0f03-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD P" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7a9f0f03-300.jpeg" width="600" height="653"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/28a31190-300.avif 300w, /pcd-demosite/static/img/28a31190-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/28a31190-300.jpeg 300w, /pcd-demosite/static/img/28a31190-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD C" loading="lazy" decoding="async" src="/pcd-demosite/static/img/28a31190-300.jpeg" width="600" height="658"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/d0711b1d-300.avif 300w, /pcd-demosite/static/img/d0711b1d-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/d0711b1d-300.jpeg 300w, /pcd-demosite/static/img/d0711b1d-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD N" loading="lazy" decoding="async" src="/pcd-demosite/static/img/d0711b1d-300.jpeg" width="600" height="676"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
+            </div>
+            <div class="w-full h-full hidden">
+              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/98ef4992-300.avif 300w, /pcd-demosite/static/img/98ef4992-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/98ef4992-300.jpeg 300w, /pcd-demosite/static/img/98ef4992-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD A" loading="lazy" decoding="async" src="/pcd-demosite/static/img/98ef4992-300.jpeg" width="600" height="616"></picture>
+            </div>
+
+          </div>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
+      </div>
+    </div>
 
     
     <div id="modal">
@@ -571,6 +641,23 @@
     <script src="/pcd-demosite/static/js/nav/sketch.js"></script>
     <script src="/pcd-demosite/static/js/loadingSketch.js"></script>
     <script>
+      let introImageIndex = 0
+      let prevImageIndex = null
+      function shuffleImages() {
+        let images = document.getElementById('intro-images').children
+        images[introImageIndex].classList.remove('hidden')
+        if(prevImageIndex !== null) images[prevImageIndex].classList.add('hidden')
+      }
+      let shuffleIntervalID = setInterval(() => {
+        prevImageIndex = introImageIndex
+        introImageIndex = (introImageIndex+1)%8
+        shuffleImages()
+      }, 1000)
+      let flipIntervalID = setInterval(() => {
+        document.getElementById('intro-text-2').classList.toggle('hidden')
+        document.getElementById('intro-text-1').classList.toggle('hidden')
+      }, 5000)
+
       let loadingSketch = new p5(LoadingSketch, 'loader');
       let cnv, ctx
       document.addEventListener('appLoaded', () => {
@@ -592,7 +679,7 @@
         const modal = btn.parentNode.parentNode
         modal.classList.toggle('hidden')
         
-        document.dispatchEvent(new CustomEvent('unblurCanvas'))
+        
       }
       const handleLongPress = (e) => {
         e.preventDefault()
