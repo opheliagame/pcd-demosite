@@ -52,7 +52,8 @@ module.exports = {
       },
       skew: {
         '32': '32deg',
-        '48': '48deg'
+        '48': '48deg',
+        '-48': '-48deg'
       }
     },
     colors: {
@@ -73,7 +74,8 @@ module.exports = {
     },
     animation: {
       'spin-slow': 'spin 8s linear infinite',
-      'flutter': 'flutter 3s ease-in-out infinite'
+      'flutter': 'flutter 3s ease-in-out infinite',
+      'move-shadow': 'moveShadow 8s ease-in-out infinite',
     },
     keyframes: {
       flutter: {
@@ -83,6 +85,10 @@ module.exports = {
       spin: {
           from: { transform: 'rotate(0deg)' },
           to: { transform:'rotate(360deg)' }
+      },
+      moveShadow: {
+        '0%, 100%': { transform: 'translateX(10px) skew(-48deg, 0deg)' },
+        '50%': { transform: 'translateX(-20px) skew(64deg, 0deg)' },
       }
     }
   },

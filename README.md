@@ -12,8 +12,10 @@
 - [x] add control panel for use on mobile  
 - [x] change sprite from person to cat (cos why not), increase nav panel size
 - [ ] style empty room modal, add info
-- [ ] add intro modal 
+- [x] add intro modal 
 - [ ] finish styling individual page modals 
+- [ ] correct C letter top portion, can't get in
+- [ ] use correct height for mobile, portion gets left url bar 
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 

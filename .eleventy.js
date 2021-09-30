@@ -39,6 +39,24 @@ async function imageMdShortCode(src, alt, sizes) {
   };
   return Image.generateHTML(metadata, imageAttributes);
 }
+async function imageFillShortCode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [300, 600],
+    formats: ['avif', 'jpeg'],
+    // urlPath: '/static/img',
+    urlPath: '/pcd-demosite/static/img',
+    outputDir: '_site/static/img',
+    // outputDir: 'pcd-demosite/static/img'
+  });
+  let imageAttributes = {
+    style: 'width: 100%; height: 100%; object-fit: cover;',
+    alt, 
+    sizes, 
+    loading: 'lazy',
+    decoding: 'async'
+  };
+  return Image.generateHTML(metadata, imageAttributes);
+}
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('src/static/css/extra.css')
@@ -56,6 +74,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("imagemd", imageMdShortCode);
   eleventyConfig.addLiquidShortcode("imagemd", imageMdShortCode);
   eleventyConfig.addJavaScriptFunction("imagemd", imageMdShortCode);
+
+  eleventyConfig.addNunjucksAsyncShortcode("imagefill", imageFillShortCode);
+  eleventyConfig.addLiquidShortcode("imagefill", imageFillShortCode);
+  eleventyConfig.addJavaScriptFunction("imagefill", imageFillShortCode);
 
   eleventyConfig.addShortcode('vid', (videoName) => `
   <video controls width="100%">
