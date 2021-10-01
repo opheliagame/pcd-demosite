@@ -62,7 +62,7 @@
     </div>
     <div id="p5_loading" class="loadingclass"></div>
 
-    <div id="intro-modal" class="hidden absolute inset-0 w-screen h-screen px-6 py-10 md:py-12 md:px-24">
+    <div id="intro-modal" class="absolute inset-0 w-screen h-screen md:py-12 md:px-24">
       <div class="flex h-full justify-center">
         <div class="relative h-full md:py-12 md:px-24 md:w-4/6
                   grid grid-rows-4 grid-cols-3 items-center
@@ -135,9 +135,8 @@
     {# modals for user pages #}
     <div id="modal">
       {% for page in pages %}
-      <div id="room{{loop.index-1}}" class="absolute inset-0 w-full h-screen  ">
+      <div id="room{{loop.index-1}}" class="hidden absolute inset-0 w-full h-screen  ">
         <div class="w-full h-full">
-          
           <div class="flex h-full justify-center">
             <div class="relative md:py-12 md:px-24 md:w-4/6
                         grid grid-rows-4 grid-cols-3 items-center
@@ -154,64 +153,57 @@
                             transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> {{ page.name }} </span>
               </div>
 
-              <div class="row-start-2 row-end-4 col-start-1 col-end-3 
+              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
                           md:row-start-3 md:row-end-5
-                          h-full w-full p-2 bg-white text-xs md:text-sm lowercase z-20">
+                          h-full w-full text-xs md:text-sm lowercase z-20">
+                <div class="flex flex-col p-2 bg-white min-h-2/3">
                 {% if page.pronoun %}
-                <p >{{ page.pronoun }} works with
+                  <p >{{ page.pronoun }} works with
                   
-                    {% for interest in page.interests %}
-                    <span class="text-sm md:text-base font-bold blue-underline">{{ interest }}</span> 
-                    {% if loop.last !== true %}
-                    <span>&</span>
-                    {% endif %}
-                    {% endfor %}
+                      {% for interest in page.interests %}
+                      <span class="text-sm md:text-base font-bold blue-underline">{{ interest }}</span>
+                      {% if loop.last !== true %}
+                      <span>&</span>
+                      {% endif %}
+                      {% endfor %}
                   
-                </p>
-                <p >{{ page.pronoun }} is inspired by
+                  </p>
+                  <p >{{ page.pronoun }} is inspired by
                   
-                    {% for inspo in page.inspirations %}
-                    <span class="text-sm md:text-base font-bold blue-underline">{{ inspo }}</span>
-                    {% if loop.last !== true %}
-                    <span>&</span>
-                    {% endif %}
-                    {% endfor %}
-
+                      {% for inspo in page.inspirations %}
+                      <span class="text-sm md:text-base font-bold blue-underline">{{ inspo }}</span>
+                      {% if loop.last !== true %}
+                      <span>&</span>
+                      {% endif %}
+                      {% endfor %}
                   
-                </p>
-
-                <p >{{ page.pronoun }} calls 
-                  <span class="text-sm md:text-base font-bold blue-underline">{{ page.city }}</span> 
-                home</p>
-
-                <p >if {{ page.pronoun }} could have one superpower, it would be 
-                  <span class="text-sm md:text-base font-bold blue-underline">{{ page.superpower }}</span>
-                </p>
+                  </p>
+                  <p >{{ page.pronoun }} calls
+                    <span class="text-sm md:text-base font-bold blue-underline">{{ page.city }}</span>
+                  home</p>
+                  <p >if {{ page.pronoun }} could have one superpower, it would be
+                    <span class="text-sm md:text-base font-bold blue-underline">{{ page.superpower }}</span>
+                  </p>
+                
 
                 {% else %}
-                <p>{{ page.desc }}</p>
+                  <p>{{ page.desc }}</p>
                 {% endif %}
+                </div>
               </div>
               <a href={{page.src}} target="_blank" rel="noopener noreferrer"
                 class="row-start-3 row-end-5 col-start-2 col-end-4
                             md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10
-                            custom-cursor">
-                
+                            w-full h-full bg-purple-100 z-10">
+                <video src="/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
               </a>
               <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
-
-            {# <div class="h-1/2 w-1/2 flex-none self-center">
-              <embed class="overflow-hidden h-full w-full pointer-events-none " src={{page.src}} />
-            </div> #}
           </div>
         </div>
-        
-        
       </div>
       {% endfor %}
-      <div id="empty-room" class="absolute inset-0 w-screen h-screen">
+      <div id="empty-room" class="hidden absolute inset-0 w-screen h-screen">
         <div class="flex h-full justify-center">
           <div class="relative md:py-12 md:px-24 md:w-4/6
                       grid grid-rows-4 grid-cols-3 items-center
@@ -232,15 +224,14 @@
                         h-full w-full p-2 md:p-6
                         bg-white text-xs md:text-sm lowercase z-20">
               <p></p>
-              <p>👋 if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
+              <p>if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
             </div>
             <a href="https://forms.gle/RB78XiZWP8AffZCs7" target="_blank" rel="noopener noreferrer"
                id="intro-text-2" class="row-start-3 row-end-5 col-start-2 col-end-4
                         md:row-start-2 md:row-end-4
                         w-full h-full bg-purple-100 z-10
                         custom-cursor">
-              
-              
+                <video src="/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
             </a>
             
             <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>

@@ -54,6 +54,9 @@ module.exports = {
         '32': '32deg',
         '48': '48deg',
         '-48': '-48deg'
+      },
+      minHeight: {
+        '2/3': '66%'
       }
     },
     colors: {
