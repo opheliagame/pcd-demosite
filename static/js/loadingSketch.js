@@ -5,7 +5,7 @@ let amp1, amp2, t, cols, size
 function LoadingSketch(p) {
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
-    p.textAlign(CENTER, CENTER)
+    p.textAlign(p.CENTER, p.CENTER)
     size = p.width/50
     p.textSize(size)
     amp1 = p.textWidth(MSG1)
