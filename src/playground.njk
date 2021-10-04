@@ -56,13 +56,12 @@
   </head>
 
   <body>
-    <div id="canvas" class="overflow-hidden">
+    <div id="canvas" class="hidden">
     </div>
     <div id="loader">
     </div>
-    <div id="p5_loading" class="loadingclass"></div>
 
-    <div id="intro-modal" class="absolute inset-0 w-screen h-screen md:py-12 md:px-24">
+    <div id="intro-modal" class="absolute inset-0 w-screen h-screen px-4 py-8 md:py-12 md:px-24">
       <div class="flex h-full justify-center">
         <div class="relative h-full md:py-12 md:px-24 md:w-4/6
                   grid grid-rows-4 grid-cols-3 items-center
@@ -195,7 +194,7 @@
                 class="row-start-3 row-end-5 col-start-2 col-end-4
                             md:row-start-2 md:row-end-4
                             w-full h-full bg-purple-100 z-10">
-                <video src="/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
               </a>
               <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
             </div>
@@ -231,7 +230,7 @@
                         md:row-start-2 md:row-end-4
                         w-full h-full bg-purple-100 z-10
                         custom-cursor">
-                <video src="/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
             </a>
             
             <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
@@ -287,9 +286,11 @@
         document.getElementById('intro-text-1').classList.toggle('hidden')
       }, 6000)
 
-      let loadingSketch = new p5(LoadingSketch, 'loader');
+      let loadingSketch = new p5(LoadingSketch, document.getElementById('loader'));
+      let PCDTown = new p5(PCDTownSketch, document.getElementById('canvas'))
       let cnv, ctx
       document.addEventListener('appLoaded', () => {
+        document.getElementById('canvas').classList.remove('hidden')
         cnv = document.getElementById('canvas').children[0]
         ctx = cnv.getContext('2d')
         loadingSketch.remove(); 

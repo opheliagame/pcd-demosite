@@ -1,5 +1,6 @@
 class Building {
-  constructor(gridJson, seatGridJson, siteJson, sprite) {
+  constructor(p, gridJson, seatGridJson, siteJson, sprite) {
+    this.p = p
     this.doors = new Array()
     this.showModal = false
     this.prevRoom = null
@@ -10,8 +11,11 @@ class Building {
     this.cols = this.grid.cols
     this.edge = width/this.cols
     this.sprite = sprite
-    this.back = createGraphics((this.cols)*this.edge, (this.rows)*this.edge)
-    this.seatCnv = createGraphics((this.cols)*this.edge, (this.rows)*this.edge)
+    this.backCnv = document.createElement('canvas')
+    this.backCnv.width = this.cols*this.edge
+    this.backCnv.height = this.rows*this.edge
+    this.backCnv.id = 'building-background'
+    this.back = this.p.createGraphics((this.cols)*this.edge, (this.rows)*this.edge)
   }
 
   build() {
@@ -24,7 +28,7 @@ class Building {
       }
     }
    
-    this.doors.forEach((door, index) => {
+    this.doors.forEach(door => {
       let modal = document.getElementById(door.roomID)     
       if(modal === null) door.room = document.getElementById('empty-room')
       else door.room = modal
@@ -33,42 +37,13 @@ class Building {
   }
 
   draw(camera) {
-    push()
-    translate(-camera.x, -camera.y)
-    image(this.back, 0, 0)
-    image(this.seatCnv, 0, 0)
-    pop()
+    this.p.push()
+    this.p.translate(-camera.x, -camera.y)
+    this.p.image(this.back, 0, 0)
+    // this.p.image(this.seatCnv, 0, 0)
+    this.p.pop()
   }
 
-  drawBackground(camera) {
-    
-    for(let i = 0; i < (this.rows)*(this.cols); i++) {
-      let block = this.grid.blocks[i]
-      let x = block.x * this.edge
-      let y = block.y * this.edge
-      let tx = block.tileIndex % 3
-      let ty = Math.floor(block.tileIndex / 3)
-      let tile = this.sprite.get(tx*16, ty*16, 16, 16)
-      this.back.push()
-      this.back.translate(x, y)
-      this.back.image(tile, 0, 0, this.edge, this.edge)
-      this.back.pop()
-      
-    }
-    for(let i = 0; i < (this.rows)*(this.cols); i++) {
-      let block = this.seatGrid.blocks[i]
-      let x = block.x * this.edge
-      let y = block.y * this.edge
-      let tx = block.tileIndex % 3
-      let ty = Math.floor(block.tileIndex / 3)
-      let tile = this.sprite.get(tx*16, ty*16, 16, 16)
-      this.seatCnv.push()
-      this.seatCnv.translate(x, y)
-      this.seatCnv.image(tile, 0, 0, this.edge, this.edge)
-      this.seatCnv.pop()
-      
-    }
-  }
 
   add(door) {
     door.roomID = `room${this.doors.length}`

@@ -15,65 +15,85 @@ let userSprite = []
 let buildingSprite
 let gridData, seatData, siteData
 let urlPrefix = '/pcd-demosite/static/assets/'
+let drawingWorker 
 
-function preload() {
-  gridData = loadJSON(urlPrefix + 'pcd-town.json')
-  seatData = loadJSON(urlPrefix + 'pcd-town-seat.json')
-  siteData = loadJSON(urlPrefix + 'site.json')
-  let spriteBody = loadImage(urlPrefix + 'characters_free/assets/character_animation.png')
-  let spriteHair = loadImage(urlPrefix + 'characters_free/assets/hair_braids_brown.png')
-  let spritePants = loadImage(urlPrefix + 'characters_free/assets/pants_black.png')
-  let spriteShirt = loadImage(urlPrefix + 'characters_free/assets/shirt_basic_red.png')
-  let spriteShoes = loadImage(urlPrefix + 'characters_free/assets/shoes_brown.png')
-  userSprite.push(spriteBody, spriteHair, spritePants, spriteShirt, spriteShoes) 
-  userSprite = loadImage(urlPrefix + 'cat.png')
-  buildingSprite = loadImage(urlPrefix + 'sprite.png')
-
-}
-
-function setup() {
-  building = new Building(gridData, seatData, siteData, buildingSprite)
-  xMax = building.cols * building.edge 
-  yMax = building.rows * building.edge
-  
-  let cnv = createCanvas(width, height)
-  cnv.parent('canvas')
-
-  // let g = createGraphics(32*8, 32*2)
-  // userSprite.forEach(img => g.image(img, 0, 0))
-  user = new User(0, 0, building.edge, userSprite)
-  building.build()
-
-  building.drawBackground(camera)
-
-  console.log(building.grid.blocks)
-
-  if(mobileCheck() === true) {
-    document.getElementById('nav-mobile').classList.remove('hidden')
+function PCDTownSketch(p) {
+  p.preload = function() {
+    gridData = p.loadJSON(urlPrefix + 'pcd-town.json')
+    seatData = p.loadJSON(urlPrefix + 'pcd-town-seat.json')
+    siteData = p.loadJSON(urlPrefix + 'site.json')
+    // let spriteBody = p.loadImage(urlPrefix + 'characters_free/assets/character_animation.png')
+    // let spriteHair = p.loadImage(urlPrefix + 'characters_free/assets/hair_braids_brown.png')
+    // let spritePants = p.loadImage(urlPrefix + 'characters_free/assets/pants_black.png')
+    // let spriteShirt = p.loadImage(urlPrefix + 'characters_free/assets/shirt_basic_red.png')
+    // let spriteShoes = p.loadImage(urlPrefix + 'characters_free/assets/shoes_brown.png')
+    // userSprite.push(spriteBody, spriteHair, spritePants, spriteShirt, spriteShoes) 
+    userSprite = p.loadImage(urlPrefix + 'cat.png')
+    buildingSprite = p.loadImage(urlPrefix + 'sprite.png')
   }
-  document.dispatchEvent(new CustomEvent('appLoaded'))
-}
 
-function draw() {
-  background(255)
-  t = millis()/1000
+  p.setup = function() {
+    console.log('running..')
+    console.log(gridData)
+    building = new Building(p, gridData, seatData, siteData, buildingSprite)
+    xMax = building.cols * building.edge 
+    yMax = building.rows * building.edge
+    
+    let cnv = p.createCanvas(width, height)
   
-  building.draw(camera)
-  camera.move(user)
-
-  let keyCode
-  if(keyIsDown(LEFT_ARROW)) {
-    keyCode = LEFT_ARROW
-  } else if(keyIsDown(RIGHT_ARROW)) {
-    keyCode = RIGHT_ARROW
-  } else if(keyIsDown(DOWN_ARROW)) {
-    keyCode = DOWN_ARROW
-  } else if(keyIsDown(UP_ARROW)) {
-    keyCode = UP_ARROW
+    // let g = createGraphics(32*8, 32*2)
+    // userSprite.forEach(img => g.image(img, 0, 0))
+    user = new User(p, 0, 0, building.edge, userSprite)
+    building.build()
+   
+    drawingWorker = new Worker('/pcd-demosite/static/js/worker.js')
+    console.log(building.sprite.drawingContext.getImageData(0, 0, 48, 192))
+    // building.sprite.loadPixels()
+    console.log(building.sprite)
+    let offscreen = building.backCnv.transferControlToOffscreen()
+    let obj = {
+      building: {
+        rows: building.rows,
+        cols: building.cols,
+        edge: building.edge,
+        sprite: building.sprite.drawingContext.getImageData(0, 0, 48, 192).data,
+        grid: building.grid,
+        seatGrid: building.seatGrid,
+        back: offscreen,
+      }
+    }
+    drawingWorker.postMessage(obj, [offscreen])
+    drawingWorker.addEventListener('message', ({ data }) => {
+      building.back = p.loadImage(URL.createObjectURL(data.backgroundBlob), 
+      () => console.log('loaded'), 
+      (ev) => console.log(ev))
+    console.log(building.back)
+    document.dispatchEvent(new CustomEvent('appLoaded'))
+    });
+    console.log('setup end')  
   }
-  user.io(keyCode, building, xMax, yMax)
 
-  user.draw(camera)  
+  p.draw = function() {
+    p.background(255)
+    t = p.millis()/1000
+    
+    building.draw(camera)
+    camera.move(user)
+  
+    let keyCode
+    if(p.keyIsDown(p.LEFT_ARROW)) {
+      keyCode = p.LEFT_ARROW
+    } else if(p.keyIsDown(p.RIGHT_ARROW)) {
+      keyCode = p.RIGHT_ARROW
+    } else if(p.keyIsDown(p.DOWN_ARROW)) {
+      keyCode = p.DOWN_ARROW
+    } else if(p.keyIsDown(p.UP_ARROW)) {
+      keyCode = p.UP_ARROW
+    }
+    user.io(keyCode, building, xMax, yMax)
+  
+    user.draw(camera) 
+  }
 }
 
 function removeLoader() {
