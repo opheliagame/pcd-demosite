@@ -8,7 +8,7 @@ function drawBackground(building) {
   // let sprite = new OffscreenCanvas(48, 192)
   // let spritectx = sprite.getContext('2d')
   // spritectx.putImageData(new ImageData(new Uint8ClampedArray(building.sprite), 48, 192), 0, 0)
-  fetch('/static/assets/sprite.png')
+  fetch('/pcd-demosite/static/assets/sprite.png')
   .then(response => response.blob())
   .then(blob => createImageBitmap(blob))
   .then(sprite => {
