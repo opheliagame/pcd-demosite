@@ -8,10 +8,13 @@ class Camera {
     this.yoff = h/10
   }
 
-  move(user) {
+  move(user, xMax, yMax) {
     this.x = mobileCheck() === true ? Math.floor(user.x / (this.w*0.5)) * this.w*0.5 
                           : Math.floor(user.x / this.w) * this.w
-    this.y = Math.floor(user.y / (this.h*0.4)) * this.h*0.4
+    if(user.y >= (yMax-this.h*0.6)) return
+    else {
+      this.y = Math.floor(user.y / (this.h*0.4)) * this.h*0.4
+    }
     // this.y = Math.floor(user.y / (this.h*0.4)) * user.w*5
   }
 

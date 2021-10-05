@@ -73,11 +73,11 @@ function PCDTownSketch(p) {
   }
 
   p.draw = function() {
-    p.background(255)
+    p.background('#D7D5EB')
     t = p.millis()/1000
     
     building.draw(camera)
-    camera.move(user)
+    camera.move(user, xMax, yMax)
   
     let keyCode
     if(p.keyIsDown(p.LEFT_ARROW)) {

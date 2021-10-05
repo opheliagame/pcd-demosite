@@ -6,7 +6,7 @@ function LoadingSketch(p) {
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.textAlign(p.CENTER, p.CENTER)
-    size = p.width/50
+    size = p.width < 768 ? 12 : 24
     p.textSize(size)
     amp1 = p.textWidth(MSG1)
     amp2 = p.textWidth(MSG2)
@@ -24,7 +24,7 @@ function LoadingSketch(p) {
       while(i < p.width+amp1) {
         let xdiff = (i <= p.width/2) ? amp2 : amp1
         let msg = xdiff === amp1 ? MSG1 : MSG2 
-        p.text(msg, i, j)
+        p.text(msg, i-xdiff/2, j)
         
         i += xdiff
       }

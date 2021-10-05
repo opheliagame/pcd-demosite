@@ -30,7 +30,7 @@ class Building {
    
     this.doors.forEach(door => {
       let modal = document.getElementById(door.roomID)     
-      if(modal === null) door.room = document.getElementById('empty-room')
+      if(modal === null) door.room = document.getElementById('room0')
       else door.room = modal
     })
     console.log(this)
@@ -57,18 +57,19 @@ class Building {
     // this.room.classList.toggle('hidden', !this.showModal) 
     if(currDoor.length !== 0) {
       this.room = currDoor[0].room
-      console.log(currDoor)
-      this.room.classList.toggle('hidden', !this.showModal)
-      if(this.showModal) {
-        document.dispatchEvent(new CustomEvent('blurCanvas')) 
+      // console.log(currDoor, this.showModal)
+      if (this.room.classList.contains('hidden') === true) {
+        this.room.classList.remove('hidden')
       }
       this.prevRoom = this.room
-    } 
-    if(this.prevRoom !== null) {
-      if(!this.showModal) {
-        document.dispatchEvent(new CustomEvent('unblurCanvas')) 
+    } else {
+      this.room = null
+    }
+    if(this.prevRoom !== null && this.room === null) {
+      if(this.prevRoom.classList.contains('hidden') === false) {
+        this.prevRoom.classList.add('hidden')
       }
-      this.prevRoom.classList.toggle('hidden', !this.showModal)
+      // this.prevRoom.classList.add('hidden')
     }
     
   }
