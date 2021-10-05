@@ -14,6 +14,11 @@
   <meta property="twitter:creator" content="@anushkatr">
   <meta name="twitter:site" content="@ProcessingIndia" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&family=Noto+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ '/style.css' | url }}">
   <style>
     button {
@@ -43,7 +48,7 @@
       background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
       background-repeat: no-repeat;
       background-size: 120% 0.5rem;
-      background-position: 0 110%;
+      background-position: 0 100%;
     }
 
     .custom-cursor {
@@ -64,7 +69,7 @@
 
   <title>PCD Town</title>
 </head>
-<body>
+<body class="overflow-hidden bg-purple-100">
 
   {{ content | safe }}
   

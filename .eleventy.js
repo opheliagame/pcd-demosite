@@ -50,7 +50,6 @@ async function imageFillShortCode(src, alt, sizes) {
     style: 'width: 100%; height: 100%; object-fit: cover;',
     alt, 
     sizes, 
-    loading: 'lazy',
     decoding: 'async'
   };
   return Image.generateHTML(metadata, imageAttributes);

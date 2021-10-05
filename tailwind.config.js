@@ -29,7 +29,9 @@ module.exports = {
         '-10': '-10',
       },
       fontFamily: {
-        sans: ["'Poppins'", 'sans-serif']
+        sans: ["'Open Sans'"],
+        serif: ["'Noto Serif'"],
+        head: ["'Archivo Black'", 'sans-serif']
       },
       gridTemplateRows: {
         // Simple 8 row grid
