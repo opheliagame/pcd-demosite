@@ -1,743 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="opheliagame">
+  <meta name="description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="og:image" content="https://pbs.twimg.com/profile_images/1286184924102311937/C2J5e8TX_400x400.jpg">
+  <meta property="og:description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="og:title" content="PCD India">
+  <meta property="twitter:description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="twitter:title" content="PCD India">
+  <meta property="twitter:creator" content="@anushkatr">
+  <meta name="twitter:site" content="@ProcessingIndia" />
 
-    <title>PCD India</title>
+  <link rel="stylesheet" type="text/css" href="/pcd-demosite/style.css">
+  <style>
+    button {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-    <link rel="stylesheet" type="text/css" href="/pcd-demosite/style.css">
-    <style>
-      button {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+    ::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
 
-      ::-webkit-scrollbar {
-        width: 0;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
-      }
+    .text-shadow {
+      text-shadow: 0 0 0.2em blue;
+    }
 
-      .text-shadow {
-        text-shadow: 0 0 0.2em blue;
-      }
+    .purple-test {
+      background-color: #D7D5EB;
+    }
 
-      .purple-test {
-        background-color: #D7D5EB;
-      }
+    .blue-underline {
+      background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
+      background-repeat: no-repeat;
+      background-size: 120% 0.5rem;
+      background-position: 0 110%;
+    }
 
-      .blue-underline {
-        background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
-        background-repeat: no-repeat;
-        background-size: 120% 0.5rem;
-        background-position: 0 110%;
-      }
-
-      .custom-cursor {
-        cursor: url('/static/images/cursor1.png') 50 50, pointer;
-      }
+    .custom-cursor {
+      cursor: url('/static/images/cursor1.png') 50 50, pointer;
+    }
 
 
-    </style>
+  </style>
 
-    <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
-    <script src="/pcd-demosite/static/js/libs/p5.sound.min.js"></script>
-    <script src="/pcd-demosite/static/js/libs/canvastotiff.min.js"></script>
+  <script src="/pcd-demosite/static/js/libs/p5.min.js"></script>
+  <script src="/pcd-demosite/static/js/libs/p5.sound.min.js"></script>
+  <script src="/pcd-demosite/static/js/libs/canvastotiff.min.js"></script>
 
-    <script src="/pcd-demosite/static/js/nav/camera.js"></script>
-    <script src="/pcd-demosite/static/js/nav/user.js"></script>
-    <script src="/pcd-demosite/static/js/nav/door.js"></script>
-    <script src="/pcd-demosite/static/js/nav/building.js"></script>
-  </head>
+  <script src="/pcd-demosite/static/js/nav/camera.js"></script>
+  <script src="/pcd-demosite/static/js/nav/user.js"></script>
+  <script src="/pcd-demosite/static/js/nav/door.js"></script>
+  <script src="/pcd-demosite/static/js/nav/building.js"></script>
 
-  <body>
-    <div id="canvas" class="hidden">
-    </div>
-    <div id="loader">
-    </div>
-
-    <div id="intro-modal" class="absolute inset-0 w-screen h-screen px-4 py-8 md:py-12 md:px-24">
-      <div class="flex h-full justify-center">
-        <div class="relative h-full md:py-12 md:px-24 md:w-4/6
-                  grid grid-rows-4 grid-cols-3 items-center
-                  px-6 py-10 bg-blue-100 border border-black">
-          <div class="row-start-1 col-span-full self-start px-2">
-            <span>welcome to</span>
-            <br>
-            <span class="text-2xl md:text-4xl font-bold uppercase">PCD TOWN</span>
-            <br>
-            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
-              <span class="inline-block animate-move-shadow">PCD TOWN</span>
-            </span>
-          </div>
-          <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
-                      md:row-start-3 md:row-end-5
-                      h-full w-full p-2 md:p-6
-                      bg-white text-xs md:text-sm lowercase z-20">
-            
-            <p>what is a website but a space that someone occupies where it is only natural for us to
-              <span class="text-sm md:text-base font-bold blue-underline">scroll</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">click</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">hover</span></span>. this is an experiment that imagines how it would be if we were to
-              <span class="text-sm md:text-base font-bold blue-underline">walk</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">jump</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">run</span></p>
-          </div>
-          <div id="intro-text-2" class="hidden row-start-2 row-end-4 col-start-1 col-end-3
-                      md:row-start-3 md:row-end-5
-                      h-full w-full p-2 md:p-6
-                      bg-white text-xs md:text-sm lowercase z-20">
-            <p>this space is also made in the hopes of making it a little easier for people in this wonderful 
-              <span class="text-sm md:text-base font-bold blue-underline">community</span> to get to know each other, and 
-              <span class="text-sm md:text-base font-bold blue-underline">find people</span> with similar interests, hopefully in a fun way!</p>
-          </div>
-          <div id="intro-images" class="row-start-3 row-end-5 col-start-2 col-end-4
-                      md:row-start-2 md:row-end-4
-                      w-full h-full bg-purple-100 z-10">
-            <div class="w-full h-full">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7a9f0f03-300.avif 300w, /pcd-demosite/static/img/7a9f0f03-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7a9f0f03-300.jpeg 300w, /pcd-demosite/static/img/7a9f0f03-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD P" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7a9f0f03-300.jpeg" width="600" height="653"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/28a31190-300.avif 300w, /pcd-demosite/static/img/28a31190-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/28a31190-300.jpeg 300w, /pcd-demosite/static/img/28a31190-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD C" loading="lazy" decoding="async" src="/pcd-demosite/static/img/28a31190-300.jpeg" width="600" height="658"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/d0711b1d-300.avif 300w, /pcd-demosite/static/img/d0711b1d-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/d0711b1d-300.jpeg 300w, /pcd-demosite/static/img/d0711b1d-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD N" loading="lazy" decoding="async" src="/pcd-demosite/static/img/d0711b1d-300.jpeg" width="600" height="676"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
-            </div>
-            <div class="w-full h-full hidden">
-              <picture><source type="image/avif" srcset="/pcd-demosite/static/img/98ef4992-300.avif 300w, /pcd-demosite/static/img/98ef4992-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/98ef4992-300.jpeg 300w, /pcd-demosite/static/img/98ef4992-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD A" loading="lazy" decoding="async" src="/pcd-demosite/static/img/98ef4992-300.jpeg" width="600" height="616"></picture>
-            </div>
-
-          </div>
-          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
-        </div>
-      </div>
-    </div>
-
-    
-    <div id="modal">
-      
-      <div id="room0" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  opheliagame
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> opheliagame </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p >she works with
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">visuals</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">shaders</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">typography</span>
-                      
-                      
-                  
-                  </p>
-                  <p >she is inspired by
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">computational mama</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">patricio gonzalez vivo</span>
-                      
-                      
-                  
-                  </p>
-                  <p >she calls
-                    <span class="text-sm md:text-base font-bold blue-underline">Lucknow</span>
-                  home</p>
-                  <p >if she could have one superpower, it would be
-                    <span class="text-sm md:text-base font-bold blue-underline">cat whisperer</span>
-                  </p>
-                
-
-                
-                </div>
-              </div>
-              <a href=https://opheliagame.github.io/ target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room1" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  PCD India 2021
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2021 </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p>Processing was officially launched with “Release 0001 — built 9 August 2001 in Japan, 6:01:26pm (5am Eastern).” We celebrated it&#39;s 20th Anniversary with some cake!</p>
-                
-                </div>
-              </div>
-              <a href=https://processingindia.com/2021 target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room2" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  PCD India
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p>Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world. We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show &amp; tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.</p>
-                
-                </div>
-              </div>
-              <a href=https://processingindia.com target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room3" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  PCD India 2019
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2019 </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p>Processing Community Day celebrated by the PCD India community at Srishti Institute of Art, Design and Technology on Feb 2nd 2019.</p>
-                
-                </div>
-              </div>
-              <a href=https://processingindia.com/2019/index.html target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room4" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  Pranshu
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Pranshu </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p >he works with
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Hardware (wood electronics smart materials)</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">design ( ux )</span>
-                      
-                      
-                  
-                  </p>
-                  <p >he is inspired by
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Simone Giertz</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">M.P. Ranjan</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">George Nashikama</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Ram Bahori</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Smt. Malti</span>
-                      
-                      
-                  
-                  </p>
-                  <p >he calls
-                    <span class="text-sm md:text-base font-bold blue-underline">Allahabad ( aka Prayagraj )</span>
-                  home</p>
-                  <p >if he could have one superpower, it would be
-                    <span class="text-sm md:text-base font-bold blue-underline">Cut in straight line, draw straight lines, cut perfect curves, draw perfect curves.</span>
-                  </p>
-                
-
-                
-                </div>
-              </div>
-              <a href=https://wittywit.com/ target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room5" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  Heerdyes
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Heerdyes </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p >he works with
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">turtle graphics and simulations</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">midi/osc tinkering</span>
-                      
-                      
-                  
-                  </p>
-                  <p >he is inspired by
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Daniel Schiffman</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Sam Aaron</span>
-                      
-                      
-                  
-                  </p>
-                  <p >he calls
-                    <span class="text-sm md:text-base font-bold blue-underline">Bengaluru</span>
-                  home</p>
-                  <p >if he could have one superpower, it would be
-                    <span class="text-sm md:text-base font-bold blue-underline">unfiltered perception!</span>
-                  </p>
-                
-
-                
-                </div>
-              </div>
-              <a href=https://heerdyes.wordpress.com/ target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="room6" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  Computational Mama
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Computational Mama </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                
-                  <p >she works with
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">visuals</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">care</span>
-                      
-                      
-                  
-                  </p>
-                  <p >she is inspired by
-                  
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Kiel.d.m</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Es devlin</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Ophelia game</span>
-                      
-                      <span>&</span>
-                      
-                      
-                      <span class="text-sm md:text-base font-bold blue-underline">Patricio Gonzalez Vivo</span>
-                      
-                      
-                  
-                  </p>
-                  <p >she calls
-                    <span class="text-sm md:text-base font-bold blue-underline">Udaipur</span>
-                  home</p>
-                  <p >if she could have one superpower, it would be
-                    <span class="text-sm md:text-base font-bold blue-underline">Teleportation</span>
-                  </p>
-                
-
-                
-                </div>
-              </div>
-              <a href=https://friends.computationalmama.xyz/ target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div id="empty-room" class="hidden absolute inset-0 w-screen h-screen">
-        <div class="flex h-full justify-center">
-          <div class="relative md:py-12 md:px-24 md:w-4/6
-                      grid grid-rows-4 grid-cols-3 items-center
-                      px-6 py-10 bg-blue-100 border border-black">
-            <div class="row-start-1 col-span-full self-start px-2">
-              <span>welcome to</span>
-              <br>
-              <span class="text-2xl md:text-4xl font-bold uppercase">your</span>
-              <span>room</span>
-              <br>
-              <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                          transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
-                your
-              </span>
-            </div>
-            <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
-                        md:row-start-3 md:row-end-5
-                        h-full w-full p-2 md:p-6
-                        bg-white text-xs md:text-sm lowercase z-20">
-              <p></p>
-              <p>if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
-            </div>
-            <a href="https://forms.gle/RB78XiZWP8AffZCs7" target="_blank" rel="noopener noreferrer"
-               id="intro-text-2" class="row-start-3 row-end-5 col-start-2 col-end-4
-                        md:row-start-2 md:row-end-4
-                        w-full h-full bg-purple-100 z-10
-                        custom-cursor">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-            </a>
-            
-            <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div id="nav-mobile" class="hidden md:hidden absolute inset-x-0 bottom-0
-                flex justify-around py-4
-                select-none">
-      <div class="w-24 h-24 bg-purple shadow p-2
-                  grid grid-rows-3 grid-cols-3
-                  rounded-full border border-black">
-      
-        <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
-                <picture><source type="image/avif" srcset="/pcd-demosite/static/img/e00d88a2-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="up arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/e00d88a2-32.jpeg" width="32" height="32"></picture>
-        </button>
-        <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
-                <picture><source type="image/avif" srcset="/pcd-demosite/static/img/1c10d7a7-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="right arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/1c10d7a7-32.jpeg" width="32" height="32"></picture>
-        </button>
-        <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
-                <picture><source type="image/avif" srcset="/pcd-demosite/static/img/427d841c-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="left arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/427d841c-32.jpeg" width="32" height="32"></picture>
-        </button>
-        <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
-                <picture><source type="image/avif" srcset="/pcd-demosite/static/img/8e04b9d5-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="down arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/8e04b9d5-32.jpeg" width="32" height="32"></picture>
-        </button>
-      </div>
-    </div>
-
-    <script src="/pcd-demosite/static/js/nav/sketch.js"></script>
-    <script src="/pcd-demosite/static/js/loadingSketch.js"></script>
-    <script>
-      let introImageIndex = 0
-      let prevImageIndex = null
-      function shuffleImages() {
-        let images = document.getElementById('intro-images').children
-        images[introImageIndex].classList.remove('hidden')
-        if(prevImageIndex !== null) images[prevImageIndex].classList.add('hidden')
-      }
-      let shuffleIntervalID = setInterval(() => {
-        prevImageIndex = introImageIndex
-        introImageIndex = (introImageIndex+1)%8
-        shuffleImages()
-      }, 2000)
-      let flipIntervalID = setInterval(() => {
-        document.getElementById('intro-text-2').classList.toggle('hidden')
-        document.getElementById('intro-text-1').classList.toggle('hidden')
-      }, 6000)
-
-      let loadingSketch = new p5(LoadingSketch, document.getElementById('loader'));
-      let PCDTown = new p5(PCDTownSketch, document.getElementById('canvas'))
-      let cnv, ctx
-      document.addEventListener('appLoaded', () => {
-        document.getElementById('canvas').classList.remove('hidden')
-        cnv = document.getElementById('canvas').children[0]
-        ctx = cnv.getContext('2d')
-        loadingSketch.remove(); 
-        document.body.classList.add('loaded'); 
-      });
-      document.addEventListener('blurCanvas', () => {
-        ctx.filter = "blur(12px)"
-        
-      });
-      document.addEventListener('unblurCanvas', () => {
-        ctx.filter = "none"
-        
-      });
-
-      const closeModal = (btn) => {
-        const modal = btn.parentNode.parentNode
-        modal.classList.toggle('hidden')
-        
-        
-      }
-      const handleLongPress = (e) => {
-        e.preventDefault()
-      } 
-      const navButtons = document.querySelectorAll('.nav-button')
-      navButtons.forEach(el => {
-        el.addEventListener('contextmenu', handleLongPress)
-      })
-
-      function buttonPressed(keyCode) {
-        let key
-        switch(keyCode) {
-          case LEFT_ARROW:
-            key = "ArrowLeft"
-            break
-          case RIGHT_ARROW:
-            key = "ArrowRight"
-            break
-          case UP_ARROW:
-            key = "ArrowUp"
-            break
-          case DOWN_ARROW:
-            key = "ArrowDown"
-            break
-        }
-        let keyEvent = new KeyboardEvent('keydown', {
-          keyCode: keyCode, 
-          key: key, 
-          code: key,
-          bubbles: true,
-          cancelable: true  
-        })
-        document.body.dispatchEvent(keyEvent)
-      }
-      function buttonReleased(keyCode) {
-        let key
-        switch(keyCode) {
-          case LEFT_ARROW:
-            key = "ArrowLeft"
-            break
-          case RIGHT_ARROW:
-            key = "ArrowRight"
-            break
-          case UP_ARROW:
-            key = "ArrowUp"
-            break
-          case DOWN_ARROW:
-            key = "ArrowDown"
-            break
-        }
-        let keyEvent = new KeyboardEvent('keyup', {
-          keyCode: keyCode, 
-          key: key, 
-          code: key,
-          bubbles: true,
-          cancelable: true  
-        })
-        document.body.dispatchEvent(keyEvent)
-      }
-    </script>
-  </body>
+  <title>PCD Town</title>
+</head>
+<body>
 
   
+<div id="canvas" class="hidden overflow-hidden">
+</div>
+<div id="loader">
+</div>
+
+<div id="intro-modal" class="absolute inset-0 w-screen h-screen px-4 py-8 md:py-12 md:px-24">
+  <div class="flex h-full justify-center">
+    <div class="relative h-full md:py-12 md:px-24 md:w-4/6
+              grid grid-rows-4 grid-cols-3 items-center
+              px-6 py-10 bg-blue-100 border border-black">
+      <div class="row-start-1 col-span-full self-start px-2">
+        <span>welcome to</span>
+        <br>
+        <span class="text-2xl md:text-4xl font-bold uppercase">PCD TOWN</span>
+        <br>
+        <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                    transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
+          <span class="inline-block animate-move-shadow">PCD TOWN</span>
+        </span>
+      </div>
+      <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+                  md:row-start-3 md:row-end-5
+                  h-full w-full p-2 md:p-6
+                  bg-white text-xs md:text-sm lowercase z-20">
+        
+        <p>what is a website but a space that someone occupies where it is only natural for us to
+          <span class="text-sm md:text-base font-bold blue-underline">scroll</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">click</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">hover</span></span>. this is an experiment that imagines how it would be if we were to
+          <span class="text-sm md:text-base font-bold blue-underline">walk</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">jump</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">run</span></p>
+      </div>
+      <div id="intro-text-2" class="hidden row-start-2 row-end-4 col-start-1 col-end-3
+                  md:row-start-3 md:row-end-5
+                  h-full w-full p-2 md:p-6
+                  bg-white text-xs md:text-sm lowercase z-20">
+        <p>this space is also made in the hopes of making it a little easier for people in this wonderful 
+          <span class="text-sm md:text-base font-bold blue-underline">community</span> to get to know each other, and 
+          <span class="text-sm md:text-base font-bold blue-underline">find people</span> with similar interests, hopefully in a fun way!</p>
+      </div>
+      <div id="intro-images" class="row-start-3 row-end-5 col-start-2 col-end-4
+                  md:row-start-2 md:row-end-4
+                  w-full h-full bg-purple-100 z-10">
+        <div class="w-full h-full">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/7a9f0f03-300.avif 300w, /pcd-demosite/static/img/7a9f0f03-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/7a9f0f03-300.jpeg 300w, /pcd-demosite/static/img/7a9f0f03-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD P" loading="lazy" decoding="async" src="/pcd-demosite/static/img/7a9f0f03-300.jpeg" width="600" height="653"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/28a31190-300.avif 300w, /pcd-demosite/static/img/28a31190-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/28a31190-300.jpeg 300w, /pcd-demosite/static/img/28a31190-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD C" loading="lazy" decoding="async" src="/pcd-demosite/static/img/28a31190-300.jpeg" width="600" height="658"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/d0711b1d-300.avif 300w, /pcd-demosite/static/img/d0711b1d-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/d0711b1d-300.jpeg 300w, /pcd-demosite/static/img/d0711b1d-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD N" loading="lazy" decoding="async" src="/pcd-demosite/static/img/d0711b1d-300.jpeg" width="600" height="676"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/a6847717-300.avif 300w, /pcd-demosite/static/img/a6847717-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/a6847717-300.jpeg 300w, /pcd-demosite/static/img/a6847717-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD D" loading="lazy" decoding="async" src="/pcd-demosite/static/img/a6847717-300.jpeg" width="600" height="660"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/3328259a-300.avif 300w, /pcd-demosite/static/img/3328259a-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/3328259a-300.jpeg 300w, /pcd-demosite/static/img/3328259a-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD I" loading="lazy" decoding="async" src="/pcd-demosite/static/img/3328259a-300.jpeg" width="600" height="626"></picture>
+        </div>
+        <div class="w-full h-full hidden">
+          <picture><source type="image/avif" srcset="/pcd-demosite/static/img/98ef4992-300.avif 300w, /pcd-demosite/static/img/98ef4992-600.avif 600w" sizes="(min-width: 30em) 50vw, 100vw"><source type="image/jpeg" srcset="/pcd-demosite/static/img/98ef4992-300.jpeg 300w, /pcd-demosite/static/img/98ef4992-600.jpeg 600w" sizes="(min-width: 30em) 50vw, 100vw"><img style="width: 100%; height: 100%; object-fit: cover;" alt="PCD A" loading="lazy" decoding="async" src="/pcd-demosite/static/img/98ef4992-300.jpeg" width="600" height="616"></picture>
+        </div>
+
+      </div>
+      <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="modal">
+  
+  <div id="room0" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              opheliagame
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> opheliagame </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p >she works with
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">visuals</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">shaders</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">typography</span>
+                  
+                  
+              
+              </p>
+              <p >she is inspired by
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">computational mama</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">patricio gonzalez vivo</span>
+                  
+                  
+              
+              </p>
+              <p >she calls
+                <span class="text-sm md:text-base font-bold blue-underline">Lucknow</span>
+              home</p>
+              <p >if she could have one superpower, it would be
+                <span class="text-sm md:text-base font-bold blue-underline">cat whisperer</span>
+              </p>
+            
+
+            
+            </div>
+          </div>
+          <a href=https://opheliagame.github.io/ target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room1" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              PCD India 2021
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2021 </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p>Processing was officially launched with “Release 0001 — built 9 August 2001 in Japan, 6:01:26pm (5am Eastern).” We celebrated it&#39;s 20th Anniversary with some cake!</p>
+            
+            </div>
+          </div>
+          <a href=https://processingindia.com/2021 target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room2" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              PCD India
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p>Processing Community Day (PCD) is a day to celebrate and explore art, code, and diversity around the world. We define the format of our event in any way that serves our local communities. What does that mean? - aside from the conventional lecture / demo format, our PCD can be a show &amp; tell session, a zine-making session, an audio-visual performance, a DIY art show, a game jam, a group discussion on software art or ALL OF THE ABOVE.</p>
+            
+            </div>
+          </div>
+          <a href=https://processingindia.com target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room3" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              PCD India 2019
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> PCD India 2019 </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p>Processing Community Day celebrated by the PCD India community at Srishti Institute of Art, Design and Technology on Feb 2nd 2019.</p>
+            
+            </div>
+          </div>
+          <a href=https://processingindia.com/2019/index.html target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room4" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              Pranshu
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Pranshu </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p >he works with
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Hardware (wood electronics smart materials)</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">design ( ux )</span>
+                  
+                  
+              
+              </p>
+              <p >he is inspired by
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Simone Giertz</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">M.P. Ranjan</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">George Nashikama</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Ram Bahori</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Smt. Malti</span>
+                  
+                  
+              
+              </p>
+              <p >he calls
+                <span class="text-sm md:text-base font-bold blue-underline">Allahabad ( aka Prayagraj )</span>
+              home</p>
+              <p >if he could have one superpower, it would be
+                <span class="text-sm md:text-base font-bold blue-underline">Cut in straight line, draw straight lines, cut perfect curves, draw perfect curves.</span>
+              </p>
+            
+
+            
+            </div>
+          </div>
+          <a href=https://wittywit.com/ target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room5" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              Heerdyes
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Heerdyes </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p >he works with
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">turtle graphics and simulations</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">midi/osc tinkering</span>
+                  
+                  
+              
+              </p>
+              <p >he is inspired by
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Daniel Schiffman</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Sam Aaron</span>
+                  
+                  
+              
+              </p>
+              <p >he calls
+                <span class="text-sm md:text-base font-bold blue-underline">Bengaluru</span>
+              home</p>
+              <p >if he could have one superpower, it would be
+                <span class="text-sm md:text-base font-bold blue-underline">unfiltered perception!</span>
+              </p>
+            
+
+            
+            </div>
+          </div>
+          <a href=https://heerdyes.wordpress.com/ target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="room6" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
+      <div class="flex h-full justify-center">
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
+            <br>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              Computational Mama
+            </span>
+            <span>'s room</span>
+            <br>
+            <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> Computational Mama </span>
+          </div>
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
+                      md:row-start-3 md:row-end-5
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            
+              <p >she works with
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">visuals</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">care</span>
+                  
+                  
+              
+              </p>
+              <p >she is inspired by
+              
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Kiel.d.m</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Es devlin</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Ophelia game</span>
+                  
+                  <span>&</span>
+                  
+                  
+                  <span class="text-sm md:text-base font-bold blue-underline">Patricio Gonzalez Vivo</span>
+                  
+                  
+              
+              </p>
+              <p >she calls
+                <span class="text-sm md:text-base font-bold blue-underline">Udaipur</span>
+              home</p>
+              <p >if she could have one superpower, it would be
+                <span class="text-sm md:text-base font-bold blue-underline">Teleportation</span>
+              </p>
+            
+
+            
+            </div>
+          </div>
+          <a href=https://friends.computationalmama.xyz/ target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="empty-room" class="hidden absolute inset-0 w-screen h-screen">
+    <div class="flex h-full justify-center">
+      <div class="relative md:py-12 md:px-24 md:w-4/6
+                  grid grid-rows-4 grid-cols-3 items-center
+                  px-6 py-10 bg-blue-100 border border-black">
+        <div class="row-start-1 col-span-full self-start px-2">
+          <span>welcome to</span>
+          <br>
+          <span class="text-2xl md:text-4xl font-bold uppercase">your</span>
+          <span>room</span>
+          <br>
+          <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                      transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
+            your
+          </span>
+        </div>
+        <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+                    md:row-start-3 md:row-end-5
+                    h-full w-full p-2 md:p-6
+                    bg-white text-xs md:text-sm lowercase z-20">
+          <p></p>
+          <p>if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
+        </div>
+        <a href="https://forms.gle/RB78XiZWP8AffZCs7" target="_blank" rel="noopener noreferrer"
+            id="intro-text-2" class="row-start-3 row-end-5 col-start-2 col-end-4
+                    md:row-start-2 md:row-end-4
+                    w-full h-full bg-purple-100 z-10
+                    custom-cursor">
+            <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+        </a>
+        
+        <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="nav-mobile" class="hidden md:hidden absolute inset-x-0 bottom-0
+            flex justify-around py-4
+            select-none">
+  <div class="w-24 h-24 bg-purple shadow p-2
+              grid grid-rows-3 grid-cols-3
+              rounded-full border border-black">
+  
+    <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/e00d88a2-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="up arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/e00d88a2-32.jpeg" width="32" height="32"></picture>
+    </button>
+    <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/1c10d7a7-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="right arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/1c10d7a7-32.jpeg" width="32" height="32"></picture>
+    </button>
+    <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/427d841c-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="left arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/427d841c-32.jpeg" width="32" height="32"></picture>
+    </button>
+    <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
+            <picture><source type="image/avif" srcset="/pcd-demosite/static/img/8e04b9d5-32.avif 32w" sizes="(min-width: 30em) 50vw, 100vw"><img alt="down arrow" loading="lazy" decoding="async" src="/pcd-demosite/static/img/8e04b9d5-32.jpeg" width="32" height="32"></picture>
+    </button>
+  </div>
+</div>
+
+<script>
+  let pathPrefix = "/pcd-demosite"
+  const LEFT_ARROW = 37
+  const UP_ARROW = 38
+  const RIGHT_ARROW = 39
+  const DOWN_ARROW = 40
+
+</script>
+<script src="/pcd-demosite/static/js/nav/sketch.js"></script>
+<script src="/pcd-demosite/static/js/loadingSketch.js"></script>
+<script>
+  let introImageIndex = 0
+  let prevImageIndex = null
+  function shuffleImages() {
+    let images = document.getElementById('intro-images').children
+    images[introImageIndex].classList.remove('hidden')
+    if(prevImageIndex !== null) images[prevImageIndex].classList.add('hidden')
+  }
+  let shuffleIntervalID = setInterval(() => {
+    prevImageIndex = introImageIndex
+    introImageIndex = (introImageIndex+1)%8
+    shuffleImages()
+  }, 2000)
+  let flipIntervalID = setInterval(() => {
+    document.getElementById('intro-text-2').classList.toggle('hidden')
+    document.getElementById('intro-text-1').classList.toggle('hidden')
+  }, 6000)
+
+  let loadingSketch = new p5(LoadingSketch, document.getElementById('loader'));
+  let PCDTown = new p5(PCDTownSketch, document.getElementById('canvas'))
+  let cnv, ctx
+  document.addEventListener('appLoaded', () => {
+    document.getElementById('canvas').classList.remove('hidden')
+    cnv = document.getElementById('canvas').children[0]
+    ctx = cnv.getContext('2d')
+    loadingSketch.remove(); 
+    document.body.classList.add('loaded'); 
+    if(mobileCheck() === true) {
+      document.getElementById('nav-mobile').classList.remove('hidden')
+    }
+  });
+  document.addEventListener('blurCanvas', () => {
+    ctx.filter = "blur(12px)"
+    
+  });
+  document.addEventListener('unblurCanvas', () => {
+    ctx.filter = "none"
+    
+  });
+
+  const closeModal = (btn) => {
+    const modal = btn.parentNode.parentNode
+    modal.classList.toggle('hidden')
+    
+    
+  }
+  const handleLongPress = (e) => {
+    e.preventDefault()
+  } 
+  const navButtons = document.querySelectorAll('.nav-button')
+  navButtons.forEach(el => {
+    el.addEventListener('contextmenu', handleLongPress)
+  })
+
+  function buttonPressed(keyCode) {
+    let key
+    switch(keyCode) {
+      case LEFT_ARROW:
+        key = "ArrowLeft"
+        break
+      case RIGHT_ARROW:
+        key = "ArrowRight"
+        break
+      case UP_ARROW:
+        key = "ArrowUp"
+        break
+      case DOWN_ARROW:
+        key = "ArrowDown"
+        break
+    }
+    let keyEvent = new KeyboardEvent('keydown', {
+      keyCode: keyCode, 
+      key: key, 
+      code: key,
+      bubbles: true,
+      cancelable: true  
+    })
+    document.body.dispatchEvent(keyEvent)
+  }
+  function buttonReleased(keyCode) {
+    let key
+    switch(keyCode) {
+      case LEFT_ARROW:
+        key = "ArrowLeft"
+        break
+      case RIGHT_ARROW:
+        key = "ArrowRight"
+        break
+      case UP_ARROW:
+        key = "ArrowUp"
+        break
+      case DOWN_ARROW:
+        key = "ArrowDown"
+        break
+    }
+    let keyEvent = new KeyboardEvent('keyup', {
+      keyCode: keyCode, 
+      key: key, 
+      code: key,
+      bubbles: true,
+      cancelable: true  
+    })
+    document.body.dispatchEvent(keyEvent)
+  }
+</script>
+
+
+  
+</body>
 </html>
