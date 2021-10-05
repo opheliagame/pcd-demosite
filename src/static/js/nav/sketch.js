@@ -14,7 +14,7 @@ let camera = new Camera(0, 0, width, height)
 let userSprite = []
 let buildingSprite
 let gridData, seatData, siteData
-let urlPrefix = '/pcd-demosite/static/assets/'
+let urlPrefix = pathPrefix + '/static/assets/'
 let drawingWorker 
 
 function PCDTownSketch(p) {
@@ -33,8 +33,6 @@ function PCDTownSketch(p) {
   }
 
   p.setup = function() {
-    console.log('running..')
-    console.log(gridData)
     building = new Building(p, gridData, seatData, siteData, buildingSprite)
     xMax = building.cols * building.edge 
     yMax = building.rows * building.edge
@@ -46,12 +44,13 @@ function PCDTownSketch(p) {
     user = new User(p, 0, 0, building.edge, userSprite)
     building.build()
    
-    drawingWorker = new Worker('/pcd-demosite/static/js/worker.js')
+    drawingWorker = new Worker(pathPrefix + '/static/js/worker.js')
     console.log(building.sprite.drawingContext.getImageData(0, 0, 48, 192))
     // building.sprite.loadPixels()
     console.log(building.sprite)
     let offscreen = building.backCnv.transferControlToOffscreen()
     let obj = {
+      pathPrefix: pathPrefix,
       building: {
         rows: building.rows,
         cols: building.cols,

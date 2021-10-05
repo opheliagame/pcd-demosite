@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="opheliagame">
+  <meta name="description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="og:image" content="https://pbs.twimg.com/profile_images/1286184924102311937/C2J5e8TX_400x400.jpg">
+  <meta property="og:description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="og:title" content="PCD India">
+  <meta property="twitter:description" content="PCD India is a community of creative coding enthusiasts, tech artists, designers, live coders, data nerds, musicians, architects, paper engineers and artists whose practices contain these and more elements. We are a group of enthu cutlets who love experimentation and sharing, come hang out!">
+  <meta property="twitter:title" content="PCD India">
+  <meta property="twitter:creator" content="@anushkatr">
+  <meta name="twitter:site" content="@ProcessingIndia" />
+
+  <link rel="stylesheet" type="text/css" href="{{ '/style.css' | url }}">
+  <style>
+    button {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
+    .text-shadow {
+      text-shadow: 0 0 0.2em blue;
+    }
+
+    .purple-test {
+      background-color: #D7D5EB;
+    }
+
+    .blue-underline {
+      background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
+      background-repeat: no-repeat;
+      background-size: 120% 0.5rem;
+      background-position: 0 110%;
+    }
+
+    .custom-cursor {
+      cursor: url('/static/images/cursor1.png') 50 50, pointer;
+    }
+
+
+  </style>
+
+  <script src="{{ '/static/js/libs/p5.min.js' | url }}"></script>
+  <script src="{{ '/static/js/libs/p5.sound.min.js' | url }}"></script>
+  <script src="{{ '/static/js/libs/canvastotiff.min.js' | url }}"></script>
+
+  <script src="{{ '/static/js/nav/camera.js' | url }}"></script>
+  <script src="{{ '/static/js/nav/user.js' | url }}"></script>
+  <script src="{{ '/static/js/nav/door.js' | url }}"></script>
+  <script src="{{ '/static/js/nav/building.js' | url }}"></script>
+
+  <title>PCD Town</title>
+</head>
+<body>
+
+  {{ content | safe }}
+  
+</body>
+</html>

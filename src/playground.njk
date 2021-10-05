@@ -1,376 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+layout: sketch.njk 
+---
 
-    <title>PCD India</title>
+<div id="canvas" class="hidden overflow-hidden">
+</div>
+<div id="loader">
+</div>
 
-    <link rel="stylesheet" type="text/css" href="{{ '/style.css' | url }}">
-    <style>
-      button {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+<div id="intro-modal" class="absolute inset-0 w-screen h-screen px-4 py-8 md:py-12 md:px-24">
+  <div class="flex h-full justify-center">
+    <div class="relative h-full md:py-12 md:px-24 md:w-4/6
+              grid grid-rows-4 grid-cols-3 items-center
+              px-6 py-10 bg-blue-100 border border-black">
+      <div class="row-start-1 col-span-full self-start px-2">
+        <span>welcome to</span>
+        <br>
+        <span class="text-2xl md:text-4xl font-bold uppercase">PCD TOWN</span>
+        <br>
+        <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                    transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
+          <span class="inline-block animate-move-shadow">PCD TOWN</span>
+        </span>
+      </div>
+      <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+                  md:row-start-3 md:row-end-5
+                  h-full w-full p-2 md:p-6
+                  bg-white text-xs md:text-sm lowercase z-20">
+        {# <p>this is a space constructed to enable and explore different ways of presenting and finding things on the web.</p> #}
+        <p>what is a website but a space that someone occupies where it is only natural for us to
+          <span class="text-sm md:text-base font-bold blue-underline">scroll</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">click</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">hover</span></span>. this is an experiment that imagines how it would be if we were to
+          <span class="text-sm md:text-base font-bold blue-underline">walk</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">jump</span> &
+          <span class="text-sm md:text-base font-bold blue-underline">run</span></p>
+      </div>
+      <div id="intro-text-2" class="hidden row-start-2 row-end-4 col-start-1 col-end-3
+                  md:row-start-3 md:row-end-5
+                  h-full w-full p-2 md:p-6
+                  bg-white text-xs md:text-sm lowercase z-20">
+        <p>this space is also made in the hopes of making it a little easier for people in this wonderful 
+          <span class="text-sm md:text-base font-bold blue-underline">community</span> to get to know each other, and 
+          <span class="text-sm md:text-base font-bold blue-underline">find people</span> with similar interests, hopefully in a fun way!</p>
+      </div>
+      <div id="intro-images" class="row-start-3 row-end-5 col-start-2 col-end-4
+                  md:row-start-2 md:row-end-4
+                  w-full h-full bg-purple-100 z-10">
+        <div class="w-full h-full">
+          {% imagefill "src/static/images/p.png", "PCD P", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/c.png", "PCD C", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/d.png", "PCD D", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/i.png", "PCD I", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/n.png", "PCD N", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/d.png", "PCD D", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/i.png", "PCD I", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
+        <div class="w-full h-full hidden">
+          {% imagefill "src/static/images/a.png", "PCD A", "(min-width: 30em) 50vw, 100vw" %}
+        </div>
 
-      ::-webkit-scrollbar {
-        width: 0;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
-      }
-
-      .text-shadow {
-        text-shadow: 0 0 0.2em blue;
-      }
-
-      .purple-test {
-        background-color: #D7D5EB;
-      }
-
-      .blue-underline {
-        background-image: linear-gradient(#D7D5EB 0%, #D7D5EB 100%);
-        background-repeat: no-repeat;
-        background-size: 120% 0.5rem;
-        background-position: 0 110%;
-      }
-
-      .custom-cursor {
-        cursor: url('/static/images/cursor1.png') 50 50, pointer;
-      }
-
-
-    </style>
-
-    <script src="{{ '/static/js/libs/p5.min.js' | url }}"></script>
-    <script src="{{ '/static/js/libs/p5.sound.min.js' | url }}"></script>
-    <script src="{{ '/static/js/libs/canvastotiff.min.js' | url }}"></script>
-
-    <script src="{{ '/static/js/nav/camera.js' | url }}"></script>
-    <script src="{{ '/static/js/nav/user.js' | url }}"></script>
-    <script src="{{ '/static/js/nav/door.js' | url }}"></script>
-    <script src="{{ '/static/js/nav/building.js' | url }}"></script>
-  </head>
-
-  <body>
-    <div id="canvas" class="hidden">
+      </div>
+      <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
     </div>
-    <div id="loader">
-    </div>
+  </div>
+</div>
 
-    <div id="intro-modal" class="absolute inset-0 w-screen h-screen px-4 py-8 md:py-12 md:px-24">
+{# modals for user pages #}
+<div id="modal">
+  {% for page in pages %}
+  <div id="room{{loop.index-1}}" class="hidden absolute inset-0 w-full h-screen px-4 py-8 md:py-12 md:px-24">
+    <div class="w-full h-full">
       <div class="flex h-full justify-center">
-        <div class="relative h-full md:py-12 md:px-24 md:w-4/6
-                  grid grid-rows-4 grid-cols-3 items-center
-                  px-6 py-10 bg-blue-100 border border-black">
-          <div class="row-start-1 col-span-full self-start px-2">
-            <span>welcome to</span>
+        <div class="relative md:py-12 md:px-24 md:w-4/6
+                    grid grid-rows-4 grid-cols-3 items-center
+                    px-6 py-10 bg-blue-100 border border-black">
+          <div class="row-start-1 col-span-full self-start">
+            <span>you've come to</span>
             <br>
-            <span class="text-2xl md:text-4xl font-bold uppercase">PCD TOWN</span>
+            <span class="text-2xl md:text-4xl font-bold uppercase">
+              {{ page.name }}
+            </span>
+            <span>'s room</span>
             <br>
             <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
-              <span class="inline-block animate-move-shadow">PCD TOWN</span>
-            </span>
+                        transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> {{ page.name }} </span>
           </div>
-          <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+
+          <div class="row-start-2 row-end-5 col-start-1 col-end-3 
                       md:row-start-3 md:row-end-5
-                      h-full w-full p-2 md:p-6
-                      bg-white text-xs md:text-sm lowercase z-20">
-            {# <p>this is a space constructed to enable and explore different ways of presenting and finding things on the web.</p> #}
-            <p>what is a website but a space that someone occupies where it is only natural for us to
-              <span class="text-sm md:text-base font-bold blue-underline">scroll</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">click</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">hover</span></span>. this is an experiment that imagines how it would be if we were to
-              <span class="text-sm md:text-base font-bold blue-underline">walk</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">jump</span> &
-              <span class="text-sm md:text-base font-bold blue-underline">run</span></p>
-          </div>
-          <div id="intro-text-2" class="hidden row-start-2 row-end-4 col-start-1 col-end-3
-                      md:row-start-3 md:row-end-5
-                      h-full w-full p-2 md:p-6
-                      bg-white text-xs md:text-sm lowercase z-20">
-            <p>this space is also made in the hopes of making it a little easier for people in this wonderful 
-              <span class="text-sm md:text-base font-bold blue-underline">community</span> to get to know each other, and 
-              <span class="text-sm md:text-base font-bold blue-underline">find people</span> with similar interests, hopefully in a fun way!</p>
-          </div>
-          <div id="intro-images" class="row-start-3 row-end-5 col-start-2 col-end-4
-                      md:row-start-2 md:row-end-4
-                      w-full h-full bg-purple-100 z-10">
-            <div class="w-full h-full">
-              {% imagefill "src/static/images/p.png", "PCD P", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/c.png", "PCD C", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/d.png", "PCD D", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/i.png", "PCD I", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/n.png", "PCD N", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/d.png", "PCD D", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/i.png", "PCD I", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-            <div class="w-full h-full hidden">
-              {% imagefill "src/static/images/a.png", "PCD A", "(min-width: 30em) 50vw, 100vw" %}
-            </div>
-
-          </div>
-          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
-        </div>
-      </div>
-    </div>
-
-    {# modals for user pages #}
-    <div id="modal">
-      {% for page in pages %}
-      <div id="room{{loop.index-1}}" class="hidden absolute inset-0 w-full h-screen  ">
-        <div class="w-full h-full">
-          <div class="flex h-full justify-center">
-            <div class="relative md:py-12 md:px-24 md:w-4/6
-                        grid grid-rows-4 grid-cols-3 items-center
-                        px-6 py-10 bg-blue-100 border border-black">
-              <div class="row-start-1 col-span-full self-start">
-                <span>you've come to</span>
-                <br>
-                <span class="text-2xl md:text-4xl font-bold uppercase">
-                  {{ page.name }}
-                </span>
-                <span>'s room</span>
-                <br>
-                <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                            transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48"> {{ page.name }} </span>
-              </div>
-
-              <div class="row-start-2 row-end-5 col-start-1 col-end-3 
-                          md:row-start-3 md:row-end-5
-                          h-full w-full text-xs md:text-sm lowercase z-20">
-                <div class="flex flex-col p-2 bg-white min-h-2/3">
-                {% if page.pronoun %}
-                  <p >{{ page.pronoun }} works with
-                  
-                      {% for interest in page.interests %}
-                      <span class="text-sm md:text-base font-bold blue-underline">{{ interest }}</span>
-                      {% if loop.last !== true %}
-                      <span>&</span>
-                      {% endif %}
-                      {% endfor %}
-                  
-                  </p>
-                  <p >{{ page.pronoun }} is inspired by
-                  
-                      {% for inspo in page.inspirations %}
-                      <span class="text-sm md:text-base font-bold blue-underline">{{ inspo }}</span>
-                      {% if loop.last !== true %}
-                      <span>&</span>
-                      {% endif %}
-                      {% endfor %}
-                  
-                  </p>
-                  <p >{{ page.pronoun }} calls
-                    <span class="text-sm md:text-base font-bold blue-underline">{{ page.city }}</span>
-                  home</p>
-                  <p >if {{ page.pronoun }} could have one superpower, it would be
-                    <span class="text-sm md:text-base font-bold blue-underline">{{ page.superpower }}</span>
-                  </p>
-                
-
-                {% else %}
-                  <p>{{ page.desc }}</p>
-                {% endif %}
-                </div>
-              </div>
-              <a href={{page.src}} target="_blank" rel="noopener noreferrer"
-                class="row-start-3 row-end-5 col-start-2 col-end-4
-                            md:row-start-2 md:row-end-4
-                            w-full h-full bg-purple-100 z-10">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-              </a>
-              <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      <div id="empty-room" class="hidden absolute inset-0 w-screen h-screen">
-        <div class="flex h-full justify-center">
-          <div class="relative md:py-12 md:px-24 md:w-4/6
-                      grid grid-rows-4 grid-cols-3 items-center
-                      px-6 py-10 bg-blue-100 border border-black">
-            <div class="row-start-1 col-span-full self-start px-2">
-              <span>welcome to</span>
-              <br>
-              <span class="text-2xl md:text-4xl font-bold uppercase">your</span>
-              <span>room</span>
-              <br>
-              <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
-                          transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
-                your
-              </span>
-            </div>
-            <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
-                        md:row-start-3 md:row-end-5
-                        h-full w-full p-2 md:p-6
-                        bg-white text-xs md:text-sm lowercase z-20">
-              <p></p>
-              <p>if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
-            </div>
-            <a href="https://forms.gle/RB78XiZWP8AffZCs7" target="_blank" rel="noopener noreferrer"
-               id="intro-text-2" class="row-start-3 row-end-5 col-start-2 col-end-4
-                        md:row-start-2 md:row-end-4
-                        w-full h-full bg-purple-100 z-10
-                        custom-cursor">
-                <video src="/pcd-demosite/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
-            </a>
+                      h-full w-full text-xs md:text-sm lowercase z-20">
+            <div class="flex flex-col p-2 bg-white min-h-2/3">
+            {% if page.pronoun %}
+              <p >{{ page.pronoun }} works with
+              
+                  {% for interest in page.interests %}
+                  <span class="text-sm md:text-base font-bold blue-underline">{{ interest }}</span>
+                  {% if loop.last !== true %}
+                  <span>&</span>
+                  {% endif %}
+                  {% endfor %}
+              
+              </p>
+              <p >{{ page.pronoun }} is inspired by
+              
+                  {% for inspo in page.inspirations %}
+                  <span class="text-sm md:text-base font-bold blue-underline">{{ inspo }}</span>
+                  {% if loop.last !== true %}
+                  <span>&</span>
+                  {% endif %}
+                  {% endfor %}
+              
+              </p>
+              <p >{{ page.pronoun }} calls
+                <span class="text-sm md:text-base font-bold blue-underline">{{ page.city }}</span>
+              home</p>
+              <p >if {{ page.pronoun }} could have one superpower, it would be
+                <span class="text-sm md:text-base font-bold blue-underline">{{ page.superpower }}</span>
+              </p>
             
-            <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
+
+            {% else %}
+              <p>{{ page.desc }}</p>
+            {% endif %}
+            </div>
           </div>
+          <a href={{page.src}} target="_blank" rel="noopener noreferrer"
+            class="row-start-3 row-end-5 col-start-2 col-end-4
+                        md:row-start-2 md:row-end-4
+                        w-full h-full bg-purple-100 z-10">
+            <video src="{{env.pathPrefix}}/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+          </a>
+          <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this)">X</button>
         </div>
       </div>
     </div>
-
-    {# game navigation control for mobile #}
-    <div id="nav-mobile" class="hidden md:hidden absolute inset-x-0 bottom-0
-                flex justify-around py-4
-                select-none">
-      <div class="w-24 h-24 bg-purple shadow p-2
-                  grid grid-rows-3 grid-cols-3
-                  rounded-full border border-black">
-      
-        <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
-                {% imagemd "src/static/images/up-arrow.png", "up arrow", "(min-width: 30em) 50vw, 100vw" %}
-        </button>
-        <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
-                {% imagemd "src/static/images/right-arrow.png", "right arrow", "(min-width: 30em) 50vw, 100vw" %}
-        </button>
-        <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
-                {% imagemd "src/static/images/left-arrow.png", "left arrow", "(min-width: 30em) 50vw, 100vw" %}
-        </button>
-        <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
-                ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
-                {% imagemd "src/static/images/down-arrow.png", "down arrow", "(min-width: 30em) 50vw, 100vw" %}
-        </button>
+  </div>
+  {% endfor %}
+  <div id="empty-room" class="hidden absolute inset-0 w-screen h-screen">
+    <div class="flex h-full justify-center">
+      <div class="relative md:py-12 md:px-24 md:w-4/6
+                  grid grid-rows-4 grid-cols-3 items-center
+                  px-6 py-10 bg-blue-100 border border-black">
+        <div class="row-start-1 col-span-full self-start px-2">
+          <span>welcome to</span>
+          <br>
+          <span class="text-2xl md:text-4xl font-bold uppercase">your</span>
+          <span>room</span>
+          <br>
+          <span class="inline-block text-2xl md:text-4xl font-bold uppercase text-purple-100
+                      transform -scale-y-100 translate-x-2 -translate-y-4 md:-translate-y-6 md:translate-x-4 skew-x-48">
+            your
+          </span>
+        </div>
+        <div id="intro-text-1" class="row-start-2 row-end-4 col-start-1 col-end-3
+                    md:row-start-3 md:row-end-5
+                    h-full w-full p-2 md:p-6
+                    bg-white text-xs md:text-sm lowercase z-20">
+          <p></p>
+          <p>if you like what you see and would like to add your page/room to this, please fill in the google form below 🎉</p>
+        </div>
+        <a href="https://forms.gle/RB78XiZWP8AffZCs7" target="_blank" rel="noopener noreferrer"
+            id="intro-text-2" class="row-start-3 row-end-5 col-start-2 col-end-4
+                    md:row-start-2 md:row-end-4
+                    w-full h-full bg-purple-100 z-10
+                    custom-cursor">
+            <video src="{{env.pathPrefix}}/static/images/find-more.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
+        </a>
+        
+        <button class="absolute top-10 right-6 md:top-12 md:right-24 w-6 h-6" onclick="closeModal(this); clearInterval(shuffleIntervalID); clearInterval(flipIntervalID);">X</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <script src="{{ '/static/js/nav/sketch.js' | url }}"></script>
-    <script src="{{ '/static/js/loadingSketch.js' | url }}"></script>
-    <script>
-      let introImageIndex = 0
-      let prevImageIndex = null
-      function shuffleImages() {
-        let images = document.getElementById('intro-images').children
-        images[introImageIndex].classList.remove('hidden')
-        if(prevImageIndex !== null) images[prevImageIndex].classList.add('hidden')
-      }
-      let shuffleIntervalID = setInterval(() => {
-        prevImageIndex = introImageIndex
-        introImageIndex = (introImageIndex+1)%8
-        shuffleImages()
-      }, 2000)
-      let flipIntervalID = setInterval(() => {
-        document.getElementById('intro-text-2').classList.toggle('hidden')
-        document.getElementById('intro-text-1').classList.toggle('hidden')
-      }, 6000)
-
-      let loadingSketch = new p5(LoadingSketch, document.getElementById('loader'));
-      let PCDTown = new p5(PCDTownSketch, document.getElementById('canvas'))
-      let cnv, ctx
-      document.addEventListener('appLoaded', () => {
-        document.getElementById('canvas').classList.remove('hidden')
-        cnv = document.getElementById('canvas').children[0]
-        ctx = cnv.getContext('2d')
-        loadingSketch.remove(); 
-        document.body.classList.add('loaded'); 
-      });
-      document.addEventListener('blurCanvas', () => {
-        ctx.filter = "blur(12px)"
-        {# document.getElementById('nav-mobile').classList.toggle('hidden') #}
-      });
-      document.addEventListener('unblurCanvas', () => {
-        ctx.filter = "none"
-        {# document.getElementById('nav-mobile').classList.toggle('hidden') #}
-      });
-
-      const closeModal = (btn) => {
-        const modal = btn.parentNode.parentNode
-        modal.classList.toggle('hidden')
-        
-        {# document.dispatchEvent(new CustomEvent('unblurCanvas')) #}
-      }
-      const handleLongPress = (e) => {
-        e.preventDefault()
-      } 
-      const navButtons = document.querySelectorAll('.nav-button')
-      navButtons.forEach(el => {
-        el.addEventListener('contextmenu', handleLongPress)
-      })
-
-      function buttonPressed(keyCode) {
-        let key
-        switch(keyCode) {
-          case LEFT_ARROW:
-            key = "ArrowLeft"
-            break
-          case RIGHT_ARROW:
-            key = "ArrowRight"
-            break
-          case UP_ARROW:
-            key = "ArrowUp"
-            break
-          case DOWN_ARROW:
-            key = "ArrowDown"
-            break
-        }
-        let keyEvent = new KeyboardEvent('keydown', {
-          keyCode: keyCode, 
-          key: key, 
-          code: key,
-          bubbles: true,
-          cancelable: true  
-        })
-        document.body.dispatchEvent(keyEvent)
-      }
-      function buttonReleased(keyCode) {
-        let key
-        switch(keyCode) {
-          case LEFT_ARROW:
-            key = "ArrowLeft"
-            break
-          case RIGHT_ARROW:
-            key = "ArrowRight"
-            break
-          case UP_ARROW:
-            key = "ArrowUp"
-            break
-          case DOWN_ARROW:
-            key = "ArrowDown"
-            break
-        }
-        let keyEvent = new KeyboardEvent('keyup', {
-          keyCode: keyCode, 
-          key: key, 
-          code: key,
-          bubbles: true,
-          cancelable: true  
-        })
-        document.body.dispatchEvent(keyEvent)
-      }
-    </script>
-  </body>
-
+{# game navigation control for mobile #}
+<div id="nav-mobile" class="hidden md:hidden absolute inset-x-0 bottom-0
+            flex justify-around py-4
+            select-none">
+  <div class="w-24 h-24 bg-purple shadow p-2
+              grid grid-rows-3 grid-cols-3
+              rounded-full border border-black">
   
-</html>
+    <button class="nav-button col-start-2 row-start-1 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(UP_ARROW)" ontouchstart="buttonPressed(UP_ARROW)">
+            {% imagemd "src/static/images/up-arrow.png", "up arrow", "(min-width: 30em) 50vw, 100vw" %}
+    </button>
+    <button class="nav-button col-start-3 row-start-2 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(RIGHT_ARROW)" ontouchstart="buttonPressed(RIGHT_ARROW)">
+            {% imagemd "src/static/images/right-arrow.png", "right arrow", "(min-width: 30em) 50vw, 100vw" %}
+    </button>
+    <button class="nav-button col-start-1 row-start-2 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(LEFT_ARROW)" ontouchstart="buttonPressed(LEFT_ARROW)">
+            {% imagemd "src/static/images/left-arrow.png", "left arrow", "(min-width: 30em) 50vw, 100vw" %}
+    </button>
+    <button class="nav-button col-start-2 row-start-3 outline-none bg-white rounded-full" 
+            ontouchend="buttonReleased(DOWN_ARROW)" ontouchstart="buttonPressed(DOWN_ARROW)">
+            {% imagemd "src/static/images/down-arrow.png", "down arrow", "(min-width: 30em) 50vw, 100vw" %}
+    </button>
+  </div>
+</div>
+
+<script>
+  let pathPrefix = {{ env.pathPrefix | dump | safe }}
+  const LEFT_ARROW = 37
+  const UP_ARROW = 38
+  const RIGHT_ARROW = 39
+  const DOWN_ARROW = 40
+
+</script>
+<script src="{{ '/static/js/nav/sketch.js' | url }}"></script>
+<script src="{{ '/static/js/loadingSketch.js' | url }}"></script>
+<script>
+  let introImageIndex = 0
+  let prevImageIndex = null
+  function shuffleImages() {
+    let images = document.getElementById('intro-images').children
+    images[introImageIndex].classList.remove('hidden')
+    if(prevImageIndex !== null) images[prevImageIndex].classList.add('hidden')
+  }
+  let shuffleIntervalID = setInterval(() => {
+    prevImageIndex = introImageIndex
+    introImageIndex = (introImageIndex+1)%8
+    shuffleImages()
+  }, 2000)
+  let flipIntervalID = setInterval(() => {
+    document.getElementById('intro-text-2').classList.toggle('hidden')
+    document.getElementById('intro-text-1').classList.toggle('hidden')
+  }, 6000)
+
+  let loadingSketch = new p5(LoadingSketch, document.getElementById('loader'));
+  let PCDTown = new p5(PCDTownSketch, document.getElementById('canvas'))
+  let cnv, ctx
+  document.addEventListener('appLoaded', () => {
+    document.getElementById('canvas').classList.remove('hidden')
+    cnv = document.getElementById('canvas').children[0]
+    ctx = cnv.getContext('2d')
+    loadingSketch.remove(); 
+    document.body.classList.add('loaded'); 
+    if(mobileCheck() === true) {
+      document.getElementById('nav-mobile').classList.remove('hidden')
+    }
+  });
+  document.addEventListener('blurCanvas', () => {
+    ctx.filter = "blur(12px)"
+    {# document.getElementById('nav-mobile').classList.toggle('hidden') #}
+  });
+  document.addEventListener('unblurCanvas', () => {
+    ctx.filter = "none"
+    {# document.getElementById('nav-mobile').classList.toggle('hidden') #}
+  });
+
+  const closeModal = (btn) => {
+    const modal = btn.parentNode.parentNode
+    modal.classList.toggle('hidden')
+    
+    {# document.dispatchEvent(new CustomEvent('unblurCanvas')) #}
+  }
+  const handleLongPress = (e) => {
+    e.preventDefault()
+  } 
+  const navButtons = document.querySelectorAll('.nav-button')
+  navButtons.forEach(el => {
+    el.addEventListener('contextmenu', handleLongPress)
+  })
+
+  function buttonPressed(keyCode) {
+    let key
+    switch(keyCode) {
+      case LEFT_ARROW:
+        key = "ArrowLeft"
+        break
+      case RIGHT_ARROW:
+        key = "ArrowRight"
+        break
+      case UP_ARROW:
+        key = "ArrowUp"
+        break
+      case DOWN_ARROW:
+        key = "ArrowDown"
+        break
+    }
+    let keyEvent = new KeyboardEvent('keydown', {
+      keyCode: keyCode, 
+      key: key, 
+      code: key,
+      bubbles: true,
+      cancelable: true  
+    })
+    document.body.dispatchEvent(keyEvent)
+  }
+  function buttonReleased(keyCode) {
+    let key
+    switch(keyCode) {
+      case LEFT_ARROW:
+        key = "ArrowLeft"
+        break
+      case RIGHT_ARROW:
+        key = "ArrowRight"
+        break
+      case UP_ARROW:
+        key = "ArrowUp"
+        break
+      case DOWN_ARROW:
+        key = "ArrowDown"
+        break
+    }
+    let keyEvent = new KeyboardEvent('keyup', {
+      keyCode: keyCode, 
+      key: key, 
+      code: key,
+      bubbles: true,
+      cancelable: true  
+    })
+    document.body.dispatchEvent(keyEvent)
+  }
+</script>
+

@@ -1,14 +1,15 @@
 self.addEventListener('message', (e) => {
   let building = e.data.building
-  drawBackground(building)
+  let pathPrefix = e.data.pathPrefix
+  drawBackground(pathPrefix, building)
 })
 
 
-function drawBackground(building) {
+function drawBackground(pathPrefix, building) {
   // let sprite = new OffscreenCanvas(48, 192)
   // let spritectx = sprite.getContext('2d')
   // spritectx.putImageData(new ImageData(new Uint8ClampedArray(building.sprite), 48, 192), 0, 0)
-  fetch('/pcd-demosite/static/assets/sprite.png')
+  fetch(pathPrefix + '/static/assets/sprite.png')
   .then(response => response.blob())
   .then(blob => createImageBitmap(blob))
   .then(sprite => {

@@ -3,15 +3,15 @@ const embedEverything = require('eleventy-plugin-embed-everything')
 const markdownIt = require('markdown-it')
 const markdownItClass = require('@toycode/markdown-it-class')
 const mila = require('markdown-it-link-attributes')
+require('dotenv').config()
 
 async function imageShortCode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
-    outputDir: '_site/static/img',
-    // outputDir: 'pcd-demosite/static/img'
+    urlPath: `${process.env.PATH_PREFIX}/static/img`,
+    outputDir: `_site/static/img`,
   });
   let imageAttributes = {
     style: 'border-radius: 50%',
@@ -27,9 +27,8 @@ async function imageMdShortCode(src, alt, sizes) {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
-    outputDir: '_site/static/img',
-    // outputDir: 'pcd-demosite/static/img'
+    urlPath: `${process.env.PATH_PREFIX}/static/img`,
+    outputDir: `_site/static/img`,
   });
   let imageAttributes = {
     alt, 
@@ -44,9 +43,8 @@ async function imageFillShortCode(src, alt, sizes) {
     widths: [300, 600],
     formats: ['avif', 'jpeg'],
     // urlPath: '/static/img',
-    urlPath: '/pcd-demosite/static/img',
-    outputDir: '_site/static/img',
-    // outputDir: 'pcd-demosite/static/img'
+    urlPath: `${process.env.PATH_PREFIX}/static/img`,
+    outputDir: `_site/static/img`,
   });
   let imageAttributes = {
     style: 'width: 100%; height: 100%; object-fit: cover;',
@@ -107,14 +105,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', md)
 
   return {
-    // pathPrefix: "2021",
-    pathPrefix: "pcd-demosite",
+    pathPrefix: process.env.PATH_PREFIX,
     markdownTemplateEngine: "njk",
     dir: {
       input: 'src',
       includes: '_includes',
       data: '_data',
-      output: '_site'
+      output: `_site`
     }
   }
 }
